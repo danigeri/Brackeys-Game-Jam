@@ -7,6 +7,10 @@ const MAIN_MENU: PackedScene = preload("uid://c64idl1pun738")
 
 
 func _ready() -> void:
+	if OS.is_debug_build():
+		call_deferred("_on_animation_player_animation_finished")
+		return
+
 	video_player.play()
 	video_player.paused = true
 
