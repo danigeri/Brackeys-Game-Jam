@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://gnjaasv8ldx4"]
+
+[ext_resource type="Script" uid="uid://dtau74ef5ffwo" path="res://scenes/poc/player_ghost/player_ghost.gd" id="1_vbi1o"]
+[ext_resource type="Texture2D" uid="uid://bpk8mwrd5w4tv" path="res://icon.svg" id="2_vbi1o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbi1o"]
+size = Vector2(64, 64)
+
+[node name="PlayerGhost" type="CharacterBody2D" unique_id=1180243299]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_vbi1o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1633436844]
+shape = SubResource("RectangleShape2D_vbi1o")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=547186871]
+modulate = Color(1, 1, 1, 0.38431373)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_vbi1o")

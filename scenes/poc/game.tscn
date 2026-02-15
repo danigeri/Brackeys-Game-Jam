@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cclcp1t4nwboy"]
+
+[ext_resource type="Texture2D" uid="uid://dwp6ex5mex2ev" path="res://assets/Windows-XP-Bliss-Wallpaper-4K-696x464.jpg" id="1_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://312ea2svlfo8" path="res://scenes/poc/player/Player.tscn" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://c7xrocq7m8k0u" path="res://scenes/poc/ground.tscn" id="4_iywne"]
+[ext_resource type="PackedScene" uid="uid://cmvu72hfj0uu4" path="res://scenes/poc/platform/platform.tscn" id="4_lbhrr"]
+
+[node name="Game" type="Node2D" unique_id=466307901]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1662051264]
+position = Vector2(594, 331)
+scale = Vector2(2, 2)
+texture = ExtResource("1_lbhrr")
+
+[node name="Player" parent="." unique_id=570288010 instance=ExtResource("2_lnu2h")]
+position = Vector2(76, 492)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1246364083]
+
+[node name="Platform" parent="." unique_id=1742625012 instance=ExtResource("4_lbhrr")]
+position = Vector2(406, 530)
+
+[node name="Ground" parent="." unique_id=1363101588 instance=ExtResource("4_iywne")]
+position = Vector2(191, 538)
+scale = Vector2(2.247272, 1)
+
+[node name="Ground2" parent="." unique_id=211670380 instance=ExtResource("4_iywne")]
+position = Vector2(1099, 537)
+scale = Vector2(2.247272, 1)
