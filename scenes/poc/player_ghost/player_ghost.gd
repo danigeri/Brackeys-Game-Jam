@@ -2,6 +2,10 @@ extends CharacterBody2D
 
 var load_data : Dictionary = Dictionary()
 var count = 0
+var speed := 200.0
+const SPEED = 200.0
+const GRAVITY = 1200.0
+const JUMP_FORCE = -400.0
 
 func _ready():
 	load_data = load_file()
@@ -21,16 +25,33 @@ func load_file() -> Dictionary:
 		return {}
 	return data
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	if !load_data.is_empty(): 
-		get_recording()
+		get_recording(delta)
 	pass
-	
-func get_recording():
+func get_recording(delta):
 	count += 1
-	var test = load_data.get(str(count))
-	if(test != null):
-		print(test)
-		global_position = Vector2(test["x"], test["y"])
-		#ani.flip_h = test[2]
 	
+	var frame = load_data.get(str(count))
+	if frame == null:
+		return
+	
+	var direction := 0.0
+	
+	if frame.get("left", false):
+		direction -= 1
+	if frame.get("right", false):
+		direction += 1
+	
+	# Horizontal movement
+	velocity.x = direction * SPEED
+	
+	# Gravity ALWAYS
+	if not is_on_floor():
+		velocity.y += GRAVITY * delta
+	
+	# Jump
+	if frame.get("jump", false) and is_on_floor():
+		velocity.y = JUMP_FORCE
+	
+	move_and_slide()

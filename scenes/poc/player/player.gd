@@ -6,10 +6,19 @@ const JUMP_VELOCITY = -450.0
 var doubleJumpAvailable = true 
 var path : String
 
+var record_time := 0.0
+var current_inputs := {
+	"up": 0.0,
+	"down": 0.0,
+	"left": 0.0,
+	"right": 0.0
+}
+
 var count = 0
 #Our dictionary we store values too
 #var save_data = {"0": ["nothing",Vector2(0,0),false]}
-var save_data = {"0": {"x":0.0,"y":0.0}}
+var save_data = {"0":{"up":false,"down":true,"left":false,"right":false}}
+
 #@onready var ani = $AnimatedSprite
 func _ready():
 	path = Globals.ghost_json_path % get_tree().current_scene.name
@@ -19,21 +28,33 @@ func _ready():
 		var load_ghost := ghost_scene.instantiate()
 		load_ghost.global_position = global_position
 		get_parent().call_deferred("add_child", load_ghost)
-
-func do_record():
+func do_record(delta):
 	count += 1
-	save_data[str(count)] = {"x": global_position.x, "y": global_position.y}
+	record_time += delta
+	
+	# Update held durations
+	current_inputs["up"] = current_inputs["up"] + delta if Input.is_action_pressed("ui_up") else 0.0
+	current_inputs["down"] = current_inputs["down"] + delta if Input.is_action_pressed("ui_down") else 0.0
+	current_inputs["left"] = current_inputs["left"] + delta if Input.is_action_pressed("ui_left") else 0.0
+	current_inputs["right"] = current_inputs["right"] + delta if Input.is_action_pressed("ui_right") else 0.0
+	
+	save_data[str(count)] = {
+	"left": Input.is_action_pressed("ui_left"),
+	"right": Input.is_action_pressed("ui_right"),
+	"jump": Input.is_action_just_pressed("ui_up")
+}
+	
+	# Save when pressing down (like before)
 	if Input.is_action_just_pressed("ui_down"):
-		path = Globals.ghost_json_path % get_tree().current_scene.name
-		# make sure the folder exists
+		var path2 = Globals.ghost_json_path % get_tree().current_scene.name
 		DirAccess.make_dir_recursive_absolute("user://ghosts")
-		var f := FileAccess.open(path, FileAccess.WRITE)
+		var f := FileAccess.open(path2, FileAccess.WRITE)
 		if f:
-			prints("Saving to", path)
 			f.store_string(JSON.stringify(save_data))
 			f.close()
+			
 func _physics_process(delta: float) -> void:
-	do_record()
+	do_record(delta)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
