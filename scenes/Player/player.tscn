@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://3ibhlt1dyusg"]
 
 [ext_resource type="Texture2D" uid="uid://bpk8mwrd5w4tv" path="res://icon.svg" id="1_1f37a"]
-[ext_resource type="Script" uid="uid://culm53fi3qie0" path="res://GameLoop/player.gd" id="1_385v6"]
+[ext_resource type="Script" uid="uid://culm53fi3qie0" path="res://scenes/Player/player.gd" id="1_385v6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3r4fm"]
 size = Vector2(36, 38)
@@ -17,3 +17,5 @@ shape = SubResource("RectangleShape2D_3r4fm")
 position = Vector2(1, 1)
 scale = Vector2(0.2890625, 0.2890625)
 texture = ExtResource("1_1f37a")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1748759055]
