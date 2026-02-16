@@ -9,46 +9,8 @@ size = Vector2(126, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34mie"]
 size = Vector2(127, 33)
 
-[sub_resource type="Animation" id="Animation_ssgqb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(450, 550)]
-}
-
-[sub_resource type="Animation" id="Animation_7dmgf"]
-resource_name = "move"
-length = 6.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3.0333333, 6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(450, 550), Vector2(750, 550), Vector2(450, 550)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2hk1i"]
-_data = {
-&"RESET": SubResource("Animation_ssgqb"),
-&"move": SubResource("Animation_7dmgf")
-}
-
 [node name="Platform" type="Node2D" unique_id=466164217]
-position = Vector2(450, 550)
+position = Vector2(400, 600)
 script = ExtResource("1_7j252")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=93609451]
@@ -68,10 +30,6 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1612562174]
 shape = SubResource("RectangleShape2D_34mie")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=522782113]
-root_node = NodePath("../CharacterBody2D")
-libraries/ = SubResource("AnimationLibrary_2hk1i")
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

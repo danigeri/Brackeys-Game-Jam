@@ -2,4 +2,5 @@ extends Node2D
 
 
 func _ready() -> void:
-	MusicPlayer.start_music()
+	#MusicPlayer.start_music()
+	pass
