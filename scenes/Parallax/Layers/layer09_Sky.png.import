@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhc2yw3dwbdm"
-path="res://.godot/imported/layer07_Stars_2.png-c9cdc91921d1bf26452f1cd985a9d0ec.ctex"
+uid="uid://b6c3wjirwjxy0"
+path="res://.godot/imported/layer09_Sky.png-39845319994c0c3c67c96f328ecdff1d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Parallax/Layers/layer07_Stars_2.png"
-dest_files=["res://.godot/imported/layer07_Stars_2.png-c9cdc91921d1bf26452f1cd985a9d0ec.ctex"]
+source_file="res://scenes/Parallax/Layers/layer09_Sky.png"
+dest_files=["res://.godot/imported/layer09_Sky.png-39845319994c0c3c67c96f328ecdff1d.ctex"]
 
 [params]
 

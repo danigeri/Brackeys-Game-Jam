@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://562kr87tx0wf"]
 
-[ext_resource type="Texture2D" uid="uid://b6c3wjirwjxy0" path="res://Parallax/Layers/layer09_Sky.png" id="1_0e0uu"]
-[ext_resource type="Texture2D" uid="uid://ckopxqu2xc1m7" path="res://Parallax/Layers/layer08_Stars_1.png" id="2_erpxx"]
-[ext_resource type="Texture2D" uid="uid://dhc2yw3dwbdm" path="res://Parallax/Layers/layer07_Stars_2.png" id="3_5h6yr"]
-[ext_resource type="Texture2D" uid="uid://2prae5yxtw2l" path="res://Parallax/Layers/layer06_Stars_3.png" id="4_rd8ns"]
-[ext_resource type="Texture2D" uid="uid://buc32m7263txc" path="res://Parallax/Layers/layer05_Castle.png" id="5_smk7f"]
-[ext_resource type="Texture2D" uid="uid://coo8t10iggqg1" path="res://Parallax/Layers/layer04_Path.png" id="6_3e46c"]
-[ext_resource type="Texture2D" uid="uid://cge4drwrlik4g" path="res://Parallax/Layers/layer03_Clouds_3.png" id="7_naay8"]
-[ext_resource type="Texture2D" uid="uid://udi2lx7ximv5" path="res://Parallax/Layers/layer02_Clouds_2.png" id="8_siwce"]
-[ext_resource type="Texture2D" uid="uid://d0sqw2hcdmvt1" path="res://Parallax/Layers/layer01_Clouds_1.png" id="9_ovrjp"]
+[ext_resource type="Texture2D" uid="uid://b6c3wjirwjxy0" path="res://scenes/Parallax/Layers/layer09_Sky.png" id="1_0e0uu"]
+[ext_resource type="Texture2D" uid="uid://ckopxqu2xc1m7" path="res://scenes/Parallax/Layers/layer08_Stars_1.png" id="2_erpxx"]
+[ext_resource type="Texture2D" uid="uid://dhc2yw3dwbdm" path="res://scenes/Parallax/Layers/layer07_Stars_2.png" id="3_5h6yr"]
+[ext_resource type="Texture2D" uid="uid://2prae5yxtw2l" path="res://scenes/Parallax/Layers/layer06_Stars_3.png" id="4_rd8ns"]
+[ext_resource type="Texture2D" uid="uid://buc32m7263txc" path="res://scenes/Parallax/Layers/layer05_Castle.png" id="5_smk7f"]
+[ext_resource type="Texture2D" uid="uid://coo8t10iggqg1" path="res://scenes/Parallax/Layers/layer04_Path.png" id="6_3e46c"]
+[ext_resource type="Texture2D" uid="uid://cge4drwrlik4g" path="res://scenes/Parallax/Layers/layer03_Clouds_3.png" id="7_naay8"]
+[ext_resource type="Texture2D" uid="uid://udi2lx7ximv5" path="res://scenes/Parallax/Layers/layer02_Clouds_2.png" id="8_siwce"]
+[ext_resource type="Texture2D" uid="uid://d0sqw2hcdmvt1" path="res://scenes/Parallax/Layers/layer01_Clouds_1.png" id="9_ovrjp"]
 
 [node name="Environment" type="Node2D" unique_id=1633693839]
 

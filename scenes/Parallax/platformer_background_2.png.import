@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2prae5yxtw2l"
-path="res://.godot/imported/layer06_Stars_3.png-a62074d8b505f42716789b5756e82860.ctex"
+uid="uid://co4fpiakc1r6l"
+path="res://.godot/imported/platformer_background_2.png-ff032e67fd3a3bdeac92cd99b889d547.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Parallax/Layers/layer06_Stars_3.png"
-dest_files=["res://.godot/imported/layer06_Stars_3.png-a62074d8b505f42716789b5756e82860.ctex"]
+source_file="res://scenes/Parallax/platformer_background_2.png"
+dest_files=["res://.godot/imported/platformer_background_2.png-ff032e67fd3a3bdeac92cd99b889d547.ctex"]
 
 [params]
 
