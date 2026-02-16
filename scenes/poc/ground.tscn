@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c7xrocq7m8k0u"]
+
+[ext_resource type="Texture2D" uid="uid://bpk8mwrd5w4tv" path="res://icon.svg" id="1_pybca"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mi8v4"]
+size = Vector2(128, 20)
+
+[node name="Ground" type="Node2D" unique_id=842944472]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=315926867]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1587757090]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_mi8v4")
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D" unique_id=1448637420]
+modulate = Color(0.24427992, 0.1366666, 0.03303714, 1)
+scale = Vector2(1, 0.1599999)
+texture = ExtResource("1_pybca")
