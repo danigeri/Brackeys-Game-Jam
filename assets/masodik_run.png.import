@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwp6ex5mex2ev"
-path="res://.godot/imported/Windows-XP-Bliss-Wallpaper-4K-696x464.jpg-91910be9d4cd685bf54d93333b63d179.ctex"
+uid="uid://71q753tq0o5d"
+path="res://.godot/imported/masodik_run.png-b44f6aa31161693ba4eab57e3afc4121.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Windows-XP-Bliss-Wallpaper-4K-696x464.jpg"
-dest_files=["res://.godot/imported/Windows-XP-Bliss-Wallpaper-4K-696x464.jpg-91910be9d4cd685bf54d93333b63d179.ctex"]
+source_file="res://assets/masodik_run.png"
+dest_files=["res://.godot/imported/masodik_run.png-b44f6aa31161693ba4eab57e3afc4121.ctex"]
 
 [params]
 
