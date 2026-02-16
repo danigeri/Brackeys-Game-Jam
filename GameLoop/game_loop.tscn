@@ -4,8 +4,10 @@
 [ext_resource type="Script" uid="uid://co2jxcbqxd52u" path="res://UI/ui.gd" id="2_ksmgf"]
 [ext_resource type="PackedScene" uid="uid://inxv7ghoaf62" path="res://UI/Menus/PauseMenu/pause_menu.tscn" id="2_u3r3m"]
 [ext_resource type="PackedScene" uid="uid://c55vl17w7kkn0" path="res://UI/Menus/SettingsMenu/settings_menu.tscn" id="4_x7b5a"]
+[ext_resource type="Texture2D" uid="uid://c8rqsnlp6kb8m" path="res://assets/elso_run.png" id="5_dkj16"]
 [ext_resource type="PackedScene" uid="uid://3ibhlt1dyusg" path="res://GameLoop/player.tscn" id="5_t2325"]
-[ext_resource type="PackedScene" uid="uid://dsqrnlt3pcjme" path="res://GameLoop/platform.tscn" id="6_3r4fm"]
+[ext_resource type="PackedScene" uid="uid://cmvu72hfj0uu4" path="res://scenes/poc/platform/platform.tscn" id="6_yq2g3"]
+[ext_resource type="PackedScene" path="res://scenes/poc/ground.tscn" id="7_h6koa"]
 
 [node name="GameLoop" type="Node2D" unique_id=1058436466]
 script = ExtResource("1_7f3si")
@@ -19,11 +21,43 @@ visible = false
 [node name="SettingsMenu" parent="UI" unique_id=361400704 instance=ExtResource("4_x7b5a")]
 visible = false
 
-[node name="Player" parent="." unique_id=1510985192 instance=ExtResource("5_t2325")]
-position = Vector2(614, 403)
+[node name="ElsoRun" type="Sprite2D" parent="." unique_id=1356655335]
+position = Vector2(561, 350)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_dkj16")
 
-[node name="Platform" parent="." unique_id=1490003990 instance=ExtResource("6_3r4fm")]
-position = Vector2(65, 490)
+[node name="Platform" parent="." unique_id=466164217 instance=ExtResource("6_yq2g3")]
+position = Vector2(335, 532)
+dir = "x"
+distance = 100
+duration = 1
+
+[node name="Platform2" parent="." unique_id=1856394765 instance=ExtResource("6_yq2g3")]
+position = Vector2(577, 432)
+dir = "y"
+distance = 300
+duration = 3
+
+[node name="Platform3" parent="." unique_id=1323980428 instance=ExtResource("6_yq2g3")]
+position = Vector2(785, 402)
+dir = "y"
+distance = 400
+duration = 2
+
+[node name="Ground" parent="." unique_id=842944472 instance=ExtResource("7_h6koa")]
+position = Vector2(191, 531)
+
+[node name="Ground2" parent="." unique_id=1776685674 instance=ExtResource("7_h6koa")]
+position = Vector2(486, 533)
+
+[node name="Ground3" parent="." unique_id=25719745 instance=ExtResource("7_h6koa")]
+position = Vector2(646, 333)
+
+[node name="Ground4" parent="." unique_id=2020542942 instance=ExtResource("7_h6koa")]
+position = Vector2(877, 211)
+
+[node name="Player" parent="." unique_id=1510985192 instance=ExtResource("5_t2325")]
+position = Vector2(192, 487)
 
 [connection signal="credits_menu_requested" from="UI/PauseMenu" to="UI" method="_on_pause_menu_credits_menu_requested"]
 [connection signal="settings_menu_requested" from="UI/PauseMenu" to="UI" method="_on_pause_menu_settings_menu_requested"]

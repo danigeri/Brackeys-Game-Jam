@@ -70,6 +70,7 @@ func _physics_process(delta: float) -> void:
 				
 	if Input.is_action_just_pressed("restart"):
 		restart_pressed_timi = Time.get_ticks_usec()
+		GameEvents.ghost_mode_on.emit(true)
 		is_ghost_mode = true
 		position = starting_position
 		record_index = 0 
