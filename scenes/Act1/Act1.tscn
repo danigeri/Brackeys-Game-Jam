@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dc6mlfql3moyl"]
+
+[ext_resource type="PackedScene" uid="uid://cmvu72hfj0uu4" path="res://scenes/Platform/platform.tscn" id="1_ftaa2"]
+[ext_resource type="PackedScene" uid="uid://c7xrocq7m8k0u" path="res://scenes/Ground/ground.tscn" id="2_yofwx"]
+[ext_resource type="PackedScene" uid="uid://562kr87tx0wf" path="res://scenes/Parallax/environment.tscn" id="3_yofwx"]
+
+[node name="Act1" type="Node2D" unique_id=858034748]
+
+[node name="Platform" parent="." unique_id=466164217 instance=ExtResource("1_ftaa2")]
+position = Vector2(-499, 210)
+dir = "x"
+distance = 150
+duration = 3
+
+[node name="Platform2" parent="." unique_id=621127873 instance=ExtResource("1_ftaa2")]
+position = Vector2(-57, 83)
+dir = "y"
+distance = 300
+duration = 3
+
+[node name="Platform3" parent="." unique_id=1290201206 instance=ExtResource("1_ftaa2")]
+position = Vector2(505, 0)
+dir = "x"
+distance = 200
+duration = 5
+
+[node name="Ground" parent="." unique_id=842944472 instance=ExtResource("2_yofwx")]
+position = Vector2(-793, 212)
+
+[node name="Ground2" parent="." unique_id=1661827283 instance=ExtResource("2_yofwx")]
+position = Vector2(-209, 209)
+
+[node name="Ground3" parent="." unique_id=1475781085 instance=ExtResource("2_yofwx")]
+position = Vector2(134, 2)
+
+[node name="Ground4" parent="." unique_id=404606899 instance=ExtResource("2_yofwx")]
+position = Vector2(630, -86)
+
+[node name="Environment" parent="." unique_id=1633693839 instance=ExtResource("3_yofwx")]
+visible = false

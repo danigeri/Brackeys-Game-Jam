@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://c55vl17w7kkn0" path="res://UI/Menus/SettingsMenu/settings_menu.tscn" id="4_x7b5a"]
 [ext_resource type="PackedScene" uid="uid://562kr87tx0wf" path="res://scenes/Parallax/environment.tscn" id="5_73e4h"]
 [ext_resource type="PackedScene" uid="uid://3ibhlt1dyusg" path="res://scenes/Player/player.tscn" id="5_t2325"]
-[ext_resource type="PackedScene" uid="uid://cmvu72hfj0uu4" path="res://scenes/Platform/platform.tscn" id="6_yq2g3"]
-[ext_resource type="PackedScene" uid="uid://c7xrocq7m8k0u" path="res://scenes/Ground/ground.tscn" id="7_h6koa"]
+[ext_resource type="PackedScene" uid="uid://dc6mlfql3moyl" path="res://scenes/Act1/Act1.tscn" id="6_vldm1"]
+[ext_resource type="Texture2D" uid="uid://cwa5cxfykhn5y" path="res://assets/dots.png" id="8_5ts88"]
 
 [node name="GameLoop" type="Node2D" unique_id=1058436466]
 script = ExtResource("1_7f3si")
@@ -23,38 +23,10 @@ visible = false
 
 [node name="Environment" parent="." unique_id=1633693839 instance=ExtResource("5_73e4h")]
 
-[node name="Platform" parent="." unique_id=466164217 instance=ExtResource("6_yq2g3")]
-position = Vector2(-326, 182)
-dir = "x"
-distance = 200
-duration = 3
-
-[node name="Platform2" parent="." unique_id=1856394765 instance=ExtResource("6_yq2g3")]
-position = Vector2(111, -14)
-dir = "y"
-distance = 300
-duration = 3
-
-[node name="Platform3" parent="." unique_id=1323980428 instance=ExtResource("6_yq2g3")]
-position = Vector2(498, -142)
-dir = "y"
-distance = 400
-duration = 5
-
-[node name="Ground" parent="." unique_id=842944472 instance=ExtResource("7_h6koa")]
-position = Vector2(-636, 181)
-
-[node name="Ground2" parent="." unique_id=1776685674 instance=ExtResource("7_h6koa")]
-position = Vector2(-48, 191)
-
-[node name="Ground3" parent="." unique_id=25719745 instance=ExtResource("7_h6koa")]
-position = Vector2(255, -217)
-
-[node name="Ground4" parent="." unique_id=2020542942 instance=ExtResource("7_h6koa")]
-position = Vector2(730, -401)
+[node name="Act1" parent="." unique_id=858034748 instance=ExtResource("6_vldm1")]
 
 [node name="Player" parent="." unique_id=1510985192 instance=ExtResource("5_t2325")]
-position = Vector2(-640, 110)
+position = Vector2(-803, 144)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=383817522]
 position = Vector2(7, 0)
@@ -76,6 +48,13 @@ limit_bottom = 538
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="Line2D" type="Line2D" parent="." unique_id=891402718]
+width = 12.0
+default_color = Color(0.008202022, 0.008202025, 0.008202025, 1)
+texture = ExtResource("8_5ts88")
+texture_mode = 1
+joint_mode = 2
 
 [connection signal="credits_menu_requested" from="UI/PauseMenu" to="UI" method="_on_pause_menu_credits_menu_requested"]
 [connection signal="settings_menu_requested" from="UI/PauseMenu" to="UI" method="_on_pause_menu_settings_menu_requested"]

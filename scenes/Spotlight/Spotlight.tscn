@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://s3jdfha5o3k8"]
+
+[node name="Spotlight" type="Node2D" unique_id=2120120161]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=872405358]
+color = Color(0, 0.5041176, 0.50635713, 1)
