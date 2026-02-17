@@ -1,5 +1,4 @@
 extends CharacterBody2D
-@onready var camera_2d: Camera2D = $Camera2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -16,6 +15,7 @@ var starting_position
 var left_button_is_down: bool = false
 var right_button_is_down: bool = false
 
+@onready var camera_2d: Camera2D = $Camera2D
 
 func _ready() -> void:
 	GameEvents.ghost_mode_on.connect(ghost_mode_on)
