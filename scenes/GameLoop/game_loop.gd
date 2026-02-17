@@ -7,10 +7,11 @@ var default_custom_cursor: Texture2D
 
 func _ready() -> void:
 	pressed_cursor = preload("uid://cbdwnan67004a")
-	default_custom_cursor =preload("uid://cgxm8101sybcp")
+	default_custom_cursor = preload("uid://cgxm8101sybcp")
 	#MusicPlayer.start_music()
 	GameEvents.ghost_mode_on.connect(use_ghost_camera)
 	#GameEvents.ghost_mode_on.emit(false)
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -18,6 +19,7 @@ func _input(event: InputEvent) -> void:
 			Input.set_custom_mouse_cursor(pressed_cursor)
 		else:
 			Input.set_custom_mouse_cursor(default_custom_cursor)
+
 
 func use_ghost_camera(value) -> void:
 	if value:
