@@ -8,7 +8,7 @@ var default_custom_cursor: Texture2D
 func _ready() -> void:
 	pressed_cursor = preload("uid://cbdwnan67004a")
 	default_custom_cursor = preload("uid://cgxm8101sybcp")
-	#MusicPlayer.start_music()
+	MusicPlayer.start_music()
 	GameEvents.ghost_mode_on.connect(handle_ghost_mode)
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
