@@ -92,10 +92,12 @@ func handle_platform_release_and_hovering() -> void:
 		is_moving = true
 	else:
 		is_moving = false
-	
+
 	if Input.is_action_just_released("click"):
 		var mouse_pos = get_global_mouse_position()
-		is_hovering = collision_shape_2d.shape.get_rect().has_point(collision_shape_2d.to_local(mouse_pos))
+		is_hovering = collision_shape_2d.shape.get_rect().has_point(
+			collision_shape_2d.to_local(mouse_pos)
+		)
 		is_moving = false
 
 
