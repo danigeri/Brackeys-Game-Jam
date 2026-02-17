@@ -16,6 +16,7 @@ var starting_position
 var left_button_is_down: bool = false
 var right_button_is_down: bool = false
 
+
 func _ready() -> void:
 	GameEvents.ghost_mode_on.connect(ghost_mode_on)
 	starting_position = position
@@ -89,7 +90,7 @@ func _physics_process(delta: float) -> void:
 
 
 func ghost_mode_on(value) -> void:
-	if (!value):
+	if !value:
 		camera_2d.make_current()
 	is_ghost_mode = value
 
