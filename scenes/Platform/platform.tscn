@@ -7,7 +7,7 @@
 size = Vector2(126, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34mie"]
-size = Vector2(127, 33)
+size = Vector2(156, 54)
 
 [node name="Platform" type="Node2D" unique_id=466164217]
 position = Vector2(400, 600)
