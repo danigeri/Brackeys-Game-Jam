@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://3ibhlt1dyusg" path="res://scenes/Player/player.tscn" id="5_t2325"]
 [ext_resource type="PackedScene" uid="uid://cmvu72hfj0uu4" path="res://scenes/Platform/platform.tscn" id="6_yq2g3"]
 [ext_resource type="PackedScene" uid="uid://c7xrocq7m8k0u" path="res://scenes/Ground/ground.tscn" id="7_h6koa"]
+[ext_resource type="PackedScene" uid="uid://bn7lxk0ph8aym" path="res://scenes/Star/star.tscn" id="9_73e4h"]
 
 [node name="GameLoop" type="Node2D" unique_id=1058436466]
 script = ExtResource("1_7f3si")
@@ -57,10 +58,14 @@ position = Vector2(1186, 120)
 
 [node name="Player" parent="." unique_id=1510985192 instance=ExtResource("5_t2325")]
 position = Vector2(-171, 624)
+collision_layer = 3
 
 [node name="GhostCamera" type="Camera2D" parent="." unique_id=1831260324]
 position = Vector2(573, 340)
 zoom = Vector2(0.5, 0.5)
+
+[node name="StarAtTheEnd" parent="." unique_id=1164754737 instance=ExtResource("9_73e4h")]
+position = Vector2(1271, 42)
 
 [connection signal="credits_menu_requested" from="UI/PauseMenu" to="UI" method="_on_pause_menu_credits_menu_requested"]
 [connection signal="settings_menu_requested" from="UI/PauseMenu" to="UI" method="_on_pause_menu_settings_menu_requested"]

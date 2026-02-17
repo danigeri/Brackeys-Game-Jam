@@ -56,29 +56,12 @@ func _physics_process(delta: float) -> void:
 				record_index += 1
 
 	if Input.is_action_just_pressed("ghost_run"):
-		#print("GHOST_RUN pressed")
-
-		restart_pressed_timi = Time.get_ticks_usec()
 		GameEvents.ghost_mode_on.emit(true)
-		position = starting_position
-		record_index = 0
-		if left_button_is_down:
-			_save_record(InputRecord.InputType.LEFT_RELEASE, current_timi)
-		if right_button_is_down:
-			_save_record(InputRecord.InputType.RIGHT_RELEASE, current_timi)
-		left_button_is_down = false
-		right_button_is_down = false
+		#print("GHOST_RUN pressed")
 
 	if Input.is_action_just_pressed("player_run"):
 		#print("PLAYER_RUN pressed")
 		GameEvents.ghost_mode_on.emit(false)
-		records.clear()
-		record_index = 0
-		restart_pressed_timi = Time.get_ticks_usec()
-		position = starting_position
-		velocity.x = 0
-		left_button_is_down = false
-		right_button_is_down = false
 
 	if left_button_is_down and not right_button_is_down:
 		velocity.x = -1 * SPEED
@@ -91,9 +74,40 @@ func _physics_process(delta: float) -> void:
 
 
 func ghost_mode_on(value) -> void:
-	if !value:
-		camera_2d.make_current()
 	is_ghost_mode = value
+
+	if value:
+		start_ghost_run()
+	else:
+		start_player_run()
+		camera_2d.make_current()
+
+
+func start_ghost_run():
+	restart_pressed_timi = Time.get_ticks_usec()
+	record_index = 0
+	position = starting_position
+	velocity.x = 0
+	velocity.y = 0
+
+	if left_button_is_down:
+		_save_record(InputRecord.InputType.LEFT_RELEASE, 0)
+	if right_button_is_down:
+		_save_record(InputRecord.InputType.RIGHT_RELEASE, 0)
+
+	left_button_is_down = false
+	right_button_is_down = false
+
+
+func start_player_run():
+	restart_pressed_timi = Time.get_ticks_usec()
+	records.clear()
+	record_index = 0
+	position = starting_position
+	velocity.x = 0
+	velocity.y = 0
+	left_button_is_down = false
+	right_button_is_down = false
 
 
 func _save_record(input: InputRecord.InputType, current_timi: int) -> void:
