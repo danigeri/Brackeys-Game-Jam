@@ -16,10 +16,9 @@ func _ready() -> void:
 	start_x = position.x
 	start_y = position.y
 	_create_tween()
-	
-	
-func _physics_process(_delta: float):
 
+
+func _physics_process(_delta: float):
 	handle_platform_moving()
 	release_platform_on_releasing_click()
 
@@ -75,16 +74,14 @@ func ghost_mode_on(value) -> void:
 			_create_tween()
 
 
-
-func handle_platform_moving()-> void :
+func handle_platform_moving() -> void:
 	var mouse_pos = get_global_mouse_position()
 	if move:
 		if dir == "x":
-			position.x = clamp(mouse_pos.x, start_x - distance, start_x + distance) 
+			position.x = clamp(mouse_pos.x, start_x - distance, start_x + distance)
 		if dir == "y":
 			position.y = mouse_pos.y
 			position.y = clamp(mouse_pos.y, start_y - distance, start_y + distance)
-		
 
 	if Input.is_action_pressed("click") and enter:
 		move = true
@@ -101,7 +98,7 @@ func release_platform_on_releasing_click() -> void:
 func _on_area_2d_mouse_entered() -> void:
 	if !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		enter = true
-	
+
 
 func _on_area_2d_mouse_exited() -> void:
 	if !move:
