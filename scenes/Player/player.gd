@@ -16,35 +16,9 @@ var starting_position
 var left_button_is_down: bool = false
 var right_button_is_down: bool = false
 
-
-func ghost_mode_on(value) -> void:
-	if (!value):
-		camera_2d.make_current()
-	is_ghost_mode = value
-
-
 func _ready() -> void:
 	GameEvents.ghost_mode_on.connect(ghost_mode_on)
 	starting_position = position
-
-
-func _save_record(input: InputRecord.InputType, current_timi: int) -> void:
-	var input_record = InputRecord.new()
-	input_record.input_type = input
-	input_record.timi = current_timi
-	records.append(input_record)
-	#print("SAVED record: ", InputRecord.InputType.find_key(input_record.input_type),
-	#      " : ", input_record.timi)
-
-
-func _play_input(input: InputRecord.InputType) -> void:
-	#print("USER input: ", InputRecord.InputType.find_key(input))
-	if input == InputRecord.InputType.UP and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-	elif input == InputRecord.InputType.LEFT_PRESS or input == InputRecord.InputType.LEFT_RELEASE:
-		left_button_is_down = (input == InputRecord.InputType.LEFT_PRESS)
-	elif input == InputRecord.InputType.RIGHT_PRESS or input == InputRecord.InputType.RIGHT_RELEASE:
-		right_button_is_down = (input == InputRecord.InputType.RIGHT_PRESS)
 
 
 func _physics_process(delta: float) -> void:
@@ -112,3 +86,28 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+
+func ghost_mode_on(value) -> void:
+	if (!value):
+		camera_2d.make_current()
+	is_ghost_mode = value
+
+
+func _save_record(input: InputRecord.InputType, current_timi: int) -> void:
+	var input_record = InputRecord.new()
+	input_record.input_type = input
+	input_record.timi = current_timi
+	records.append(input_record)
+	#print("SAVED record: ", InputRecord.InputType.find_key(input_record.input_type),
+	#      " : ", input_record.timi)
+
+
+func _play_input(input: InputRecord.InputType) -> void:
+	#print("USER input: ", InputRecord.InputType.find_key(input))
+	if input == InputRecord.InputType.UP and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+	elif input == InputRecord.InputType.LEFT_PRESS or input == InputRecord.InputType.LEFT_RELEASE:
+		left_button_is_down = (input == InputRecord.InputType.LEFT_PRESS)
+	elif input == InputRecord.InputType.RIGHT_PRESS or input == InputRecord.InputType.RIGHT_RELEASE:
+		right_button_is_down = (input == InputRecord.InputType.RIGHT_PRESS)
