@@ -15,7 +15,12 @@ var starting_position
 var left_button_is_down: bool = false
 var right_button_is_down: bool = false
 
+func ghost_mode_on(value) ->void: 
+	#print("GAME_LOOP : ", value)
+	is_ghost_mode = value
+
 func _ready() -> void:
+	GameEvents.ghost_mode_on.connect(ghost_mode_on)
 	starting_position = position
 
 func _save_record(input: InputRecord.InputType, current_timi: int) -> void:
@@ -23,10 +28,10 @@ func _save_record(input: InputRecord.InputType, current_timi: int) -> void:
 	input_record.input_type = input
 	input_record.timi = current_timi
 	records.append(input_record)
-	print("saved record: ", input_record.input_type, " : ", input_record.timi)
+	#print("SAVED record: ", InputRecord.InputType.find_key(input_record.input_type), " : ", input_record.timi)
 
 func _play_input(input: InputRecord.InputType) -> void:
-	print("input: ", input)
+	#print("USER input: ", InputRecord.InputType.find_key(input))
 	if input == InputRecord.InputType.UP and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	elif input == InputRecord.InputType.LEFT_PRESS or input == InputRecord.InputType.LEFT_RELEASE:
@@ -68,20 +73,31 @@ func _physics_process(delta: float) -> void:
 				_play_input(current_record.input_type)
 				record_index+=1
 				
-	if Input.is_action_just_pressed("restart"):
+	if Input.is_action_just_pressed("ghost_run"):
+		#print("GHOST_RUN pressed")
+		
 		restart_pressed_timi = Time.get_ticks_usec()
 		GameEvents.ghost_mode_on.emit(true)
-		is_ghost_mode = true
 		position = starting_position
 		record_index = 0 
+		if left_button_is_down:
+			_save_record(InputRecord.InputType.LEFT_RELEASE, current_timi)
+		if right_button_is_down:
+			_save_record(InputRecord.InputType.RIGHT_RELEASE, current_timi)
 		left_button_is_down = false
 		right_button_is_down = false
-		_save_record(InputRecord.InputType.LEFT_RELEASE, current_timi)
-		_save_record(InputRecord.InputType.RIGHT_RELEASE, current_timi)
-		# player to begining
+		
+	if Input.is_action_just_pressed("player_run"):
+		#print("PLAYER_RUN pressed")
+		GameEvents.ghost_mode_on.emit(false)
+		records.clear()
+		record_index = 0
+		restart_pressed_timi = Time.get_ticks_usec()
+		position = starting_position
+		velocity.x = 0
+		left_button_is_down = false
+		right_button_is_down = false
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	if left_button_is_down and not right_button_is_down:
 		velocity.x = -1 * SPEED
 	elif right_button_is_down and not left_button_is_down:

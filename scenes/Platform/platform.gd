@@ -9,11 +9,7 @@ var start_y:float
 @export var distance: int
 @export var duration: int
 
-func _ready() -> void:
-	GameEvents.ghost_mode_on.connect(ghost_mode_on)
-	start_x = position.x
-	start_y = position.y
-
+func _create_tween():
 	if dir == "x":
 		tween = create_tween()
 		tween.set_loops()
@@ -38,12 +34,27 @@ func _ready() -> void:
 		tween.tween_property(self, "position:y", start_y - distance, duration)\
 			.set_trans(Tween.TRANS_SINE)\
 			.set_ease(Tween.EASE_IN_OUT)
+			
+func _ready() -> void:
+	GameEvents.ghost_mode_on.connect(ghost_mode_on)
+	start_x = position.x
+	start_y = position.y
+	_create_tween()
+	#print("PALTFORMs READY : ", tween)
 
 func ghost_mode_on(value) ->void: 
+	#print("PALTFORM : ", value)
+	if value:
 		position.x = start_x
 		position.y = start_y
-		tween.kill()
-
+		if tween:
+			tween.kill()
+			tween = null
+			#print("TWEENS killed : ", tween)
+	else:
+		if not tween:
+			_create_tween()
+			#print("TWEENS recreated : ", tween)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float):
