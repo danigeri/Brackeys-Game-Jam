@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+const MAX_SPEED = 300.0
+const ACCELERATION = 1200.0
+const FRICTION = 1000.0
 
 var records = []
 var record_index: int = 0
@@ -80,14 +83,22 @@ func _physics_process(delta: float) -> void:
 		left_button_is_down = false
 		right_button_is_down = false
 
-	if left_button_is_down and not right_button_is_down:
-		velocity.x = -1 * SPEED
-	elif right_button_is_down and not left_button_is_down:
-		velocity.x = 1 * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	calculate_movement(delta)
 	move_and_slide()
+
+
+func calculate_movement(delta) -> void:
+	var direction := 0
+
+	if left_button_is_down and not right_button_is_down:
+		direction = -1
+	elif right_button_is_down and not left_button_is_down:
+		direction = 1
+
+	if direction != 0:
+		velocity.x = move_toward(velocity.x, direction * MAX_SPEED, ACCELERATION * delta)
+	else:
+		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
 
 
 func ghost_mode_on(value) -> void:
