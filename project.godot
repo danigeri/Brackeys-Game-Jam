@@ -27,7 +27,6 @@ driver/output_latency.web=70
 
 MusicPlayer="*res://Globals/MusicPlayer/music_player.tscn"
 SoundManager="*res://Globals/SoundManager/sound_manager.tscn"
-Globals="*uid://dpwnt0maoat4o"
 GameEvents="*res://Globals/game_events.gd"
 
 [display]
