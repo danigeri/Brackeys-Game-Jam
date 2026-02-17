@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://co2jxcbqxd52u" path="res://UI/ui.gd" id="2_ksmgf"]
 [ext_resource type="PackedScene" uid="uid://inxv7ghoaf62" path="res://UI/Menus/PauseMenu/pause_menu.tscn" id="2_u3r3m"]
 [ext_resource type="PackedScene" uid="uid://c55vl17w7kkn0" path="res://UI/Menus/SettingsMenu/settings_menu.tscn" id="4_x7b5a"]
-[ext_resource type="Texture2D" uid="uid://c8rqsnlp6kb8m" path="res://assets/elso_run.png" id="5_dkj16"]
+[ext_resource type="PackedScene" uid="uid://562kr87tx0wf" path="res://scenes/Parallax/environment.tscn" id="5_73e4h"]
 [ext_resource type="PackedScene" uid="uid://3ibhlt1dyusg" path="res://scenes/Player/player.tscn" id="5_t2325"]
 [ext_resource type="PackedScene" uid="uid://cmvu72hfj0uu4" path="res://scenes/Platform/platform.tscn" id="6_yq2g3"]
 [ext_resource type="PackedScene" uid="uid://c7xrocq7m8k0u" path="res://scenes/Ground/ground.tscn" id="7_h6koa"]
@@ -21,46 +21,61 @@ visible = false
 [node name="SettingsMenu" parent="UI" unique_id=361400704 instance=ExtResource("4_x7b5a")]
 visible = false
 
-[node name="ElsoRun" type="Sprite2D" parent="." unique_id=1356655335]
-position = Vector2(561, 350)
-texture = ExtResource("5_dkj16")
+[node name="Environment" parent="." unique_id=1633693839 instance=ExtResource("5_73e4h")]
 
 [node name="Platform" parent="." unique_id=466164217 instance=ExtResource("6_yq2g3")]
-position = Vector2(130, 703)
+position = Vector2(-326, 182)
 dir = "x"
 distance = 200
 duration = 3
 
 [node name="Platform2" parent="." unique_id=1856394765 instance=ExtResource("6_yq2g3")]
-position = Vector2(567, 507)
+position = Vector2(111, -14)
 dir = "y"
 distance = 300
 duration = 3
 
 [node name="Platform3" parent="." unique_id=1323980428 instance=ExtResource("6_yq2g3")]
-position = Vector2(954, 379)
+position = Vector2(498, -142)
 dir = "y"
 distance = 400
 duration = 5
 
 [node name="Ground" parent="." unique_id=842944472 instance=ExtResource("7_h6koa")]
-position = Vector2(-180, 702)
+position = Vector2(-636, 181)
 
 [node name="Ground2" parent="." unique_id=1776685674 instance=ExtResource("7_h6koa")]
-position = Vector2(408, 712)
+position = Vector2(-48, 191)
 
 [node name="Ground3" parent="." unique_id=25719745 instance=ExtResource("7_h6koa")]
-position = Vector2(711, 304)
+position = Vector2(255, -217)
 
 [node name="Ground4" parent="." unique_id=2020542942 instance=ExtResource("7_h6koa")]
-position = Vector2(1186, 120)
+position = Vector2(730, -401)
 
 [node name="Player" parent="." unique_id=1510985192 instance=ExtResource("5_t2325")]
-position = Vector2(-171, 624)
+position = Vector2(-640, 110)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=383817522]
+position = Vector2(7, 0)
+limit_left = -964
+limit_top = -537
+limit_right = 956
+limit_bottom = 530
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [node name="GhostCamera" type="Camera2D" parent="." unique_id=1831260324]
-position = Vector2(573, 340)
-zoom = Vector2(0.5, 0.5)
+position = Vector2(-9, -26)
+zoom = Vector2(0.7, 0.7)
+limit_left = -964
+limit_top = -540
+limit_right = 956
+limit_bottom = 538
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [connection signal="credits_menu_requested" from="UI/PauseMenu" to="UI" method="_on_pause_menu_credits_menu_requested"]
 [connection signal="settings_menu_requested" from="UI/PauseMenu" to="UI" method="_on_pause_menu_settings_menu_requested"]
