@@ -1,4 +1,5 @@
 extends CharacterBody2D
+@onready var camera_2d: Camera2D = $Camera2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -17,7 +18,8 @@ var right_button_is_down: bool = false
 
 
 func ghost_mode_on(value) -> void:
-	#print("GAME_LOOP : ", value)
+	if (!value):
+		camera_2d.make_current()
 	is_ghost_mode = value
 
 
