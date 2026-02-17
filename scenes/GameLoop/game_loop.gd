@@ -11,7 +11,6 @@ func _ready() -> void:
 	#MusicPlayer.start_music()
 	GameEvents.ghost_mode_on.connect(handle_ghost_mode)
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	
 
 
 func _input(event: InputEvent) -> void:
@@ -20,17 +19,21 @@ func _input(event: InputEvent) -> void:
 			Input.set_custom_mouse_cursor(pressed_cursor)
 		else:
 			Input.set_custom_mouse_cursor(default_custom_cursor)
-			
-func handle_ghost_mode(is_ghost_mode)-> void:
+
+
+func handle_ghost_mode(is_ghost_mode) -> void:
 	use_ghost_camera(is_ghost_mode)
 	show_hide_cursor(is_ghost_mode)
+
 
 func use_ghost_camera(is_ghost_mode) -> void:
 	if is_ghost_mode:
 		ghost_camera.make_current()
-		
+
+
 func show_hide_cursor(is_ghost_mode):
 	if is_ghost_mode:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		Input.warp_mouse(get_viewport().get_visible_rect().size / 2)
-	else: Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

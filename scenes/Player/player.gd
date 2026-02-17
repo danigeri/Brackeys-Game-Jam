@@ -82,9 +82,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 		left_button_is_down = false
 		right_button_is_down = false
-		
+
 	calculate_movement(delta)
 	move_and_slide()
+
 
 func calculate_movement(delta) -> void:
 	var direction := 0
@@ -93,19 +94,12 @@ func calculate_movement(delta) -> void:
 		direction = -1
 	elif right_button_is_down and not left_button_is_down:
 		direction = 1
-	
+
 	if direction != 0:
-		velocity.x = move_toward(
-			velocity.x,
-			direction * MAX_SPEED,
-			ACCELERATION * delta
-		)
+		velocity.x = move_toward(velocity.x, direction * MAX_SPEED, ACCELERATION * delta)
 	else:
-		velocity.x = move_toward(
-			velocity.x,
-			0,
-			FRICTION * delta
-		)
+		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
+
 
 func ghost_mode_on(value) -> void:
 	if !value:
