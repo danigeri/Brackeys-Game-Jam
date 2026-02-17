@@ -17,6 +17,7 @@ var right_button_is_down: bool = false
 
 @onready var camera_2d: Camera2D = $Camera2D
 
+
 func _ready() -> void:
 	GameEvents.ghost_mode_on.connect(ghost_mode_on)
 	starting_position = position
