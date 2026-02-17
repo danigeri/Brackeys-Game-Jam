@@ -62,7 +62,7 @@ func _physics_process(delta: float) -> void:
 		#print("GHOST_RUN pressed")
 
 		restart_pressed_timi = Time.get_ticks_usec()
-		GameEvents.ghost_mode_on.emit(true)
+		GameEvents.set_ghost_mode(true)
 		position = starting_position
 		record_index = 0
 		if left_button_is_down:
@@ -74,7 +74,7 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("player_run"):
 		#print("PLAYER_RUN pressed")
-		GameEvents.ghost_mode_on.emit(false)
+		GameEvents.set_ghost_mode(false)
 		records.clear()
 		record_index = 0
 		restart_pressed_timi = Time.get_ticks_usec()
