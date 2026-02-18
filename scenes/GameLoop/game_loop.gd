@@ -25,6 +25,7 @@ var optional_collected: int = 0
 #@onready var line_2d: Line2D = $Line2D
 @onready var path_dot_container: Node2D = $PathDotContainer
 
+
 func _ready() -> void:
 	#custom cursor
 	pressed_cursor = preload("uid://cbdwnan67004a")
@@ -79,17 +80,19 @@ func use_ghost_camera(is_ghost_mode) -> void:
 
 func handle_player_path(is_ghost_mode) -> void:
 	if GameEvents.easy_mode:
-			clear_line_positions()
-			if !is_ghost_mode:
-				positions = []
-			else: 
-				draw_player_path()
+		clear_line_positions()
+		if !is_ghost_mode:
+			positions = []
+		else:
+			draw_player_path()
+
 
 func clear_line_positions() -> void:
 	for child in path_dot_container.get_children():
 		child.queue_free()
 	#use this if line will be Line2d not Sprites
 	#line_2d.clear_points()
+
 
 func draw_player_path() -> void:
 	clear_line_positions()
@@ -98,11 +101,12 @@ func draw_player_path() -> void:
 		dot.position = pos
 		path_dot_container.add_child(dot)
 
+
 #use this if line will be Line2d not Sprites
 #func draw_player_path() -> void:
-	#print(positions)
-	#for pos in positions:
-		#line_2d.add_point(pos)
+#print(positions)
+#for pos in positions:
+#line_2d.add_point(pos)
 
 
 func show_hide_cursor(is_ghost_mode):
@@ -141,11 +145,13 @@ func _on_star_collected(star):
 
 #valszeg úgyse a ghost mode-ot fogja triggerelni hanem a függöny scene-t szal ez valszeg megoldódik magától
 
+
 func _trigger_ghost_mode():
 	GameEvents.set_ghost_mode(true)
-	
+
+
 func handle_easy_mode(is_on) -> void:
 	if !is_on:
 		clear_line_positions()
-	elif GameEvents.ghost_mode: 
+	elif GameEvents.ghost_mode:
 		draw_player_path()
