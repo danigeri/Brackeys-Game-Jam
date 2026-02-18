@@ -1,20 +1,23 @@
 extends CharacterBody2D
 
+#player movement properties
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const MAX_SPEED = 300.0
 const ACCELERATION = 1200.0
 const FRICTION = 1000.0
 
+#player input record
 var records = []
 var record_index: int = 0
 var tick: int = 0
 var restart_pressed_timi: int = 0
 var game_started_timi: int = 0
-var is_ghost_mode: bool = false
 
+var is_ghost_mode: bool = false
 var starting_position
 
+#button states
 var left_button_is_down: bool = false
 var right_button_is_down: bool = false
 
@@ -60,28 +63,11 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("ghost_run"):
 		#print("GHOST_RUN pressed")
-
-		restart_pressed_timi = Time.get_ticks_usec()
-		GameEvents.set_ghost_mode(true)
-		position = starting_position
-		record_index = 0
-		if left_button_is_down:
-			_save_record(InputRecord.InputType.LEFT_RELEASE, current_timi)
-		if right_button_is_down:
-			_save_record(InputRecord.InputType.RIGHT_RELEASE, current_timi)
-		left_button_is_down = false
-		right_button_is_down = false
+		GameEvents.ghost_mode_on.emit(true)
 
 	if Input.is_action_just_pressed("player_run"):
 		#print("PLAYER_RUN pressed")
-		GameEvents.set_ghost_mode(false)
-		records.clear()
-		record_index = 0
-		restart_pressed_timi = Time.get_ticks_usec()
-		position = starting_position
-		velocity.x = 0
-		left_button_is_down = false
-		right_button_is_down = false
+		GameEvents.ghost_mode_on.emit(false)
 
 	calculate_movement(delta)
 	move_and_slide()
@@ -102,9 +88,36 @@ func calculate_movement(delta) -> void:
 
 
 func ghost_mode_on(value) -> void:
-	if !value:
-		camera_2d.make_current()
 	is_ghost_mode = value
+
+	if value:
+		start_ghost_run()
+	else:
+		start_player_run()
+		camera_2d.make_current()
+
+
+func start_ghost_run():
+	if left_button_is_down:
+		_save_record(InputRecord.InputType.LEFT_RELEASE, 0)
+	if right_button_is_down:
+		_save_record(InputRecord.InputType.RIGHT_RELEASE, 0)
+	reset_player_input_things()
+
+
+func start_player_run():
+	records.clear()
+	reset_player_input_things()
+
+
+func reset_player_input_things():
+	restart_pressed_timi = Time.get_ticks_usec()
+	record_index = 0
+	position = starting_position
+	velocity.x = 0
+	velocity.y = 0
+	left_button_is_down = false
+	right_button_is_down = false
 
 
 func _save_record(input: InputRecord.InputType, current_timi: int) -> void:

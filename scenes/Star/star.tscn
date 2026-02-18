@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bn7lxk0ph8aym"]
+
+[ext_resource type="Texture2D" uid="uid://bpk8mwrd5w4tv" path="res://icon.svg" id="1_640aq"]
+[ext_resource type="Script" uid="uid://djq7mkv372ovk" path="res://scenes/Star/star.gd" id="1_ddach"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mgif7"]
+size = Vector2(128, 128)
+
+[node name="Star" type="Area2D" unique_id=1164754737 groups=["Star"]]
+script = ExtResource("1_ddach")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=288951724]
+texture = ExtResource("1_640aq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2144517963]
+shape = SubResource("RectangleShape2D_mgif7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
