@@ -18,7 +18,7 @@ func _ready() -> void:
 	start_x = position.x
 	start_y = position.y
 	_create_tween()
-
+	
 
 func _physics_process(delta: float):
 	handle_platform_moving(delta)
@@ -91,7 +91,7 @@ func handle_platform_release_and_hovering() -> void:
 		
 	if Input.is_action_pressed("click") and is_hovering:
 		if not is_moving:
-			SoundManager.play_platform_move()
+			SoundManager.play_sound_by_id(SoundManager.Sound.PLATFORM_MOVE)
 
 		is_moving = true
 	else:

@@ -3,16 +3,32 @@
 [ext_resource type="Script" uid="uid://d4l6f8aontqqb" path="res://Globals/SoundManager/sound_manager.gd" id="1_b8xpl"]
 [ext_resource type="AudioStream" uid="uid://denngjyjcolki" path="res://assets/mouse_click.wav" id="2_ojf7o"]
 [ext_resource type="AudioStream" uid="uid://lmen6x8kaw0k" path="res://assets/SFX/platform_move.wav" id="3_miwjy"]
+[ext_resource type="AudioStream" uid="uid://w8vnh6a6c3kq" path="res://assets/SFX/star_pickup_cheer.wav" id="4_k8fwk"]
 [ext_resource type="AudioStream" uid="uid://c2nqplww5ix3h" path="res://assets/SFX/cough.wav" id="4_sotl8"]
 [ext_resource type="AudioStream" uid="uid://bnkg66nro81he" path="res://assets/SFX/phone.wav" id="5_5pkv0"]
+[ext_resource type="AudioStream" uid="uid://dfflxowdsjf4n" path="res://assets/SFX/fall_impact.wav" id="5_uivhd"]
 [ext_resource type="AudioStream" uid="uid://cgbyt210cbbeg" path="res://assets/SFX/negrozacsi.wav" id="6_k8fwk"]
+[ext_resource type="AudioStream" uid="uid://om1t533nvcc3" path="res://assets/SFX/fall_first_reaction.wav" id="6_pxcne"]
+[ext_resource type="AudioStream" uid="uid://ck4rqn3mmbfjk" path="res://assets/SFX/spotlight.wav" id="7_00kan"]
 [ext_resource type="AudioStream" uid="uid://cf6w51txqa74e" path="res://assets/SFX/phone_with_crowd.wav" id="7_x1qd5"]
 [ext_resource type="AudioStream" uid="uid://5rlnmw7iopt0" path="res://assets/SFX/gasp.wav" id="8_5pkv0"]
+[ext_resource type="AudioStream" uid="uid://wghp57v5646q" path="res://assets/SFX/curtain.wav" id="8_voo08"]
+[ext_resource type="AudioStream" uid="uid://c2h0ywsaxinh4" path="res://assets/SFX/cheer_act_finish.wav" id="9_veefb"]
+[ext_resource type="AudioStream" uid="uid://dbvam23p6idu1" path="res://assets/SFX/cheer_game_finish.wav" id="10_fup8g"]
+[ext_resource type="AudioStream" uid="uid://d01a2877uswux" path="res://assets/SFX/set_move.wav" id="11_2wqa8"]
 
 [node name="SoundManager" type="Node" unique_id=821950684]
 script = ExtResource("1_b8xpl")
 click_sound = ExtResource("2_ojf7o")
 platform_move_sound = ExtResource("3_miwjy")
+star_pickup_cheer_sound = ExtResource("4_k8fwk")
+fall_impact_sound = ExtResource("5_uivhd")
+fall_first_reaction_sound = ExtResource("6_pxcne")
+spotlight_sound = ExtResource("7_00kan")
+curtain_sound = ExtResource("8_voo08")
+cheer_act_finish_sound = ExtResource("9_veefb")
+cheer_game_finish_sound = ExtResource("10_fup8g")
+set_move_sound = ExtResource("11_2wqa8")
 crowd_sounds = Array[AudioStream]([ExtResource("4_sotl8"), ExtResource("5_5pkv0"), ExtResource("6_k8fwk"), ExtResource("7_x1qd5"), ExtResource("8_5pkv0")])
 
 [node name="SfxPlayer" type="AudioStreamPlayer" parent="." unique_id=1660170897]
