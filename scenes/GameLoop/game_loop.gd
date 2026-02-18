@@ -59,11 +59,9 @@ func use_ghost_camera(is_ghost_mode) -> void:
 func show_hide_cursor(is_ghost_mode):
 	if is_ghost_mode:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		Input.set_custom_mouse_cursor(null)
 		Input.warp_mouse(get_viewport().get_visible_rect().size / 2)
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-		Input.set_custom_mouse_cursor(default_custom_cursor)
 
 
 func _on_star_collected(star):
