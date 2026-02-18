@@ -38,6 +38,8 @@ func _ready() -> void:
 	count_stars_palced_on_map()
 	#print("ready, required_total: ", required_total)
 	#print("ready, optional_total: ", optional_total)
+	
+	start_crowd_timer()
 
 
 func _input(event: InputEvent) -> void:
@@ -106,6 +108,15 @@ func count_stars_palced_on_map():
 		elif star.star_type == star.StarType.OPTIONAL:
 			optional_total += 1
 
+func start_crowd_timer() -> void:
+	var random_crowd_noise_timer := Timer.new()
+
+	random_crowd_noise_timer.start()
+	random_crowd_noise_timer.wait_time = 10.0
+	random_crowd_noise_timer.connect("timeout", _on_timer_timeout)
+
+	add_child(random_crowd_noise_timer)
+
 
 func _on_star_collected(star):
 	if star.star_type == star.StarType.REQUIRED:
@@ -127,3 +138,7 @@ func _on_star_collected(star):
 
 func _trigger_ghost_mode():
 	GameEvents.set_ghost_mode(true)
+
+
+func _on_timer_timeout():
+	SoundManager.play_random_crowd_sound()

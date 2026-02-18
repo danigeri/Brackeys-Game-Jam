@@ -2,6 +2,7 @@ extends Node
 
 @export var click_sound: AudioStream
 @export var platform_move_sound: AudioStream
+@export var crowd_sounds: Array[AudioStream]
 
 @onready var sfx_player: AudioStreamPlayer = $SfxPlayer
 
@@ -39,3 +40,8 @@ func play_click_sound() -> AudioStreamPlayer:
 
 func play_platform_move() -> AudioStreamPlayer:
 	return play_sfx(platform_move_sound)
+
+
+func play_random_crowd_sound() -> AudioStreamPlayer:
+	printerr("Playing crowd sound")
+	return play_sfx(crowd_sounds.pick_random())

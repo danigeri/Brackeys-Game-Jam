@@ -1,12 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://dib0vlorvjnxt"]
+[gd_scene format=3 uid="uid://dib0vlorvjnxt"]
 
 [ext_resource type="Script" uid="uid://d4l6f8aontqqb" path="res://Globals/SoundManager/sound_manager.gd" id="1_b8xpl"]
 [ext_resource type="AudioStream" uid="uid://denngjyjcolki" path="res://assets/mouse_click.wav" id="2_ojf7o"]
+[ext_resource type="AudioStream" uid="uid://lmen6x8kaw0k" path="res://assets/SFX/platform_move.wav" id="3_miwjy"]
+[ext_resource type="AudioStream" uid="uid://c2nqplww5ix3h" path="res://assets/SFX/cough.wav" id="4_sotl8"]
+[ext_resource type="AudioStream" uid="uid://bnkg66nro81he" path="res://assets/SFX/phone.wav" id="5_5pkv0"]
+[ext_resource type="AudioStream" uid="uid://cgbyt210cbbeg" path="res://assets/SFX/negrozacsi.wav" id="6_k8fwk"]
+[ext_resource type="AudioStream" uid="uid://cf6w51txqa74e" path="res://assets/SFX/phone_with_crowd.wav" id="7_x1qd5"]
+[ext_resource type="AudioStream" uid="uid://5rlnmw7iopt0" path="res://assets/SFX/gasp.wav" id="8_5pkv0"]
 
-[node name="SoundManager" type="Node"]
+[node name="SoundManager" type="Node" unique_id=821950684]
 script = ExtResource("1_b8xpl")
 click_sound = ExtResource("2_ojf7o")
+platform_move_sound = ExtResource("3_miwjy")
+crowd_sounds = Array[AudioStream]([ExtResource("4_sotl8"), ExtResource("5_5pkv0"), ExtResource("6_k8fwk"), ExtResource("7_x1qd5"), ExtResource("8_5pkv0")])
 
-[node name="SfxPlayer" type="AudioStreamPlayer" parent="."]
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="." unique_id=1660170897]
 process_mode = 3
 bus = &"SFX"
