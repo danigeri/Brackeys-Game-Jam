@@ -98,10 +98,6 @@ func ghost_mode_on(value) -> void:
 
 
 func start_ghost_run():
-	if left_button_is_down:
-		_save_record(InputRecord.InputType.LEFT_RELEASE, 0)
-	if right_button_is_down:
-		_save_record(InputRecord.InputType.RIGHT_RELEASE, 0)
 	reset_player_input_things()
 
 
