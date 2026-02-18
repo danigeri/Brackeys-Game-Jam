@@ -9,7 +9,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		print("colliding element: ", body)
+		#print("colliding element: ", body)
 		if is_ghost_mode:
 			GameEvents.ghost_mode_on.emit(true)
 		else:
