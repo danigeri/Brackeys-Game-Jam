@@ -58,14 +58,21 @@ position = Vector2(1186, 120)
 
 [node name="Player" parent="." unique_id=1510985192 instance=ExtResource("5_t2325")]
 position = Vector2(-171, 624)
-collision_layer = 3
 
 [node name="GhostCamera" type="Camera2D" parent="." unique_id=1831260324]
 position = Vector2(573, 340)
 zoom = Vector2(0.5, 0.5)
 
-[node name="StarAtTheEnd" parent="." unique_id=1164754737 instance=ExtResource("9_73e4h")]
-position = Vector2(1271, 42)
+[node name="Star" parent="." unique_id=1164754737 instance=ExtResource("9_73e4h")]
+position = Vector2(404, 604)
+star_type = 1
+
+[node name="Star2" parent="." unique_id=1803877381 instance=ExtResource("9_73e4h")]
+position = Vector2(706, 200)
+star_type = 1
+
+[node name="Star3" parent="." unique_id=987306707 instance=ExtResource("9_73e4h")]
+position = Vector2(1185, 18)
 
 [connection signal="credits_menu_requested" from="UI/PauseMenu" to="UI" method="_on_pause_menu_credits_menu_requested"]
 [connection signal="settings_menu_requested" from="UI/PauseMenu" to="UI" method="_on_pause_menu_settings_menu_requested"]
