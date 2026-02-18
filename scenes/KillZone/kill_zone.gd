@@ -1,0 +1,20 @@
+extends Area2D
+
+var is_ghost_mode: bool = false
+
+
+func _ready() -> void:
+	GameEvents.ghost_mode_on.connect(ghost_mode_on)
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		#print("colliding element: ", body)
+		if is_ghost_mode:
+			GameEvents.ghost_mode_on.emit(true)
+		else:
+			GameEvents.ghost_mode_on.emit(false)
+
+
+func ghost_mode_on(is_on):
+	is_ghost_mode = is_on

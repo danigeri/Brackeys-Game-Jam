@@ -63,13 +63,12 @@ func _create_tween():
 
 
 func ghost_mode_on(value) -> void:
-	if value:
-		position.x = start_x
-		position.y = start_y
-		if tween:
-			tween.kill()
-			tween = null
-	else:
+	position.x = start_x
+	position.y = start_y
+	if tween:
+		tween.kill()
+		tween = null
+	if not value:
 		if not tween:
 			_create_tween()
 
