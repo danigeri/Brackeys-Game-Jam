@@ -24,8 +24,8 @@ func _ready() -> void:
 		elif star.star_type == star.StarType.OPTIONAL:
 			optional_total += 1
 
-	print("ready, required_total: ", required_total)
-	print("ready, optional_total: ", optional_total)
+	#print("ready, required_total: ", required_total)
+	#print("ready, optional_total: ", optional_total)
 
 
 func _input(event: InputEvent) -> void:
@@ -48,7 +48,7 @@ func reset_stars(is_ghost_mode) -> void:
 		optional_collected = 0
 		for star in get_tree().get_nodes_in_group("stars"):
 			star.reset_star()
-			print("star reset: ", star)
+			#print("star reset: ", star)
 
 
 func use_ghost_camera(is_ghost_mode) -> void:
@@ -59,9 +59,11 @@ func use_ghost_camera(is_ghost_mode) -> void:
 func show_hide_cursor(is_ghost_mode):
 	if is_ghost_mode:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		Input.set_custom_mouse_cursor(null)
 		Input.warp_mouse(get_viewport().get_visible_rect().size / 2)
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		Input.set_custom_mouse_cursor(default_custom_cursor)
 
 
 func _on_star_collected(star):
@@ -70,8 +72,8 @@ func _on_star_collected(star):
 	elif star.star_type == star.StarType.OPTIONAL:
 		optional_collected += 1
 
-	print("ready, required_collected: ", required_collected)
-	print("ready, optional_collected: ", optional_collected)
+	#print("ready, required_collected: ", required_collected)
+	#print("ready, optional_collected: ", optional_collected)
 
 	if required_collected >= required_total:
 		call_deferred("_trigger_ghost_mode")

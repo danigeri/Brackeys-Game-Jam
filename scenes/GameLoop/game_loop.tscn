@@ -26,13 +26,13 @@ visible = false
 
 [node name="Star" parent="." unique_id=1164754737 instance=ExtResource("9_73e4h")]
 position = Vector2(-50, 102)
+star_type = 1
 
 [node name="Star2" parent="." unique_id=1803877381 instance=ExtResource("9_73e4h")]
 position = Vector2(258, -311)
 
 [node name="Star3" parent="." unique_id=987306707 instance=ExtResource("9_73e4h")]
 position = Vector2(729, -492)
-star_type = 1
 
 [node name="Platform" parent="." unique_id=466164217 instance=ExtResource("6_yq2g3")]
 position = Vector2(-326, 182)
