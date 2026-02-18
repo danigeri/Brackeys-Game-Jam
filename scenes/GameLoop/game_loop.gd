@@ -38,6 +38,16 @@ func _input(event: InputEvent) -> void:
 func handle_ghost_mode(is_ghost_mode) -> void:
 	use_ghost_camera(is_ghost_mode)
 	show_hide_cursor(is_ghost_mode)
+	reset_stars(is_ghost_mode)
+
+	
+func reset_stars(is_ghost_mode) -> void:
+	if is_ghost_mode:
+		required_collected = 0
+		optional_collected = 0
+		for star in get_tree().get_nodes_in_group("stars"):
+			star.reset_star()
+			print("star reset: " , star)
 
 
 func use_ghost_camera(is_ghost_mode) -> void:
@@ -65,6 +75,10 @@ func _on_star_collected(star):
 
 	if required_collected >= required_total:
 		call_deferred("_trigger_ghost_mode")
+
+#ez azert kell, mert idozites miatt nem rajzolodott vissza ghost mode-ban 
+#az utoljara felszedett star, csak az osszes tobbi
+#ha van valami jobb megoldas akkor javitsuk
 
 func _trigger_ghost_mode():
 	GameEvents.ghost_mode_on.emit(true)

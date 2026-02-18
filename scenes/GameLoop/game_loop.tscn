@@ -24,6 +24,16 @@ visible = false
 
 [node name="Environment" parent="." unique_id=1633693839 instance=ExtResource("5_73e4h")]
 
+[node name="Star" parent="." unique_id=1164754737 instance=ExtResource("9_73e4h")]
+position = Vector2(-50, 102)
+
+[node name="Star2" parent="." unique_id=1803877381 instance=ExtResource("9_73e4h")]
+position = Vector2(258, -311)
+
+[node name="Star3" parent="." unique_id=987306707 instance=ExtResource("9_73e4h")]
+position = Vector2(729, -492)
+star_type = 1
+
 [node name="Platform" parent="." unique_id=466164217 instance=ExtResource("6_yq2g3")]
 position = Vector2(-326, 182)
 dir = "x"
@@ -77,17 +87,6 @@ limit_bottom = 538
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-
-[node name="Star" parent="." unique_id=1164754737 instance=ExtResource("9_73e4h")]
-position = Vector2(404, 604)
-star_type = 1
-
-[node name="Star2" parent="." unique_id=1803877381 instance=ExtResource("9_73e4h")]
-position = Vector2(706, 200)
-star_type = 1
-
-[node name="Star3" parent="." unique_id=987306707 instance=ExtResource("9_73e4h")]
-position = Vector2(1185, 18)
 
 [connection signal="credits_menu_requested" from="UI/PauseMenu" to="UI" method="_on_pause_menu_credits_menu_requested"]
 [connection signal="settings_menu_requested" from="UI/PauseMenu" to="UI" method="_on_pause_menu_settings_menu_requested"]
