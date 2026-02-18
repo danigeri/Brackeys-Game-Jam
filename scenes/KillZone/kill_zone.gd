@@ -11,9 +11,9 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		#print("colliding element: ", body)
 		if is_ghost_mode:
-			GameEvents.ghost_mode_on.emit(true)
+			GameEvents.set_ghost_mode(true)
 		else:
-			GameEvents.ghost_mode_on.emit(false)
+			GameEvents.set_ghost_mode(false)
 
 
 func ghost_mode_on(is_on):
