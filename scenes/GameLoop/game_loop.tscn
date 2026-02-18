@@ -30,21 +30,20 @@ position = Vector2(-803, 144)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=383817522]
 position = Vector2(7, 0)
-limit_left = -964
-limit_top = -537
-limit_right = 956
-limit_bottom = 530
+limit_left = -960
+limit_top = -540
+limit_right = 960
+limit_bottom = 540
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="GhostCamera" type="Camera2D" parent="." unique_id=1831260324]
-position = Vector2(-9, -26)
-zoom = Vector2(0.7, 0.7)
-limit_left = -964
+zoom = Vector2(0.6, 0.6)
+limit_left = -960
 limit_top = -540
-limit_right = 956
-limit_bottom = 538
+limit_right = 960
+limit_bottom = 540
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
