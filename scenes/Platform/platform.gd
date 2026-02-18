@@ -4,11 +4,13 @@ extends Node2D
 @export var distance: int
 @export var duration: int
 
-var move = false
-var enter = false
+var is_moving = false
+var is_hovering = false
 var tween: Tween
 var start_x: float
 var start_y: float
+
+@onready var collision_shape_2d: CollisionShape2D = %CollisionShape2D
 
 
 func _ready() -> void:
@@ -20,7 +22,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float):
 	handle_platform_moving(delta)
-	release_platform_on_releasing_click()
+	handle_platform_release_and_hovering()
 
 
 func _create_tween():
@@ -75,7 +77,7 @@ func ghost_mode_on(value) -> void:
 
 func handle_platform_moving(delta) -> void:
 	var mouse_pos = get_global_mouse_position()
-	if move:
+	if is_moving:
 		if dir == "x":
 			var target_x = clamp(mouse_pos.x, start_x - distance, start_x + distance)
 			position.x = move_toward(position.x, target_x, distance * delta)
@@ -83,23 +85,26 @@ func handle_platform_moving(delta) -> void:
 			var target_y = clamp(mouse_pos.y, start_y - distance, start_y + distance)
 			position.y = move_toward(position.y, target_y, distance * delta)
 
-	if Input.is_action_pressed("click") and enter:
-		move = true
+
+func handle_platform_release_and_hovering() -> void:
+	if Input.is_action_pressed("click") and is_hovering:
+		is_moving = true
 	else:
-		move = false
+		is_moving = false
 
-
-func release_platform_on_releasing_click() -> void:
 	if Input.is_action_just_released("click"):
-		enter = false
-		move = false
+		var mouse_pos = get_global_mouse_position()
+		is_hovering = collision_shape_2d.shape.get_rect().has_point(
+			collision_shape_2d.to_local(mouse_pos)
+		)
+		is_moving = false
 
 
 func _on_area_2d_mouse_entered() -> void:
-	if !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		enter = true
+	if !Input.is_action_pressed("click"):
+		is_hovering = true
 
 
 func _on_area_2d_mouse_exited() -> void:
-	if !move:
-		enter = false
+	if !is_moving:
+		is_hovering = false

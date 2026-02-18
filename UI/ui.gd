@@ -21,6 +21,8 @@ func _input(event) -> void:
 func open_menu(menu) -> void:
 	if not menu_stack.is_empty():
 		menu_stack.back().hide()
+	else:
+		GameEvents.show_cursor()
 
 	menu_stack.push_back(menu)
 	menu.show()
@@ -32,6 +34,7 @@ func go_back() -> void:
 
 	if menu_stack.is_empty():
 		get_tree().paused = false
+		GameEvents.update_cursor()
 	else:
 		menu_stack.back().show()
 

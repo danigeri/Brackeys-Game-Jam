@@ -29,8 +29,7 @@ func _ready() -> void:
 	pressed_cursor = preload("uid://cbdwnan67004a")
 	default_custom_cursor = preload("uid://cgxm8101sybcp")
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-
-	#MusicPlayer.start_music()
+	MusicPlayer.start_music()
 
 	#signals
 	GameEvents.ghost_mode_on.connect(handle_ghost_mode)

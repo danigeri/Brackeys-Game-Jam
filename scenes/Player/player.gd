@@ -62,8 +62,8 @@ func _physics_process(delta: float) -> void:
 				record_index += 1
 
 	if Input.is_action_just_pressed("ghost_run"):
-		GameEvents.ghost_mode_on.emit(true)
 		#print("GHOST_RUN pressed")
+		GameEvents.ghost_mode_on.emit(true)
 
 	if Input.is_action_just_pressed("player_run"):
 		#print("PLAYER_RUN pressed")
