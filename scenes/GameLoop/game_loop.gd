@@ -42,7 +42,7 @@ func _ready() -> void:
 	#print("ready, optional_total: ", optional_total)
 	
 	start_crowd_timer()
-	await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finsihed
+	await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
 
 
 func _input(event: InputEvent) -> void:
@@ -142,7 +142,7 @@ func _on_star_collected(star):
 
 
 func _trigger_ghost_mode():
-	await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finsihed
+	await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
 	GameEvents.set_ghost_mode(true)
 
 

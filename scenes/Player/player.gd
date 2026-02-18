@@ -7,6 +7,10 @@ const MAX_SPEED = 300.0
 const ACCELERATION = 1200.0
 const FRICTION = 1000.0
 
+## Crowd reaction point of falling velocity of the player.
+## 0-384 will trigger during a simple vertical jump
+@export var crowd_sensitivity_on_falling = 450
+
 #player input record
 var records = []
 var record_index: int = 0
@@ -20,6 +24,8 @@ var starting_position
 #button states
 var left_button_is_down: bool = false
 var right_button_is_down: bool = false
+
+var is_falling: bool = false
 
 @onready var camera_2d: Camera2D = $Camera2D
 
@@ -63,7 +69,7 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("ghost_run"):
 		#print("GHOST_RUN pressed")
-		await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finsihed
+		await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
 		GameEvents.set_ghost_mode(true)
 
 	if Input.is_action_just_pressed("player_run"):
@@ -73,6 +79,7 @@ func _physics_process(delta: float) -> void:
 
 	calculate_movement(delta)
 	move_and_slide()
+	play_falling_sound()
 
 
 func calculate_movement(delta) -> void:
@@ -116,6 +123,16 @@ func reset_player_input_things():
 	velocity.y = 0
 	left_button_is_down = false
 	right_button_is_down = false
+
+
+func play_falling_sound():
+	if not is_on_floor():
+		print(velocity.y)
+		if velocity.y > crowd_sensitivity_on_falling and not is_falling:
+			SoundManager.play_sound_by_id(SoundManager.Sound.FALL_REACTION)
+			is_falling = true
+	else:
+		is_falling = false
 
 
 func _save_record(input: InputRecord.InputType, current_timi: int) -> void:
