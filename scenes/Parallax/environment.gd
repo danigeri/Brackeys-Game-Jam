@@ -10,9 +10,9 @@ const CURTAIN_RECORD_RUN = preload("uid://bgdi2w3ntqvwv")
 func _ready() -> void:
 	GameEvents.ghost_mode_on.connect(handle_ghost_mode)
 
+
 func handle_ghost_mode(is_on) -> void:
 	if is_on:
 		curtain.texture = CURTAIN_GHOST_RUN_BG
-	else: 
+	else:
 		curtain.texture = CURTAIN_RECORD_RUN
-	
