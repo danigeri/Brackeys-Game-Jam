@@ -143,7 +143,8 @@ func _on_star_collected(star):
 #az utoljara felszedett star, csak az osszes tobbi
 #ha van valami jobb megoldas akkor javitsuk
 
-#valszeg úgyse a ghost mode-ot fogja triggerelni hanem a függöny scene-t szal ez valszeg megoldódik magától
+#valszeg úgyse a ghost mode-ot fogja triggerelni hanem a függöny scene-t
+#szal ez valszeg megoldódik magától
 
 
 func _trigger_ghost_mode():
