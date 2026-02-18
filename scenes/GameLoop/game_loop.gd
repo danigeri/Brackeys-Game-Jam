@@ -126,4 +126,4 @@ func _on_star_collected(star):
 
 
 func _trigger_ghost_mode():
-	GameEvents.ghost_mode_on.emit(true)
+	GameEvents.set_ghost_mode(true)
