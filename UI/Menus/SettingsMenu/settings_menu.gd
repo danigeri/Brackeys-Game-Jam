@@ -23,3 +23,6 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 func _on_back_button_pressed() -> void:
 	await SoundManager.play_click_sound().finished
 	GameEvents.menu_back_pressed.emit()
+
+func _on_easy_mode_checkbox_toggled(toggled_on: bool) -> void:
+	GameEvents.set_easy_mode_on(toggled_on)

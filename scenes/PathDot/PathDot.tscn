@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://co43cv8qwqnmv"]
+
+[sub_resource type="Gradient" id="Gradient_8eaxm"]
+offsets = PackedFloat32Array(0.33858266, 0.44094488)
+colors = PackedColorArray(0.7326017, 0.52378356, 0.13172385, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vk18v"]
+gradient = SubResource("Gradient_8eaxm")
+fill = 1
+fill_from = Vector2(0.5, 0.50427353)
+
+[node name="PathDot" type="Node2D" unique_id=1669267050]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=923592391]
+scale = Vector2(0.1, 0.1)
+texture = SubResource("GradientTexture2D_vk18v")

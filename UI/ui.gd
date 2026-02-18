@@ -7,6 +7,7 @@ var menu_stack = []
 
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	GameEvents.menu_back_pressed.connect(go_back)
 
 
@@ -19,6 +20,7 @@ func _input(event) -> void:
 
 
 func open_menu(menu) -> void:
+	get_tree().paused = true
 	if not menu_stack.is_empty():
 		menu_stack.back().hide()
 	else:

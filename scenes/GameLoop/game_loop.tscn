@@ -50,11 +50,14 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="Line2D" type="Line2D" parent="." unique_id=891402718]
+closed = true
 width = 12.0
 default_color = Color(0.008202022, 0.008202025, 0.008202025, 1)
 texture = ExtResource("8_5ts88")
 texture_mode = 1
 joint_mode = 2
+
+[node name="PathDotContainer" type="Node2D" parent="." unique_id=1688872794]
 
 [connection signal="credits_menu_requested" from="UI/PauseMenu" to="UI" method="_on_pause_menu_credits_menu_requested"]
 [connection signal="settings_menu_requested" from="UI/PauseMenu" to="UI" method="_on_pause_menu_settings_menu_requested"]
