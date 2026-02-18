@@ -1,29 +1,32 @@
 extends Node2D
 
+#custom cursor
 var pressed_cursor: Texture2D
 var default_custom_cursor: Texture2D
+
+#stars
 var required_total: int = 0
 var optional_total: int = 0
 var required_collected: int = 0
 var optional_collected: int = 0
 
+#camera
 @onready var ghost_camera: Camera2D = $GhostCamera
 
 
 func _ready() -> void:
+	#custom cursor
 	pressed_cursor = preload("uid://cbdwnan67004a")
 	default_custom_cursor = preload("uid://cgxm8101sybcp")
-	#MusicPlayer.start_music()
-	GameEvents.ghost_mode_on.connect(handle_ghost_mode)
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
-	for star in get_tree().get_nodes_in_group("stars"):
-		star.collected.connect(_on_star_collected)
-		if star.star_type == star.StarType.REQUIRED:
-			required_total += 1
-		elif star.star_type == star.StarType.OPTIONAL:
-			optional_total += 1
+	#MusicPlayer.start_music()
 
+	#signals
+	GameEvents.ghost_mode_on.connect(handle_ghost_mode)
+
+	#stars
+	count_stars_palced_on_map()
 	#print("ready, required_total: ", required_total)
 	#print("ready, optional_total: ", optional_total)
 
@@ -39,16 +42,15 @@ func _input(event: InputEvent) -> void:
 func handle_ghost_mode(is_ghost_mode) -> void:
 	use_ghost_camera(is_ghost_mode)
 	show_hide_cursor(is_ghost_mode)
-	reset_stars(is_ghost_mode)
+	reset_stars()
 
 
-func reset_stars(is_ghost_mode) -> void:
-	if is_ghost_mode:
-		required_collected = 0
-		optional_collected = 0
-		for star in get_tree().get_nodes_in_group("stars"):
-			star.reset_star()
-			#print("star reset: ", star)
+func reset_stars() -> void:
+	required_collected = 0
+	optional_collected = 0
+	for star in get_tree().get_nodes_in_group("stars"):
+		star.reset_star()
+		#print("star reset: ", star)
 
 
 func use_ghost_camera(is_ghost_mode) -> void:
@@ -62,6 +64,15 @@ func show_hide_cursor(is_ghost_mode):
 		Input.warp_mouse(get_viewport().get_visible_rect().size / 2)
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
+
+func count_stars_palced_on_map():
+	for star in get_tree().get_nodes_in_group("stars"):
+		star.collected.connect(_on_star_collected)
+		if star.star_type == star.StarType.REQUIRED:
+			required_total += 1
+		elif star.star_type == star.StarType.OPTIONAL:
+			optional_total += 1
 
 
 func _on_star_collected(star):

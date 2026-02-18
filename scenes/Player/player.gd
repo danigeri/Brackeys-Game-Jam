@@ -1,20 +1,23 @@
 extends CharacterBody2D
 
+#player movement properties
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const MAX_SPEED = 300.0
 const ACCELERATION = 1200.0
 const FRICTION = 1000.0
 
+#player input record
 var records = []
 var record_index: int = 0
 var tick: int = 0
 var restart_pressed_timi: int = 0
 var game_started_timi: int = 0
-var is_ghost_mode: bool = false
 
+var is_ghost_mode: bool = false
 var starting_position
 
+#button states
 var left_button_is_down: bool = false
 var right_button_is_down: bool = false
 
@@ -95,24 +98,20 @@ func ghost_mode_on(value) -> void:
 
 
 func start_ghost_run():
-	restart_pressed_timi = Time.get_ticks_usec()
-	record_index = 0
-	position = starting_position
-	velocity.x = 0
-	velocity.y = 0
-
 	if left_button_is_down:
 		_save_record(InputRecord.InputType.LEFT_RELEASE, 0)
 	if right_button_is_down:
 		_save_record(InputRecord.InputType.RIGHT_RELEASE, 0)
-
-	left_button_is_down = false
-	right_button_is_down = false
+	reset_player_input_things()
 
 
 func start_player_run():
-	restart_pressed_timi = Time.get_ticks_usec()
 	records.clear()
+	reset_player_input_things()
+
+
+func reset_player_input_things():
+	restart_pressed_timi = Time.get_ticks_usec()
 	record_index = 0
 	position = starting_position
 	velocity.x = 0
