@@ -3,6 +3,8 @@ extends Node2D
 #player trail
 const RECORD_INTERVAL := 0.3  # 1 second
 
+@export var crowd_reaction_timeout = 30.0
+
 var positions = []
 var record_timer: float = 0.0
 var ghost_mode = false
@@ -40,6 +42,7 @@ func _ready() -> void:
 	#print("ready, optional_total: ", optional_total)
 	
 	start_crowd_timer()
+	await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finsihed
 
 
 func _input(event: InputEvent) -> void:
@@ -108,17 +111,19 @@ func count_stars_palced_on_map():
 		elif star.star_type == star.StarType.OPTIONAL:
 			optional_total += 1
 
+
 func start_crowd_timer() -> void:
 	var random_crowd_noise_timer := Timer.new()
+	
+	add_child(random_crowd_noise_timer)
 
 	random_crowd_noise_timer.start()
-	random_crowd_noise_timer.wait_time = 10.0
+	random_crowd_noise_timer.wait_time = crowd_reaction_timeout
 	random_crowd_noise_timer.connect("timeout", _on_timer_timeout)
-
-	add_child(random_crowd_noise_timer)
 
 
 func _on_star_collected(star):
+	SoundManager.play_sound_by_id(SoundManager.Sound.STAR_PICKUP)
 	if star.star_type == star.StarType.REQUIRED:
 		required_collected += 1
 	elif star.star_type == star.StarType.OPTIONAL:
@@ -137,6 +142,7 @@ func _on_star_collected(star):
 
 
 func _trigger_ghost_mode():
+	await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finsihed
 	GameEvents.set_ghost_mode(true)
 
 

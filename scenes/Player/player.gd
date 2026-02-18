@@ -63,10 +63,12 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("ghost_run"):
 		#print("GHOST_RUN pressed")
+		await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finsihed
 		GameEvents.set_ghost_mode(true)
 
 	if Input.is_action_just_pressed("player_run"):
 		#print("PLAYER_RUN pressed")
+		await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finsihed
 		GameEvents.set_ghost_mode(false)
 
 	calculate_movement(delta)
