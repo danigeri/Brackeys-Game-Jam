@@ -23,7 +23,7 @@ func _on_body_entered(body):
 		if body is CharacterBody2D:
 			collected_once = true
 			hide()
-			$CollisionShape2D.disabled = true
+			$CollisionShape2D.set_deferred("disabled", true)
 			collected.emit(self)
 			#queue_free()
 
@@ -32,4 +32,4 @@ func reset_star():
 	#print("STAR RESET :", self)
 	collected_once = false
 	show()
-	$CollisionShape2D.disabled = false
+	$CollisionShape2D.set_deferred("disabled", false)
