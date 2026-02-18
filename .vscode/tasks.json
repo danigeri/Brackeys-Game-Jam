@@ -51,5 +51,32 @@
 			],
 			"problemMatcher": []
 		},
+		{
+            "label": "Export Web & Zip",
+            "type": "shell",
+            "command": "mkdir -p build/web && godot --headless --export-release \"Web\" build/web/index.html && cd build/web && zip -r ../../web_export.zip ./* && cd ../..",
+            "windows": {
+                "command": "if (!(Test-Path build/web)) { New-Item -ItemType Directory -Path build/web }; godot --headless --export-release 'Web' build/web/index.html; Compress-Archive -Path build/web/* -DestinationPath web_export.zip -Force"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            }
+        },
+		{// Butler has to be on path
+			"label": "Manual Push to Itch",
+			"command": "butler push web_export.zip zahkros/wagner:html-troubleshooting",
+			"problemMatcher": []
+		},
+		
 	]
 }
