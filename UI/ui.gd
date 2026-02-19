@@ -4,6 +4,9 @@ var menu_stack = []
 
 @onready var pause_menu = $PauseMenu
 @onready var settings_menu = $SettingsMenu
+#custom cursor
+var pressed_cursor: Texture2D = preload("uid://dvcyyj4c0e86m")
+var default_custom_cursor: Texture2D = preload("uid://blbjbrt4asss6")
 
 
 func _ready() -> void:
@@ -17,7 +20,11 @@ func _input(event) -> void:
 			open_menu(pause_menu)
 		else:
 			go_back()
-
+	if event is InputEventMouseButton:
+		if event.pressed:
+			Input.set_custom_mouse_cursor(pressed_cursor, Input.CURSOR_ARROW, Vector2(48,48))
+		else:
+			Input.set_custom_mouse_cursor(default_custom_cursor, Input.CURSOR_ARROW, Vector2(48,48))
 
 func open_menu(menu) -> void:
 	get_tree().paused = true

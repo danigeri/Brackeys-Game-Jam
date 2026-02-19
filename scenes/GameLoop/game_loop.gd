@@ -8,8 +8,8 @@ var positions = []
 var record_timer: float = 0.0
 
 #custom cursor
-var pressed_cursor: Texture2D
-var default_custom_cursor: Texture2D
+var pressed_cursor: Texture2D = preload("uid://dvcyyj4c0e86m")
+var default_custom_cursor: Texture2D = preload("uid://blbjbrt4asss6")
 
 #stars
 var required_total: int = 0
@@ -25,11 +25,15 @@ var optional_collected: int = 0
 #@onready var line_2d: Line2D = $Line2D
 @onready var path_dot_container: Node2D = $PathDotContainer
 
+func _draw():
+	var pos = get_global_mouse_position()
+	
+	draw_line(pos + Vector2(-10, 0), pos + Vector2(10, 0), Color.RED, 2)
+	draw_line(pos + Vector2(0, -10), pos + Vector2(0, 10), Color.RED, 2)
+	draw_circle(pos, 4, Color.YELLOW)
 
 func _ready() -> void:
-	#custom cursor
-	pressed_cursor = preload("uid://cbdwnan67004a")
-	default_custom_cursor = preload("uid://cgxm8101sybcp")
+
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	MusicPlayer.start_music()
 
@@ -42,16 +46,8 @@ func _ready() -> void:
 	#print("ready, required_total: ", required_total)
 	#print("ready, optional_total: ", optional_total)
 
-
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.pressed:
-			Input.set_custom_mouse_cursor(pressed_cursor)
-		else:
-			Input.set_custom_mouse_cursor(default_custom_cursor)
-
-
 func _process(delta: float) -> void:
+	queue_redraw()
 	if !GameEvents.ghost_mode:
 		record_timer += delta
 		if record_timer >= RECORD_INTERVAL:
