@@ -10,17 +10,12 @@ var tween: Tween
 var start_x: float
 var start_y: float
 
-var szaros_start_x: float
-var szaros_start_y: float
-
-# A PINA = azzal amin így tényleg mozog
-@onready var PINA: CollisionShape2D = $Node2D/CharacterBody2D/CollisionShape2D
+# A collision_shape_2d = azzal amin így tényleg mozog
+@onready var collision_shape_2d: CollisionShape2D = $Node2D/CharacterBody2D/CollisionShape2D
 
 # ez nem tudom mi
-@onready var collision_shape_2d: CollisionShape2D = %CollisionShape2D
-
+@onready var collision_shape_2d_mouse: CollisionShape2D = %CollisionShape2D
 @onready var node_2d: Node2D = $Node2D
-
 @onready var line_2d: Line2D = $Line2D
 
 
@@ -29,73 +24,70 @@ func _ready() -> void:
 	start_x = node_2d.position.x
 	start_y = node_2d.position.y
 
-	szaros_start_x = position.x
-	szaros_start_y = position.y
-
 	_create_tween()
 
 	if dir == "x":
 		# jobb alsó
 		line_2d.add_point(
 			Vector2(
-				start_x + distance + PINA.shape.get_rect().size.x / 2,
-				start_y + PINA.shape.get_rect().size.y / 2
+				start_x + distance + collision_shape_2d.shape.get_rect().size.x / 2,
+				start_y + collision_shape_2d.shape.get_rect().size.y / 2
 			)
 		)
 
 		# jobb felső
 		line_2d.add_point(
 			Vector2(
-				start_x + distance + PINA.shape.get_rect().size.x / 2,
-				start_y - PINA.shape.get_rect().size.y / 2
+				start_x + distance + collision_shape_2d.shape.get_rect().size.x / 2,
+				start_y - collision_shape_2d.shape.get_rect().size.y / 2
 			)
 		)
 
 		# bal felső
 		line_2d.add_point(
 			Vector2(
-				start_x - distance - PINA.shape.get_rect().size.x / 2,
-				start_y - PINA.shape.get_rect().size.y / 2
+				start_x - distance - collision_shape_2d.shape.get_rect().size.x / 2,
+				start_y - collision_shape_2d.shape.get_rect().size.y / 2
 			)
 		)
 
 		# bal alsó
 		line_2d.add_point(
 			Vector2(
-				start_x - distance - PINA.shape.get_rect().size.x / 2,
-				start_y + PINA.shape.get_rect().size.y / 2
+				start_x - distance - collision_shape_2d.shape.get_rect().size.x / 2,
+				start_y + collision_shape_2d.shape.get_rect().size.y / 2
 			)
 		)
 	elif dir == "y":
 		# jobb alsó
 		line_2d.add_point(
 			Vector2(
-				start_x + PINA.shape.get_rect().size.x / 2,
-				start_y + distance + PINA.shape.get_rect().size.y / 2
+				start_x + collision_shape_2d.shape.get_rect().size.x / 2,
+				start_y + distance + collision_shape_2d.shape.get_rect().size.y / 2
 			)
 		)
 
 		# jobb felső
 		line_2d.add_point(
 			Vector2(
-				start_x + PINA.shape.get_rect().size.x / 2,
-				start_y - distance - PINA.shape.get_rect().size.y / 2
+				start_x + collision_shape_2d.shape.get_rect().size.x / 2,
+				start_y - distance - collision_shape_2d.shape.get_rect().size.y / 2
 			)
 		)
 
 		# bal felső
 		line_2d.add_point(
 			Vector2(
-				start_x - PINA.shape.get_rect().size.x / 2,
-				start_y - distance - PINA.shape.get_rect().size.y / 2
+				start_x - collision_shape_2d.shape.get_rect().size.x / 2,
+				start_y - distance - collision_shape_2d.shape.get_rect().size.y / 2
 			)
 		)
 
 		# bal alsó
 		line_2d.add_point(
 			Vector2(
-				start_x - PINA.shape.get_rect().size.x / 2,
-				start_y + distance + PINA.shape.get_rect().size.y / 2
+				start_x - collision_shape_2d.shape.get_rect().size.x / 2,
+				start_y + distance + collision_shape_2d.shape.get_rect().size.y / 2
 			)
 		)
 
@@ -174,8 +166,8 @@ func handle_platform_release_and_hovering() -> void:
 
 	if Input.is_action_just_released("click"):
 		var mouse_pos = get_global_mouse_position()
-		is_hovering = collision_shape_2d.shape.get_rect().has_point(
-			collision_shape_2d.to_local(mouse_pos)
+		is_hovering = collision_shape_2d_mouse.shape.get_rect().has_point(
+			collision_shape_2d_mouse.to_local(mouse_pos)
 		)
 		is_moving = false
 
