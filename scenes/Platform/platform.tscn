@@ -2,7 +2,17 @@
 
 [ext_resource type="Script" uid="uid://crawxa0cftex5" path="res://scenes/Platform/platform.gd" id="1_7j252"]
 [ext_resource type="Texture2D" uid="uid://bpk8mwrd5w4tv" path="res://icon.svg" id="2_7j252"]
-[ext_resource type="Texture2D" uid="uid://cwa5cxfykhn5y" path="res://assets/dots.png" id="3_kqafi"]
+
+[sub_resource type="Gradient" id="Gradient_hf6b2"]
+offsets = PackedFloat32Array(0.48404256, 0.69148934)
+colors = PackedColorArray(0.3137255, 0.101960786, 0.09803922, 1, 0.84313726, 0.61960787, 0.1254902, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kqafi"]
+gradient = SubResource("Gradient_hf6b2")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.4871795)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34mie"]
 size = Vector2(156, 54)
@@ -12,6 +22,13 @@ size = Vector2(126, 32)
 
 [node name="Platform" type="Node2D" unique_id=466164217]
 script = ExtResource("1_7j252")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=709115572]
+visible = false
+closed = true
+width = 7.0
+texture = SubResource("GradientTexture2D_kqafi")
+texture_mode = 1
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1763415158]
 
@@ -29,13 +46,6 @@ shape = SubResource("RectangleShape2D_7j252")
 [node name="Icon" type="Sprite2D" parent="Node2D" unique_id=706809577]
 scale = Vector2(0.953125, 0.203125)
 texture = ExtResource("2_7j252")
-
-[node name="Line2D" type="Line2D" parent="." unique_id=709115572]
-visible = false
-closed = true
-width = 5.0
-texture = ExtResource("3_kqafi")
-texture_mode = 1
 
 [connection signal="mouse_entered" from="Node2D/Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Node2D/Area2D" to="." method="_on_area_2d_mouse_exited"]
