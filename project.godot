@@ -28,10 +28,13 @@ driver/output_latency.web=70
 MusicPlayer="*res://Globals/MusicPlayer/music_player.tscn"
 SoundManager="*res://Globals/SoundManager/sound_manager.tscn"
 GameEvents="*res://Globals/game_events.gd"
+Globals="*uid://bo7e5gmeshfwc"
 
 [display]
 
-mouse_cursor/custom_image="uid://cgxm8101sybcp"
+mouse_cursor/custom_image="uid://blbjbrt4asss6"
+mouse_cursor/custom_image_hotspot=Vector2(48, 48)
+mouse_cursor/tooltip_position_offset=Vector2(0, 0)
 
 [input]
 

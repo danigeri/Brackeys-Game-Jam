@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c55vl17w7kkn0"]
+[gd_scene format=3 uid="uid://c55vl17w7kkn0"]
 
 [ext_resource type="Script" uid="uid://dsvskgp7o2k5d" path="res://UI/Menus/SettingsMenu/settings_menu.gd" id="1_f2bdn"]
 
-[node name="SettingsMenu" type="Control"]
+[node name="SettingsMenu" type="Control" unique_id=530709205]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f2bdn")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1907388917]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -25,58 +25,63 @@ offset_bottom = 68.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1933785907]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=33652758]
 layout_mode = 2
 
-[node name="VolumeSettingsLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="VolumeSettingsLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1998173062]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "Volume Settings"
+text = "Settings"
 
-[node name="MasterVolumeLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="EasyModeCheckbox" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=867785909]
+layout_mode = 2
+text = "Rehearsal Mode"
+
+[node name="MasterVolumeLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=301087530]
 layout_mode = 2
 text = "Master"
 horizontal_alignment = 1
 
-[node name="MasterSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="MasterSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=72728592]
 layout_mode = 2
 max_value = 1.0
 step = 0.05
 value = 0.5
 
-[node name="MusicVolumeLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="MusicVolumeLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1738897539]
 layout_mode = 2
 text = "Music"
 horizontal_alignment = 1
 
-[node name="MusicSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="MusicSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1883398845]
 layout_mode = 2
 max_value = 1.0
 step = 0.05
 value = 0.5
 
-[node name="SFXVolumeSlider" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="SFXVolumeSlider" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=248790636]
 layout_mode = 2
 text = "Sound effects"
 horizontal_alignment = 1
 
-[node name="SFXSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="SFXSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=887628667]
 layout_mode = 2
 max_value = 1.0
 step = 0.05
 value = 0.5
 
-[node name="BackButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="BackButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1216612824]
 layout_mode = 2
 text = "Back"
 
+[connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/EasyModeCheckbox" to="." method="_on_easy_mode_checkbox_toggled"]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]

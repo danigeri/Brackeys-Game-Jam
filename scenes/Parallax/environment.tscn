@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://562kr87tx0wf"]
 
+[ext_resource type="Script" uid="uid://ei1xc4dy477c" path="res://scenes/Parallax/environment.gd" id="1_0dshf"]
 [ext_resource type="Texture2D" uid="uid://b6c3wjirwjxy0" path="res://scenes/Parallax/Layers/layer09_Sky.png" id="1_0e0uu"]
 [ext_resource type="Texture2D" uid="uid://ckopxqu2xc1m7" path="res://scenes/Parallax/Layers/layer08_Stars_1.png" id="2_erpxx"]
 [ext_resource type="Texture2D" uid="uid://dhc2yw3dwbdm" path="res://scenes/Parallax/Layers/layer07_Stars_2.png" id="3_5h6yr"]
@@ -9,8 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://cge4drwrlik4g" path="res://scenes/Parallax/Layers/layer03_Clouds_3.png" id="7_naay8"]
 [ext_resource type="Texture2D" uid="uid://udi2lx7ximv5" path="res://scenes/Parallax/Layers/layer02_Clouds_2.png" id="8_siwce"]
 [ext_resource type="Texture2D" uid="uid://d0sqw2hcdmvt1" path="res://scenes/Parallax/Layers/layer01_Clouds_1.png" id="9_ovrjp"]
+[ext_resource type="Texture2D" uid="uid://bgdi2w3ntqvwv" path="res://assets/curtain_record_run.png" id="10_cg5hk"]
 
 [node name="Environment" type="Node2D" unique_id=1633693839]
+script = ExtResource("1_0dshf")
 
 [node name="Parallax2D_Layer9" type="Parallax2D" parent="." unique_id=1458289793]
 z_index = -100
@@ -93,3 +96,6 @@ repeat_times = 3
 
 [node name="Layer" type="Sprite2D" parent="Parallax2D_Layer1" unique_id=1390839871]
 texture = ExtResource("9_ovrjp")
+
+[node name="Curtain" type="Sprite2D" parent="." unique_id=729997026]
+texture = ExtResource("10_cg5hk")
