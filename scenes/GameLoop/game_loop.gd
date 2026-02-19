@@ -136,20 +136,7 @@ func _on_star_collected(star):
 	#print("ready, optional_collected: ", optional_collected)
 
 	if required_collected >= required_total:
-		call_deferred("_trigger_ghost_mode")
-
-
-#ez azert kell, mert idozites miatt nem rajzolodott vissza ghost mode-ban
-#az utoljara felszedett star, csak az osszes tobbi
-#ha van valami jobb megoldas akkor javitsuk
-
-#valszeg úgyse a ghost mode-ot fogja triggerelni hanem a függöny scene-t
-#szal ez valszeg megoldódik magától
-
-
-func _trigger_ghost_mode():
-	GameEvents.set_ghost_mode(true)
-
+		GameEvents.set_ghost_mode(true)
 
 func handle_easy_mode(is_on) -> void:
 	if !is_on:
