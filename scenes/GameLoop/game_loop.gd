@@ -2,10 +2,8 @@ extends Node2D
 
 #player trail
 const RECORD_INTERVAL := 0.3  # 1 second
-
 var positions = []
 var record_timer: float = 0.0
-var ghost_mode = false
 
 #custom cursor
 var pressed_cursor: Texture2D
