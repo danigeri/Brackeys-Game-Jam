@@ -2,8 +2,8 @@ extends CanvasLayer
 
 var menu_stack = []
 #custom cursor
-var pressed_cursor: Texture2D = preload("uid://dvcyyj4c0e86m")
-var default_custom_cursor: Texture2D = preload("uid://blbjbrt4asss6")
+var pressed_cursor: Texture2D = preload("uid://ce0hb8pyl704b")
+var default_custom_cursor: Texture2D = preload("uid://cfjpyrl35fsfr")
 
 @onready var pause_menu = $PauseMenu
 @onready var settings_menu = $SettingsMenu
@@ -21,10 +21,10 @@ func _input(event) -> void:
 			go_back()
 	if event is InputEventMouseButton:
 		if event.pressed:
-			Input.set_custom_mouse_cursor(pressed_cursor, Input.CURSOR_ARROW, Vector2(48, 48))
+			Input.set_custom_mouse_cursor(pressed_cursor, Input.CURSOR_ARROW, Vector2(24, 24))
 		else:
 			Input.set_custom_mouse_cursor(
-				default_custom_cursor, Input.CURSOR_ARROW, Vector2(48, 48)
+				default_custom_cursor, Input.CURSOR_ARROW, Vector2(24, 24)
 			)
 
 

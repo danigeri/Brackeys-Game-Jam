@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blbjbrt4asss6"
-path="res://.godot/imported/cursor1.png-c3933839e83258b9c193ceb2644c05d5.ctex"
+uid="uid://cfjpyrl35fsfr"
+path="res://.godot/imported/cursor1_harmad.png-36fcb181bbe3f0afdaaf835c8ed1c37c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cursor1.png"
-dest_files=["res://.godot/imported/cursor1.png-c3933839e83258b9c193ceb2644c05d5.ctex"]
+source_file="res://assets/cursor1_harmad.png"
+dest_files=["res://.godot/imported/cursor1_harmad.png-36fcb181bbe3f0afdaaf835c8ed1c37c.ctex"]
 
 [params]
 
