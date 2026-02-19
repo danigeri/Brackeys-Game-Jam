@@ -28,39 +28,77 @@ func _ready() -> void:
 	GameEvents.ghost_mode_on.connect(ghost_mode_on)
 	start_x = node_2d.position.x
 	start_y = node_2d.position.y
-	
+
 	szaros_start_x = position.x
 	szaros_start_y = position.y
-	
+
 	_create_tween()
-	
-	if (dir == "x"):
+
+	if dir == "x":
 		# jobb alsó
-		line_2d.add_point(Vector2(start_x + distance + PINA.shape.get_rect().size.x / 2, start_y + PINA.shape.get_rect().size.y / 2))
-		
+		line_2d.add_point(
+			Vector2(
+				start_x + distance + PINA.shape.get_rect().size.x / 2,
+				start_y + PINA.shape.get_rect().size.y / 2
+			)
+		)
+
 		# jobb felső
-		line_2d.add_point(Vector2(start_x + distance + PINA.shape.get_rect().size.x / 2, start_y - PINA.shape.get_rect().size.y / 2))
-		
+		line_2d.add_point(
+			Vector2(
+				start_x + distance + PINA.shape.get_rect().size.x / 2,
+				start_y - PINA.shape.get_rect().size.y / 2
+			)
+		)
+
 		# bal felső
-		line_2d.add_point(Vector2(start_x - distance - PINA.shape.get_rect().size.x / 2, start_y - PINA.shape.get_rect().size.y / 2))
-		
+		line_2d.add_point(
+			Vector2(
+				start_x - distance - PINA.shape.get_rect().size.x / 2,
+				start_y - PINA.shape.get_rect().size.y / 2
+			)
+		)
+
 		# bal alsó
-		line_2d.add_point(Vector2(start_x - distance - PINA.shape.get_rect().size.x / 2, start_y + PINA.shape.get_rect().size.y / 2))
-	elif (dir == "y"):
+		line_2d.add_point(
+			Vector2(
+				start_x - distance - PINA.shape.get_rect().size.x / 2,
+				start_y + PINA.shape.get_rect().size.y / 2
+			)
+		)
+	elif dir == "y":
 		# jobb alsó
-		line_2d.add_point(Vector2(start_x + PINA.shape.get_rect().size.x / 2, start_y + distance + PINA.shape.get_rect().size.y / 2))
-		
+		line_2d.add_point(
+			Vector2(
+				start_x + PINA.shape.get_rect().size.x / 2,
+				start_y + distance + PINA.shape.get_rect().size.y / 2
+			)
+		)
+
 		# jobb felső
-		line_2d.add_point(Vector2(start_x + PINA.shape.get_rect().size.x / 2, start_y - distance - PINA.shape.get_rect().size.y / 2))
-		
+		line_2d.add_point(
+			Vector2(
+				start_x + PINA.shape.get_rect().size.x / 2,
+				start_y - distance - PINA.shape.get_rect().size.y / 2
+			)
+		)
+
 		# bal felső
-		line_2d.add_point(Vector2(start_x - PINA.shape.get_rect().size.x / 2, start_y - distance - PINA.shape.get_rect().size.y / 2))
-		
+		line_2d.add_point(
+			Vector2(
+				start_x - PINA.shape.get_rect().size.x / 2,
+				start_y - distance - PINA.shape.get_rect().size.y / 2
+			)
+		)
+
 		# bal alsó
-		line_2d.add_point(Vector2(start_x - PINA.shape.get_rect().size.x / 2, start_y + distance+ PINA.shape.get_rect().size.y / 2))
-		
-		
-		
+		line_2d.add_point(
+			Vector2(
+				start_x - PINA.shape.get_rect().size.x / 2,
+				start_y + distance + PINA.shape.get_rect().size.y / 2
+			)
+		)
+
 
 func _physics_process(delta: float):
 	handle_platform_moving(delta)
