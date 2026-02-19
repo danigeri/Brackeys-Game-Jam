@@ -8,8 +8,8 @@ var positions = []
 var record_timer: float = 0.0
 
 #custom cursor
-var pressed_cursor: Texture2D
-var default_custom_cursor: Texture2D
+var pressed_cursor: Texture2D = preload("uid://dvcyyj4c0e86m")
+var default_custom_cursor: Texture2D = preload("uid://blbjbrt4asss6")
 
 #stars
 var required_total: int = 0
@@ -27,9 +27,6 @@ var optional_collected: int = 0
 
 
 func _ready() -> void:
-	#custom cursor
-	pressed_cursor = preload("uid://cbdwnan67004a")
-	default_custom_cursor = preload("uid://cgxm8101sybcp")
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	MusicPlayer.start_music()
 
@@ -41,14 +38,6 @@ func _ready() -> void:
 	count_stars_palced_on_map()
 	#print("ready, required_total: ", required_total)
 	#print("ready, optional_total: ", optional_total)
-
-
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.pressed:
-			Input.set_custom_mouse_cursor(pressed_cursor)
-		else:
-			Input.set_custom_mouse_cursor(default_custom_cursor)
 
 
 func _process(delta: float) -> void:
