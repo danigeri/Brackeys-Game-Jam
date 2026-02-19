@@ -51,7 +51,7 @@ drag_vertical_enabled = true
 [node name="Line2D" type="Line2D" parent="." unique_id=891402718]
 closed = true
 width = 12.0
-default_color = Color(0.008202022, 0.008202025, 0.008202025, 1)
+default_color = Color(0.3137255, 0.101960786, 0.09803922, 1)
 texture = ExtResource("8_5ts88")
 texture_mode = 1
 joint_mode = 2
