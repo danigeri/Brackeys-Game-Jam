@@ -7,10 +7,6 @@ const PATH_DOT_SCENE = preload("uid://co43cv8qwqnmv")
 var positions = []
 var record_timer: float = 0.0
 
-#custom cursor
-var pressed_cursor: Texture2D = preload("uid://dvcyyj4c0e86m")
-var default_custom_cursor: Texture2D = preload("uid://blbjbrt4asss6")
-
 #stars
 var required_total: int = 0
 var optional_total: int = 0
