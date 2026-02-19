@@ -6,6 +6,7 @@ signal easy_mode_on(value: bool)
 
 var ghost_mode: bool = false
 var easy_mode: bool = false
+var death_counter = 0
 
 
 func show_cursor() -> void:
