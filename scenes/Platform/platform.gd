@@ -10,15 +10,54 @@ var tween: Tween
 var start_x: float
 var start_y: float
 
+var szaros_start_x: float
+var szaros_start_y: float
+
+@onready var PINA: CollisionShape2D = $Node2D/CharacterBody2D/CollisionShape2D
+
 @onready var collision_shape_2d: CollisionShape2D = %CollisionShape2D
+@onready var node_2d: Node2D = $Node2D
+
+@onready var line_2d: Line2D = $Line2D
 
 
 func _ready() -> void:
 	GameEvents.ghost_mode_on.connect(ghost_mode_on)
-	start_x = position.x
-	start_y = position.y
+	start_x = node_2d.position.x
+	start_y = node_2d.position.y
+	
+	szaros_start_x = position.x
+	szaros_start_y = position.y
+	
 	_create_tween()
-
+	
+	if (dir == "x"):
+		# jobb alsó
+		line_2d.add_point(Vector2(start_x + distance + PINA.shape.get_rect().size.x / 2, start_y + PINA.shape.get_rect().size.y / 2))
+		
+		# jobb felső
+		line_2d.add_point(Vector2(start_x + distance + PINA.shape.get_rect().size.x / 2, start_y - PINA.shape.get_rect().size.y / 2))
+		
+		# bal felső
+		line_2d.add_point(Vector2(start_x - distance - PINA.shape.get_rect().size.x / 2, start_y - PINA.shape.get_rect().size.y / 2))
+		
+		# bal alsó
+		line_2d.add_point(Vector2(start_x - distance - PINA.shape.get_rect().size.x / 2, start_y + PINA.shape.get_rect().size.y / 2))
+	elif (dir == "y"):
+		# jobb alsó
+		line_2d.add_point(Vector2(start_x + PINA.shape.get_rect().size.x / 2, start_y + distance + PINA.shape.get_rect().size.y / 2))
+		
+		# jobb felső
+		line_2d.add_point(Vector2(start_x + PINA.shape.get_rect().size.x / 2, start_y - distance - PINA.shape.get_rect().size.y / 2))
+		
+		# bal felső
+		line_2d.add_point(Vector2(start_x - PINA.shape.get_rect().size.x / 2, start_y - distance - PINA.shape.get_rect().size.y / 2))
+		
+		# bal alsó
+		line_2d.add_point(Vector2(start_x - PINA.shape.get_rect().size.x / 2, start_y + distance+ PINA.shape.get_rect().size.y / 2))
+		
+		
+		
 
 func _physics_process(delta: float):
 	handle_platform_moving(delta)
@@ -33,14 +72,14 @@ func _create_tween():
 
 		(
 			tween
-			. tween_property(self, "position:x", start_x + distance, duration)
+			. tween_property(node_2d, "position:x", start_x + distance, duration)
 			. set_trans(Tween.TRANS_SINE)
 			. set_ease(Tween.EASE_IN_OUT)
 		)
 
 		(
 			tween
-			. tween_property(self, "position:x", start_x - distance, duration)
+			. tween_property(node_2d, "position:x", start_x - distance, duration)
 			. set_trans(Tween.TRANS_SINE)
 			. set_ease(Tween.EASE_IN_OUT)
 		)
@@ -51,22 +90,22 @@ func _create_tween():
 
 		(
 			tween
-			. tween_property(self, "position:y", start_y + distance, duration)
+			. tween_property(node_2d, "position:y", start_y + distance, duration)
 			. set_trans(Tween.TRANS_SINE)
 			. set_ease(Tween.EASE_IN_OUT)
 		)
 
 		(
 			tween
-			. tween_property(self, "position:y", start_y - distance, duration)
+			. tween_property(node_2d, "position:y", start_y - distance, duration)
 			. set_trans(Tween.TRANS_SINE)
 			. set_ease(Tween.EASE_IN_OUT)
 		)
 
 
 func ghost_mode_on(value) -> void:
-	position.x = start_x
-	position.y = start_y
+	position.x = szaros_start_x
+	position.y = szaros_start_y
 	if tween:
 		tween.kill()
 		tween = null
@@ -76,14 +115,14 @@ func ghost_mode_on(value) -> void:
 
 
 func handle_platform_moving(delta) -> void:
-	var mouse_pos = get_global_mouse_position()
+	var mouse_pos = to_local(get_global_mouse_position())
 	if is_moving:
 		if dir == "x":
 			var target_x = clamp(mouse_pos.x, start_x - distance, start_x + distance)
-			position.x = move_toward(position.x, target_x, distance * delta)
+			node_2d.position.x = move_toward(node_2d.position.x, target_x, distance * delta)
 		if dir == "y":
 			var target_y = clamp(mouse_pos.y, start_y - distance, start_y + distance)
-			position.y = move_toward(position.y, target_y, distance * delta)
+			node_2d.position.y = move_toward(node_2d.position.y, target_y, distance * delta)
 
 
 func handle_platform_release_and_hovering() -> void:
