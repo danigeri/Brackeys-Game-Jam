@@ -60,9 +60,7 @@ func _process(delta: float) -> void:
 
 
 func handle_ghost_mode(is_ghost_mode) -> void:
-	if !is_ghost_mode:
-		positions = []
-		GameEvents.death_counter = 0
+
 	use_ghost_camera(is_ghost_mode)
 	show_hide_cursor(is_ghost_mode)
 	reset_stars()
@@ -82,6 +80,10 @@ func use_ghost_camera(is_ghost_mode) -> void:
 
 
 func handle_player_path(is_ghost_mode) -> void:
+	if !is_ghost_mode:
+		positions = []
+		GameEvents.death_counter = 0
+		clear_line_positions()
 	if GameEvents.easy_mode || GameEvents.death_counter > 2:
 		clear_line_positions()
 		draw_player_path()
