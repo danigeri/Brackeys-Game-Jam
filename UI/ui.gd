@@ -22,9 +22,12 @@ func _input(event) -> void:
 			go_back()
 	if event is InputEventMouseButton:
 		if event.pressed:
-			Input.set_custom_mouse_cursor(pressed_cursor, Input.CURSOR_ARROW, Vector2(48,48))
+			Input.set_custom_mouse_cursor(pressed_cursor, Input.CURSOR_ARROW, Vector2(48, 48))
 		else:
-			Input.set_custom_mouse_cursor(default_custom_cursor, Input.CURSOR_ARROW, Vector2(48,48))
+			Input.set_custom_mouse_cursor(
+				default_custom_cursor, Input.CURSOR_ARROW, Vector2(48, 48)
+			)
+
 
 func open_menu(menu) -> void:
 	get_tree().paused = true

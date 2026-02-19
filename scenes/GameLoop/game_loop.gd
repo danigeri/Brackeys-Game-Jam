@@ -25,15 +25,16 @@ var optional_collected: int = 0
 #@onready var line_2d: Line2D = $Line2D
 @onready var path_dot_container: Node2D = $PathDotContainer
 
+
 func _draw():
 	var pos = get_global_mouse_position()
-	
+
 	draw_line(pos + Vector2(-10, 0), pos + Vector2(10, 0), Color.RED, 2)
 	draw_line(pos + Vector2(0, -10), pos + Vector2(0, 10), Color.RED, 2)
 	draw_circle(pos, 4, Color.YELLOW)
 
-func _ready() -> void:
 
+func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	MusicPlayer.start_music()
 
@@ -45,6 +46,7 @@ func _ready() -> void:
 	count_stars_palced_on_map()
 	#print("ready, required_total: ", required_total)
 	#print("ready, optional_total: ", optional_total)
+
 
 func _process(delta: float) -> void:
 	queue_redraw()
