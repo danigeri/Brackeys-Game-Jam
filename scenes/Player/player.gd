@@ -11,8 +11,7 @@ const FRICTION = 1000.0
 var records = []
 var record_index: int = 0
 var tick: int = 0
-var restart_pressed_timi: int = 0
-var game_started_timi: int = 0
+var runtime: float = 0.0
 
 var is_ghost_mode: bool = false
 var starting_position
@@ -30,34 +29,36 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	runtime += delta
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	var current_timi = Time.get_ticks_usec() - restart_pressed_timi
+	var current_time = runtime
 	# Handle jump.
 	if not is_ghost_mode:
 		if Input.is_action_just_pressed("up") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
-			_save_record(InputRecord.InputType.UP, current_timi)
+			_save_record(InputRecord.InputType.UP, current_time)
 
 		if Input.is_action_just_pressed("left"):
-			_save_record(InputRecord.InputType.LEFT_PRESS, current_timi)
+			_save_record(InputRecord.InputType.LEFT_PRESS, current_time)
 			_play_input(InputRecord.InputType.LEFT_PRESS)
 		if Input.is_action_just_released("left"):
-			_save_record(InputRecord.InputType.LEFT_RELEASE, current_timi)
+			_save_record(InputRecord.InputType.LEFT_RELEASE, current_time)
 			_play_input(InputRecord.InputType.LEFT_RELEASE)
 
 		if Input.is_action_just_pressed("right"):
-			_save_record(InputRecord.InputType.RIGHT_PRESS, current_timi)
+			_save_record(InputRecord.InputType.RIGHT_PRESS, current_time)
 			_play_input(InputRecord.InputType.RIGHT_PRESS)
 		if Input.is_action_just_released("right"):
-			_save_record(InputRecord.InputType.RIGHT_RELEASE, current_timi)
+			_save_record(InputRecord.InputType.RIGHT_RELEASE, current_time)
 			_play_input(InputRecord.InputType.RIGHT_RELEASE)
 	else:
 		for i in range(record_index, records.size()):
 			var current_record = records[record_index]
-			if current_record.timi <= current_timi:
+			if current_record.time <= current_time:
 				_play_input(current_record.input_type)
 				record_index += 1
 
@@ -107,7 +108,7 @@ func start_player_run():
 
 
 func reset_player_input_things():
-	restart_pressed_timi = Time.get_ticks_usec()
+	runtime = 0.0
 	record_index = 0
 	position = starting_position
 	velocity.x = 0
@@ -116,13 +117,13 @@ func reset_player_input_things():
 	right_button_is_down = false
 
 
-func _save_record(input: InputRecord.InputType, current_timi: int) -> void:
+func _save_record(input: InputRecord.InputType, current_time: float) -> void:
 	var input_record = InputRecord.new()
 	input_record.input_type = input
-	input_record.timi = current_timi
+	input_record.time = current_time
 	records.append(input_record)
 	#print("SAVED record: ", InputRecord.InputType.find_key(input_record.input_type),
-	#      " : ", input_record.timi)
+	#      " : ", input_record.time)
 
 
 func _play_input(input: InputRecord.InputType) -> void:
