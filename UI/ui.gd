@@ -8,6 +8,7 @@ var default_custom_cursor: Texture2D = preload("uid://cfjpyrl35fsfr")
 @onready var pause_menu = $PauseMenu
 @onready var settings_menu = $SettingsMenu
 
+
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	GameEvents.menu_back_pressed.connect(go_back)
