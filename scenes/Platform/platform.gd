@@ -104,8 +104,8 @@ func _create_tween():
 
 
 func ghost_mode_on(value) -> void:
-	position.x = szaros_start_x
-	position.y = szaros_start_y
+	node_2d.position = Vector2(start_x, start_y)
+	line_2d.visible = value
 	if tween:
 		tween.kill()
 		tween = null
