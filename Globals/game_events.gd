@@ -18,6 +18,13 @@ func update_cursor() -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 
-func set_ghost_mode(is_on: bool) -> void:
+#ez azert kell, mert idozites miatt nem rajzolodott vissza ghost mode-ban
+#az utoljara felszedett star, csak az osszes tobbi
+#ha van valami jobb megoldas akkor javitsuk
+func _set_ghost_mode(is_on: bool) -> void:
 	ghost_mode = is_on
 	ghost_mode_on.emit(is_on)
+
+
+func set_ghost_mode(is_on: bool) -> void:
+	call_deferred("_set_ghost_mode", is_on)
