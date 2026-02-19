@@ -60,7 +60,6 @@ func _process(delta: float) -> void:
 
 
 func handle_ghost_mode(is_ghost_mode) -> void:
-
 	use_ghost_camera(is_ghost_mode)
 	show_hide_cursor(is_ghost_mode)
 	reset_stars()
