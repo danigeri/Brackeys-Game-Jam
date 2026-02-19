@@ -13,9 +13,12 @@ var start_y: float
 var szaros_start_x: float
 var szaros_start_y: float
 
+# A PINA = azzal amin így tényleg mozog
 @onready var PINA: CollisionShape2D = $Node2D/CharacterBody2D/CollisionShape2D
 
+# ez nem tudom mi
 @onready var collision_shape_2d: CollisionShape2D = %CollisionShape2D
+
 @onready var node_2d: Node2D = $Node2D
 
 @onready var line_2d: Line2D = $Line2D
