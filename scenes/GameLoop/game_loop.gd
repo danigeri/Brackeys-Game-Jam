@@ -138,6 +138,7 @@ func _on_star_collected(star):
 	if required_collected >= required_total:
 		GameEvents.set_ghost_mode(true)
 
+
 func handle_easy_mode(is_on) -> void:
 	if !is_on:
 		clear_line_positions()

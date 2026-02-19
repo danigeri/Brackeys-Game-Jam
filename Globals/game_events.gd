@@ -29,8 +29,10 @@ func _set_ghost_mode(is_on: bool) -> void:
 	ghost_mode = is_on
 	ghost_mode_on.emit(is_on)
 
+
 func set_ghost_mode(is_on: bool) -> void:
 	call_deferred("_set_ghost_mode", is_on)
+
 
 func set_easy_mode_on(is_on: bool) -> void:
 	easy_mode = is_on
