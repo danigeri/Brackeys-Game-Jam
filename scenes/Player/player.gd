@@ -7,7 +7,11 @@ const MAX_SPEED = 300.0
 const ACCELERATION = 1200.0
 const FRICTION = 1000.0
 
-# player input record
+## Crowd reaction point of falling velocity of the player.
+## 0-384 will trigger during a simple vertical jump
+@export var crowd_sensitivity_on_falling = 450
+
+#player input record
 var records = []
 var record_index: int = 0
 var runtime: float = 0.0
@@ -87,14 +91,17 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("ghost_run"):
 		#print("GHOST_RUN pressed")
+		await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
 		GameEvents.set_ghost_mode(true)
 
 	if Input.is_action_just_pressed("player_run"):
 		#print("PLAYER_RUN pressed")
+		await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
 		GameEvents.set_ghost_mode(false)
 
 	calculate_movement(delta)
 	move_and_slide()
+	play_falling_sound()
 
 
 func calculate_movement(delta) -> void:
@@ -155,6 +162,18 @@ func reset_player_input_things():
 	jump_available = true
 	jump_buffer = false
 	coyote_timer.stop()
+
+
+func play_falling_sound():
+	if not is_on_floor():
+		if velocity.y > crowd_sensitivity_on_falling and not is_falling:
+			if GameEvents.ghost_mode:
+				SoundManager.play_sound_by_id(SoundManager.Sound.FALL_REACTION, "Muffled")
+			else:
+				SoundManager.play_sound_by_id(SoundManager.Sound.FALL_REACTION)
+			is_falling = true
+	else:
+		is_falling = false
 
 
 func _save_record(input: InputRecord.InputType, current_time: float) -> void:

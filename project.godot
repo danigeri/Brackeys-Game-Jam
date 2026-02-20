@@ -15,12 +15,13 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Brackeys Game Jam Game"
-run/main_scene="uid://cp03gm3dbew5m"
+run/main_scene="uid://c64idl1pun738"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [audio]
 
+buses/default_bus_layout="uid://b0ymg8u3qy086"
 driver/output_latency.web=70
 
 [autoload]
