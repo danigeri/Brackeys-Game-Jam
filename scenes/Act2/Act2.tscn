@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://k2t6pk66rnl3"]
+
+[ext_resource type="Script" uid="uid://barctofwe3a2q" path="res://scenes/Act2/act_2.gd" id="1_qcx6r"]
+[ext_resource type="PackedScene" uid="uid://562kr87tx0wf" path="res://scenes/Environment/environment.tscn" id="2_7iylj"]
+[ext_resource type="Texture2D" uid="uid://c5s0r0ilyxv54" path="res://scenes/Act1/act1_ghost_layer1.png" id="3_1xu0t"]
+[ext_resource type="Texture2D" uid="uid://cknr6ev3gilni" path="res://scenes/Act1/act1_ghost_layer2.png" id="4_cx013"]
+[ext_resource type="PackedScene" uid="uid://cmvu72hfj0uu4" path="res://scenes/Platform/platform.tscn" id="5_5sm3w"]
+[ext_resource type="PackedScene" uid="uid://c7xrocq7m8k0u" path="res://scenes/Ground/ground.tscn" id="6_awrxm"]
+[ext_resource type="PackedScene" uid="uid://bn7lxk0ph8aym" path="res://scenes/Star/star.tscn" id="7_6ovle"]
+[ext_resource type="PackedScene" uid="uid://bwaevcirj6oib" path="res://scenes/KillZone/kill_zone.tscn" id="8_g6irs"]
+
+[node name="Act2" type="Node2D" unique_id=1603398155]
+script = ExtResource("1_qcx6r")
+
+[node name="Environment" parent="." unique_id=1633693839 instance=ExtResource("2_7iylj")]
+position = Vector2(644, 298)
+
+[node name="GhostBackground" type="Sprite2D" parent="." unique_id=160617654]
+visible = false
+texture = ExtResource("3_1xu0t")
+
+[node name="GhostBackgroundLayer2" type="Sprite2D" parent="." unique_id=48485112]
+visible = false
+texture = ExtResource("4_cx013")
+
+[node name="Platform" parent="." unique_id=466164217 instance=ExtResource("5_5sm3w")]
+position = Vector2(-487, -308)
+dir = "x"
+distance = 150
+duration = 3
+
+[node name="Platform2" parent="." unique_id=614260946 instance=ExtResource("5_5sm3w")]
+position = Vector2(21, 62)
+dir = "y"
+distance = 300
+duration = 3
+
+[node name="Platform3" parent="." unique_id=2003547574 instance=ExtResource("5_5sm3w")]
+position = Vector2(492, 265)
+dir = "x"
+distance = 200
+duration = 3
+
+[node name="Ground" parent="." unique_id=842944472 instance=ExtResource("6_awrxm")]
+position = Vector2(-791, -351)
+
+[node name="Ground2" parent="." unique_id=345386964 instance=ExtResource("6_awrxm")]
+position = Vector2(-135, -228)
+
+[node name="Ground3" parent="." unique_id=844362023 instance=ExtResource("6_awrxm")]
+position = Vector2(226, 440)
+
+[node name="Ground4" parent="." unique_id=2023014513 instance=ExtResource("6_awrxm")]
+position = Vector2(800, 349)
+
+[node name="Star" parent="." unique_id=1164754737 groups=["stars2"] instance=ExtResource("7_6ovle")]
+position = Vector2(-146, -319)
+
+[node name="Star2" parent="." unique_id=1786637024 groups=["stars2"] instance=ExtResource("7_6ovle")]
+position = Vector2(228, 361)
+
+[node name="Star3" parent="." unique_id=1876686271 groups=["stars2"] instance=ExtResource("7_6ovle")]
+position = Vector2(794, 268)
+star_type = 1
+
+[node name="KillZone" parent="." unique_id=41493325 instance=ExtResource("8_g6irs")]
+position = Vector2(-481, 351)

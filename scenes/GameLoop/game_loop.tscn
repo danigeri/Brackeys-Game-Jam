@@ -6,8 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c55vl17w7kkn0" path="res://UI/Menus/SettingsMenu/settings_menu.tscn" id="4_x7b5a"]
 [ext_resource type="PackedScene" uid="uid://562kr87tx0wf" path="res://scenes/Environment/environment.tscn" id="5_73e4h"]
 [ext_resource type="PackedScene" uid="uid://3ibhlt1dyusg" path="res://scenes/Player/player.tscn" id="5_t2325"]
-[ext_resource type="Texture2D" uid="uid://bgdi2w3ntqvwv" path="res://assets/curtain_record_run.png" id="6_73e4h"]
-[ext_resource type="PackedScene" uid="uid://dc6mlfql3moyl" path="res://scenes/Act1/Act1.tscn" id="6_vldm1"]
+[ext_resource type="Texture2D" uid="uid://bgdi2w3ntqvwv" path="res://assets/curtains/curtain_record_run.png" id="6_73e4h"]
 [ext_resource type="Texture2D" uid="uid://cwa5cxfykhn5y" path="res://assets/dots.png" id="8_5ts88"]
 
 [node name="GameLoop" type="Node2D" unique_id=1058436466]
@@ -29,12 +28,22 @@ visible = false
 [node name="Curtain" type="Sprite2D" parent="." unique_id=946167874]
 texture = ExtResource("6_73e4h")
 
-[node name="Act1" parent="." unique_id=858034748 instance=ExtResource("6_vldm1")]
+[node name="ActContainer" type="Node2D" parent="." unique_id=1452116221]
+
+[node name="Line2D" type="Line2D" parent="." unique_id=891402718]
+closed = true
+width = 12.0
+default_color = Color(0.3137255, 0.101960786, 0.09803922, 1)
+texture = ExtResource("8_5ts88")
+texture_mode = 1
+joint_mode = 2
+
+[node name="PathDotContainer" type="Node2D" parent="." unique_id=1688872794]
 
 [node name="Player" parent="." unique_id=1510985192 instance=ExtResource("5_t2325")]
-position = Vector2(-803, 144)
+position = Vector2(-75, -354)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=383817522]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1484011177]
 position = Vector2(7, 0)
 limit_left = -960
 limit_top = -540
@@ -53,16 +62,6 @@ limit_bottom = 540
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-
-[node name="Line2D" type="Line2D" parent="." unique_id=891402718]
-closed = true
-width = 12.0
-default_color = Color(0.3137255, 0.101960786, 0.09803922, 1)
-texture = ExtResource("8_5ts88")
-texture_mode = 1
-joint_mode = 2
-
-[node name="PathDotContainer" type="Node2D" parent="." unique_id=1688872794]
 
 [connection signal="credits_menu_requested" from="UI/PauseMenu" to="UI" method="_on_pause_menu_credits_menu_requested"]
 [connection signal="settings_menu_requested" from="UI/PauseMenu" to="UI" method="_on_pause_menu_settings_menu_requested"]

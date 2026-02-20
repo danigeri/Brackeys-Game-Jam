@@ -21,7 +21,6 @@ func _on_body_entered(body: Node2D) -> void:
 func death_counter_add() -> void:
 	if GameEvents.ghost_mode:
 		GameEvents.death_counter += 1
-		print(GameEvents.death_counter)
 
 
 func ghost_mode_on(is_on):

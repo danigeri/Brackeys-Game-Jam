@@ -9,10 +9,6 @@ enum StarType { OPTIONAL, REQUIRED }
 var collected_once: bool = false
 
 
-func _ready():
-	add_to_group("stars")
-
-
 func _on_body_entered(body):
 	#print("COLLISION: ", body.is_in_group("Player"))
 	if body.is_in_group("Player"):

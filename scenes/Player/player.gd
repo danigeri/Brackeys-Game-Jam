@@ -28,6 +28,7 @@ var jump_available: bool = true
 var coyote_time: float = 0.15
 var jump_buffer: bool = false
 var jump_buffer_timer: float = 0.1
+var is_falling
 
 @onready var coyote_timer: Timer = $Coyote_Timer
 @onready var camera_2d: Camera2D = $Camera2D
@@ -36,7 +37,6 @@ var jump_buffer_timer: float = 0.1
 
 func _ready() -> void:
 	GameEvents.ghost_mode_on.connect(ghost_mode_on)
-	starting_position = position
 
 
 func _physics_process(delta: float) -> void:
@@ -222,3 +222,8 @@ func jump() -> void:
 	#print("JUMP BUFFER: ", jump_buffer)
 	velocity.y = JUMP_VELOCITY
 	jump_available = false
+
+
+func update_starting_position(_updated_starting_position: Vector2) -> void:
+	position = _updated_starting_position
+	starting_position = position
