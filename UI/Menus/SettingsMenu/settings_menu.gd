@@ -21,7 +21,7 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 
 
 func _on_back_button_pressed() -> void:
-	await SoundManager.play_sound_by_id(SoundManager.Sound.CLICK).finished
+	SoundManager.play_sound_by_id(SoundManager.Sound.CLICK)
 	GameEvents.menu_back_pressed.emit()
 
 
