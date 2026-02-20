@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buc32m7263txc"
-path="res://.godot/imported/layer05_Castle.png-7f6722d37d631ffb637a417e232c8bf4.ctex"
+uid="uid://cknr6ev3gilni"
+path="res://.godot/imported/act1_ghost_layer2.png-5d4e35fa7bb43b392cb78b3dbc69cf2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/Parallax/Layers/layer05_Castle.png"
-dest_files=["res://.godot/imported/layer05_Castle.png-7f6722d37d631ffb637a417e232c8bf4.ctex"]
+source_file="res://scenes/Act1/act1_ghost_layer2.png"
+dest_files=["res://.godot/imported/act1_ghost_layer2.png-5d4e35fa7bb43b392cb78b3dbc69cf2a.ctex"]
 
 [params]
 
