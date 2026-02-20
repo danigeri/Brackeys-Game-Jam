@@ -195,3 +195,8 @@ func handle_easy_mode(is_on) -> void:
 		clear_line_positions()
 	elif GameEvents.ghost_mode:
 		draw_player_path()
+
+
+func _on_timer_timeout():
+	if not GameEvents.ghost_mode:
+		SoundManager.play_random_crowd_sound()
