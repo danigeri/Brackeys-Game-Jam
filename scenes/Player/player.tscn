@@ -183,13 +183,13 @@ animations = [{
 script = ExtResource("1_385v6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=881761576]
-scale = Vector2(3.8, 3.8)
+scale = Vector2(5.6, 5.6)
 shape = SubResource("CapsuleShape2D_tayva")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1027603843]
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_cgmen")
-animation = &"finish"
+animation = &"run"
 autoplay = "run"
 
 [node name="Coyote_Timer" type="Timer" parent="." unique_id=39391697]
