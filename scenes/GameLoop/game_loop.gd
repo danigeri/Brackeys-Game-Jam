@@ -3,6 +3,8 @@ extends Node2D
 #player trail
 const RECORD_INTERVAL := 0.05  # 1 second
 const PATH_DOT_SCENE = preload("uid://co43cv8qwqnmv")
+const CURTAIN_GHOST_RUN_BG = preload("uid://cmmtqnqiedirl")
+const CURTAIN_RECORD_RUN = preload("uid://bgdi2w3ntqvwv")
 
 @export var crowd_reaction_timeout = 30.0
 
@@ -22,6 +24,7 @@ var optional_collected: int = 0
 #use this if line will be Line2d not Sprites
 #@onready var line_2d: Line2D = $Line2D
 @onready var path_dot_container: Node2D = $PathDotContainer
+@onready var curtain: Sprite2D = $Curtain
 
 
 func _ready() -> void:
@@ -55,6 +58,11 @@ func handle_ghost_mode(is_ghost_mode) -> void:
 	show_hide_cursor(is_ghost_mode)
 	reset_stars()
 	handle_player_path(is_ghost_mode)
+
+	if is_ghost_mode:
+		curtain.texture = CURTAIN_GHOST_RUN_BG
+	else:
+		curtain.texture = CURTAIN_RECORD_RUN
 
 
 func reset_stars() -> void:

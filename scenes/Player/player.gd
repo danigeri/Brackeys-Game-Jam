@@ -24,9 +24,15 @@ var starting_position
 var left_button_is_down: bool = false
 var right_button_is_down: bool = false
 
-var is_falling: bool = false
+# coyote time + jump buffer:
+var jump_available: bool = true
+var coyote_time: float = 0.15
+var jump_buffer: bool = false
+var jump_buffer_timer: float = 0.1
 
+@onready var coyote_timer: Timer = $Coyote_Timer
 @onready var camera_2d: Camera2D = $Camera2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 
 func _ready() -> void:
@@ -39,14 +45,30 @@ func _physics_process(delta: float) -> void:
 
 	# Add the gravity.
 	if not is_on_floor():
+		if jump_available:
+			if coyote_timer.is_stopped():
+				coyote_timer.start(coyote_time)
+
 		velocity += get_gravity() * delta
+	else:
+		jump_available = true
+		coyote_timer.stop()
+		if jump_buffer:
+			jump()
+			jump_buffer = false
+			#print("JUMP BUFFER: ", jump_buffer)
 
 	var current_time = runtime
 	# Handle jump.
 	if not is_ghost_mode:
-		if Input.is_action_just_pressed("up") and is_on_floor():
-			velocity.y = JUMP_VELOCITY
-			_save_record(InputRecord.InputType.UP, current_time)
+		if Input.is_action_just_pressed("up"):
+			if jump_available:
+				jump()
+				_save_record(InputRecord.InputType.UP, current_time)
+			else:
+				jump_buffer = true
+				#print("JUMP BUFFER: ", jump_buffer)
+				get_tree().create_timer(jump_buffer_timer).timeout.connect(on_jump_buffer_timeout)
 
 		if Input.is_action_just_pressed("left"):
 			_save_record(InputRecord.InputType.LEFT_PRESS, current_time)
@@ -95,6 +117,24 @@ func calculate_movement(delta) -> void:
 		velocity.x = move_toward(velocity.x, direction * MAX_SPEED, ACCELERATION * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
+
+	# play corresponding player sprite
+	if direction != 0:
+		if direction < 0:
+			animated_sprite_2d.flip_h = true
+		elif direction > 0:
+			animated_sprite_2d.flip_h = false
+
+	if is_on_floor():
+		if direction == 0:
+			animated_sprite_2d.play("idle")
+		else:
+			animated_sprite_2d.play("run")
+	else:
+		if velocity.y > 0:
+			animated_sprite_2d.play("fall")
+		else:
+			animated_sprite_2d.play("jump")
 
 
 func ghost_mode_on(value) -> void:
@@ -149,9 +189,23 @@ func _save_record(input: InputRecord.InputType, current_time: float) -> void:
 
 func _play_input(input: InputRecord.InputType) -> void:
 	#print("USER input: ", InputRecord.InputType.find_key(input))
-	if input == InputRecord.InputType.UP and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	if input == InputRecord.InputType.UP and jump_available:
+		jump()
 	elif input == InputRecord.InputType.LEFT_PRESS or input == InputRecord.InputType.LEFT_RELEASE:
 		left_button_is_down = (input == InputRecord.InputType.LEFT_PRESS)
 	elif input == InputRecord.InputType.RIGHT_PRESS or input == InputRecord.InputType.RIGHT_RELEASE:
 		right_button_is_down = (input == InputRecord.InputType.RIGHT_PRESS)
+
+
+func coyote_timeout() -> void:
+	jump_available = false
+
+
+func on_jump_buffer_timeout() -> void:
+	#print("JUMP BUFFER: ", jump_buffer)
+	jump_buffer = false
+
+
+func jump() -> void:
+	velocity.y = JUMP_VELOCITY
+	jump_available = false
