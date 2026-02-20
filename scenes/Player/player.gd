@@ -23,6 +23,7 @@ var right_button_is_down: bool = false
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+
 func _ready() -> void:
 	GameEvents.ghost_mode_on.connect(ghost_mode_on)
 	starting_position = position
@@ -86,10 +87,10 @@ func calculate_movement(delta) -> void:
 		velocity.x = move_toward(velocity.x, direction * MAX_SPEED, ACCELERATION * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
-		
+
 	# play corresponding player sprite
 	if direction != 0:
-		if direction < 0: 
+		if direction < 0:
 			animated_sprite_2d.flip_h = true
 		elif direction > 0:
 			animated_sprite_2d.flip_h = false
