@@ -8,10 +8,6 @@ const PATH_DOT_SCENE = preload("uid://co43cv8qwqnmv")
 const ACT_1 = preload("uid://dc6mlfql3moyl")
 const ACT_2 = preload("uid://k2t6pk66rnl3")
 
-#acts
-const ACT_1 = preload("uid://dc6mlfql3moyl")
-const ACT_2 = preload("uid://k2t6pk66rnl3")
-
 @export var crowd_reaction_timeout = 30.0
 
 var positions = []

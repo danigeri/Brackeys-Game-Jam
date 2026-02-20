@@ -19,11 +19,14 @@ func start_music() -> void:
 ##ha az act-ek ready-jében meghívjuk
 func play_act(act: int) -> void:
 	audio_stream_player.volume_db = NORMAL_DB
-	
-	match(act):
-		1: audio_stream_player.stream = LEVEL_1_ITALY_STRANGE_PLACES
-		2: audio_stream_player.stream = LEVEL_2_HELL_STRANGE_PLACES
-		3: audio_stream_player.stream = LEVEL_3_HEAVEN_STRANGE_PLACES
+
+	match act:
+		1:
+			audio_stream_player.stream = LEVEL_1_ITALY_STRANGE_PLACES
+		2:
+			audio_stream_player.stream = LEVEL_2_HELL_STRANGE_PLACES
+		3:
+			audio_stream_player.stream = LEVEL_3_HEAVEN_STRANGE_PLACES
 	audio_stream_player.play()
 
 
