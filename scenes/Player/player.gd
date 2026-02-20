@@ -119,18 +119,15 @@ func calculate_movement(delta) -> void:
 			animated_sprite_2d.flip_h = false
 
 	if is_on_floor():
-		animated_sprite_2d.flip_v = false
 		if direction == 0:
 			animated_sprite_2d.play("idle")
 		else:
 			animated_sprite_2d.play("run")
 	else:
 		if velocity.y > 0:
-			animated_sprite_2d.flip_v = true
-			animated_sprite_2d.play("jump")
-		else:
-			animated_sprite_2d.flip_v = false
 			animated_sprite_2d.play("fall")
+		else:
+			animated_sprite_2d.play("jump")
 
 
 func ghost_mode_on(value) -> void:
