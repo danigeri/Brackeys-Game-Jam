@@ -20,9 +20,11 @@ var starting_position
 var left_button_is_down: bool = false
 var right_button_is_down: bool = false
 
-# coyote time:
+# coyote time + jump buffer:
 var jump_available: bool = true
 var coyote_time: float = 0.15
+var jump_buffer: bool = false
+var jump_buffer_timer: float = 0.1
 @onready var coyote_timer: Timer = $Coyote_Timer
 
 @onready var camera_2d: Camera2D = $Camera2D
@@ -47,14 +49,22 @@ func _physics_process(delta: float) -> void:
 	else:
 		jump_available = true
 		coyote_timer.stop()
+		if jump_buffer:
+			jump()
+			jump_buffer = false
+			print("JUMP BUFFER: ", jump_buffer)
 
 	var current_time = runtime
 	# Handle jump.
 	if not is_ghost_mode:
-		if Input.is_action_just_pressed("up") and jump_available:
-			velocity.y = JUMP_VELOCITY
-			_save_record(InputRecord.InputType.UP, current_time)
-			jump_available = false
+		if Input.is_action_just_pressed("up"):
+			if jump_available:
+				jump()
+				_save_record(InputRecord.InputType.UP, current_time)
+			else:
+				jump_buffer = true
+				print("JUMP BUFFER: ", jump_buffer)
+				get_tree().create_timer(jump_buffer_timer).timeout.connect(on_jump_buffer_timeout)
 
 		if Input.is_action_just_pressed("left"):
 			_save_record(InputRecord.InputType.LEFT_PRESS, current_time)
@@ -164,7 +174,7 @@ func _save_record(input: InputRecord.InputType, current_time: float) -> void:
 func _play_input(input: InputRecord.InputType) -> void:
 	#print("USER input: ", InputRecord.InputType.find_key(input))
 	if input == InputRecord.InputType.UP and jump_available:
-		velocity.y = JUMP_VELOCITY
+		jump()
 	elif input == InputRecord.InputType.LEFT_PRESS or input == InputRecord.InputType.LEFT_RELEASE:
 		left_button_is_down = (input == InputRecord.InputType.LEFT_PRESS)
 	elif input == InputRecord.InputType.RIGHT_PRESS or input == InputRecord.InputType.RIGHT_RELEASE:
@@ -172,4 +182,14 @@ func _play_input(input: InputRecord.InputType) -> void:
 
 
 func coyote_timeout() -> void:
+	jump_available = false
+
+
+func on_jump_buffer_timeout() -> void:
+	print("JUMP BUFFER: ", jump_buffer)
+	jump_buffer = false
+
+
+func jump() -> void:
+	velocity.y = JUMP_VELOCITY
 	jump_available = false
