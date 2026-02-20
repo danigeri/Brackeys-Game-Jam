@@ -9,6 +9,7 @@ const NORMAL_DB = 0.0
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
+
 func start_music() -> void:
 	audio_stream_player.stream = MAIN_MENU_MUSIC
 	audio_stream_player.play()
