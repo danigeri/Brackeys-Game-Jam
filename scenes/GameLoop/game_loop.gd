@@ -24,7 +24,7 @@ var optional_collected: int = 0
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	#MusicPlayer.start_music()
+	MusicPlayer.start_music()
 
 	#signals
 	GameEvents.ghost_mode_on.connect(handle_ghost_mode)
