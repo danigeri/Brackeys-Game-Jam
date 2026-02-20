@@ -3,6 +3,7 @@ extends Node2D
 #player trail
 const RECORD_INTERVAL := 0.05  # 1 second
 const PATH_DOT_SCENE = preload("uid://co43cv8qwqnmv")
+
 #acts
 const ACT_1 = preload("uid://dc6mlfql3moyl")
 const ACT_2 = preload("uid://k2t6pk66rnl3")
