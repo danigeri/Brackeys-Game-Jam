@@ -1,15 +1,22 @@
 [gd_scene format=3 uid="uid://dc6mlfql3moyl"]
 
+[ext_resource type="Script" uid="uid://dbmomybyv6vrt" path="res://scenes/Act1/act_1.gd" id="1_ae7cj"]
 [ext_resource type="PackedScene" uid="uid://cmvu72hfj0uu4" path="res://scenes/Platform/platform.tscn" id="1_ftaa2"]
+[ext_resource type="Texture2D" uid="uid://chr4e1qn4xo55" path="res://scenes/Act1/act1_ghost_placeholder.png" id="2_hsu0a"]
 [ext_resource type="PackedScene" uid="uid://c7xrocq7m8k0u" path="res://scenes/Ground/ground.tscn" id="2_yofwx"]
 [ext_resource type="PackedScene" uid="uid://562kr87tx0wf" path="res://scenes/Parallax/environment.tscn" id="3_yofwx"]
 [ext_resource type="PackedScene" uid="uid://bn7lxk0ph8aym" path="res://scenes/Star/star.tscn" id="4_star"]
 [ext_resource type="PackedScene" uid="uid://bwaevcirj6oib" path="res://scenes/KillZone/kill_zone.tscn" id="5_killzone"]
 
 [node name="Act1" type="Node2D" unique_id=858034748]
+script = ExtResource("1_ae7cj")
 
 [node name="Environment" parent="." unique_id=1633693839 instance=ExtResource("3_yofwx")]
 position = Vector2(644, 298)
+
+[node name="GhostBackground" type="Sprite2D" parent="." unique_id=1366409566]
+visible = false
+texture = ExtResource("2_hsu0a")
 
 [node name="Platform" parent="." unique_id=466164217 instance=ExtResource("1_ftaa2")]
 position = Vector2(-499, 210)
