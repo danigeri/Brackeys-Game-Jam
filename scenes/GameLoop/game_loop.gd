@@ -30,6 +30,13 @@ var optional_collected: int = 0
 @onready var curtain_ghost: Sprite2D = $CurtainGhost
 @onready var act_container: Node2D = $ActContainer
 
+@onready var point_light_2d: PointLight2D = $Player/PointLight2D
+@export var energy_regular_run = 0.61
+@export var energy_ghost_run = 1.3
+
+const regular_gradient_texture = preload("res://gradient_texture_regular.tres")
+const ghost_gradient_texture = preload("res://gradient_texture_ghost.tres")
+
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -47,6 +54,9 @@ func _ready() -> void:
 	await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
 	# TODO: Tutorial happens between these two sounds
 	await SoundManager.play_sound_by_id(SoundManager.Sound.SPOTLIGHT).finished
+	
+	point_light_2d.texture = regular_gradient_texture
+	point_light_2d.energy = energy_regular_run
 
 
 func _process(delta: float) -> void:
@@ -81,6 +91,13 @@ func handle_ghost_mode(is_ghost_mode) -> void:
 	show_hide_cursor(is_ghost_mode)
 	reset_stars()
 	handle_player_path(is_ghost_mode)
+	if is_ghost_mode:
+		point_light_2d.texture = ghost_gradient_texture
+		point_light_2d.energy = energy_ghost_run
+	else:
+		point_light_2d.texture = regular_gradient_texture
+		point_light_2d.energy = energy_regular_run
+	
 
 
 func reset_stars() -> void:
