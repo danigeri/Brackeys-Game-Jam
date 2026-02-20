@@ -115,15 +115,19 @@ func count_stars_palced_on_map():
 func start_crowd_timer() -> void:
 	var random_crowd_noise_timer := Timer.new()
 	
-	add_child(random_crowd_noise_timer)
-
-	random_crowd_noise_timer.start()
+	random_crowd_noise_timer.autostart = true
 	random_crowd_noise_timer.wait_time = crowd_reaction_timeout
 	random_crowd_noise_timer.connect("timeout", _on_timer_timeout)
 
+	add_child(random_crowd_noise_timer)
+
 
 func _on_star_collected(star):
-	SoundManager.play_sound_by_id(SoundManager.Sound.STAR_PICKUP)
+	if GameEvents.ghost_mode:
+		SoundManager.play_sound_by_id(SoundManager.Sound.STAR_PICKUP, "Muffled")
+	else:	
+		SoundManager.play_sound_by_id(SoundManager.Sound.STAR_PICKUP)
+	
 	if star.star_type == star.StarType.REQUIRED:
 		required_collected += 1
 	elif star.star_type == star.StarType.OPTIONAL:
@@ -147,5 +151,5 @@ func _trigger_ghost_mode():
 
 
 func _on_timer_timeout():
-	if GameEvents.ghost_mode:
+	if not GameEvents.ghost_mode:
 		SoundManager.play_random_crowd_sound()

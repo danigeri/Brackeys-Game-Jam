@@ -127,9 +127,11 @@ func reset_player_input_things():
 
 func play_falling_sound():
 	if not is_on_floor():
-		print(velocity.y)
 		if velocity.y > crowd_sensitivity_on_falling and not is_falling:
-			SoundManager.play_sound_by_id(SoundManager.Sound.FALL_REACTION)
+			if GameEvents.ghost_mode:
+				SoundManager.play_sound_by_id(SoundManager.Sound.FALL_REACTION, "Muffled")
+			else:
+				SoundManager.play_sound_by_id(SoundManager.Sound.FALL_REACTION)
 			is_falling = true
 	else:
 		is_falling = false

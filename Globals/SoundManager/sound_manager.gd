@@ -42,19 +42,19 @@ func _ready() -> void:
 	sound_library.set(Sound.SET_MOVE, set_move_sound)
 
 
-func play_sound_by_id(id: Sound):
+func play_sound_by_id(id: Sound, bus: String = "SFX"):
 	var stream = sound_library.get(id)
-	return play_sfx(stream)
+	return play_sfx(stream, bus)
 
 
-func play_sfx(stream: AudioStream) -> AudioStreamPlayer:
+func play_sfx(stream: AudioStream, bus: String) -> AudioStreamPlayer:
 	if active_sounds.has(stream) and active_sounds[stream].is_playing():
 		return active_sounds[stream]
 
 	var new_player = AudioStreamPlayer.new()
 	add_child(new_player)
 	
-	new_player.bus = "SFX"
+	new_player.bus = bus
 	new_player.stream = stream
 	new_player.play()
 	
@@ -69,4 +69,4 @@ func play_sfx(stream: AudioStream) -> AudioStreamPlayer:
 
 
 func play_random_crowd_sound() -> AudioStreamPlayer:
-	return play_sfx(crowd_sounds.pick_random())
+	return play_sfx(crowd_sounds.pick_random(), "SFX")
