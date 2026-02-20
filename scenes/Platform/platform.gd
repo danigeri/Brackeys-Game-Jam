@@ -18,11 +18,19 @@ var start_y: float
 @onready var node_2d: Node2D = $Node2D
 @onready var line_2d: Line2D = $Line2D
 
+# grabbing hands on sides
+@onready var grab_left: AnimatedSprite2D = $Node2D/Icon/Left
+@onready var grab_right: AnimatedSprite2D = $Node2D/Icon/Right
+
 
 func _ready() -> void:
 	GameEvents.ghost_mode_on.connect(ghost_mode_on)
 	start_x = node_2d.position.x
 	start_y = node_2d.position.y
+
+	grab_left.modulate.a = 0.0
+	grab_right.modulate.a = 0.0
+	#grab_right.scale.x = -abs(grab_right.scale.x)
 
 	_create_tween()
 
@@ -139,9 +147,14 @@ func _create_tween():
 func ghost_mode_on(value) -> void:
 	node_2d.position = Vector2(start_x, start_y)
 	line_2d.visible = value
+
 	if tween:
 		tween.kill()
 		tween = null
+
+	if not value:
+		_fade_grab(false)
+
 	if not value:
 		if not tween:
 			_create_tween()
@@ -165,9 +178,13 @@ func handle_platform_release_and_hovering() -> void:
 	if Input.is_action_pressed("click") and is_hovering:
 		if not is_moving:
 			SoundManager.play_sound_by_id(SoundManager.Sound.PLATFORM_MOVE)
+			_fade_grab(true)
 
 		is_moving = true
 	else:
+		if is_moving:
+			_fade_grab(false)
+
 		is_moving = false
 
 	if Input.is_action_just_released("click"):
@@ -186,3 +203,16 @@ func _on_area_2d_mouse_entered() -> void:
 func _on_area_2d_mouse_exited() -> void:
 	if !is_moving:
 		is_hovering = false
+
+
+func _fade_grab(show: bool):
+	if not GameEvents.ghost_mode:
+		show = false
+
+	var target_alpha = 1.0 if show else 0.0
+
+	var t = create_tween()
+	t.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
+
+	t.tween_property(grab_left, "modulate:a", target_alpha, 0.15)
+	t.parallel().tween_property(grab_right, "modulate:a", target_alpha, 0.15)

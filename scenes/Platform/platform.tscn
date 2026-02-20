@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://crawxa0cftex5" path="res://scenes/Platform/platform.gd" id="1_7j252"]
 [ext_resource type="Texture2D" uid="uid://bpk8mwrd5w4tv" path="res://icon.svg" id="2_7j252"]
+[ext_resource type="Texture2D" uid="uid://mrwi84cfjg8a" path="res://assets/stagehand/stagehand.png" id="4_harwm"]
 
 [sub_resource type="Gradient" id="Gradient_hf6b2"]
 offsets = PackedFloat32Array(0.48404256, 0.69148934)
@@ -20,11 +21,124 @@ size = Vector2(156, 54)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7j252"]
 size = Vector2(126, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqafi"]
+atlas = ExtResource("4_harwm")
+region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_harwm"]
+atlas = ExtResource("4_harwm")
+region = Rect2(300, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6ejc"]
+atlas = ExtResource("4_harwm")
+region = Rect2(600, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewh0p"]
+atlas = ExtResource("4_harwm")
+region = Rect2(900, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e53ec"]
+atlas = ExtResource("4_harwm")
+region = Rect2(1200, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ajni"]
+atlas = ExtResource("4_harwm")
+region = Rect2(1500, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5un5c"]
+atlas = ExtResource("4_harwm")
+region = Rect2(1800, 0, 300, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x7ctr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqafi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_harwm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6ejc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewh0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e53ec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ajni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5un5c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu6no"]
+atlas = ExtResource("4_harwm")
+region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijmiv"]
+atlas = ExtResource("4_harwm")
+region = Rect2(300, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqysh"]
+atlas = ExtResource("4_harwm")
+region = Rect2(600, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpxi3"]
+atlas = ExtResource("4_harwm")
+region = Rect2(900, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhq6q"]
+atlas = ExtResource("4_harwm")
+region = Rect2(1200, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67rs1"]
+atlas = ExtResource("4_harwm")
+region = Rect2(1500, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkch3"]
+atlas = ExtResource("4_harwm")
+region = Rect2(1800, 0, 300, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ekp6q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gu6no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijmiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqysh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpxi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhq6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67rs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkch3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
 [node name="Platform" type="Node2D" unique_id=466164217]
 script = ExtResource("1_7j252")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=709115572]
-visible = false
 closed = true
 width = 7.0
 texture = SubResource("GradientTexture2D_kqafi")
@@ -46,6 +160,19 @@ shape = SubResource("RectangleShape2D_7j252")
 [node name="Icon" type="Sprite2D" parent="Node2D" unique_id=706809577]
 scale = Vector2(0.953125, 0.203125)
 texture = ExtResource("2_7j252")
+
+[node name="Left" type="AnimatedSprite2D" parent="Node2D/Icon" unique_id=542383551]
+position = Vector2(-53.5082, 137.84615)
+scale = Vector2(0.3, 1.408)
+sprite_frames = SubResource("SpriteFrames_x7ctr")
+autoplay = "default"
+flip_h = true
+
+[node name="Right" type="AnimatedSprite2D" parent="Node2D/Icon" unique_id=1228772332]
+position = Vector2(53.508194, 137.84616)
+scale = Vector2(0.3, 1.408)
+sprite_frames = SubResource("SpriteFrames_ekp6q")
+autoplay = "default"
 
 [connection signal="mouse_entered" from="Node2D/Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Node2D/Area2D" to="." method="_on_area_2d_mouse_exited"]
