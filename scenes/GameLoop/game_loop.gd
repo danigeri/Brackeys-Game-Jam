@@ -4,6 +4,10 @@ extends Node2D
 const RECORD_INTERVAL := 0.05  # 1 second
 const PATH_DOT_SCENE = preload("uid://co43cv8qwqnmv")
 
+#acts
+const ACT_1 = preload("uid://dc6mlfql3moyl")
+const ACT_2 = preload("uid://k2t6pk66rnl3")
+
 @export var crowd_reaction_timeout = 30.0
 
 var positions = []
@@ -14,10 +18,6 @@ var required_total: int = 0
 var optional_total: int = 0
 var required_collected: int = 0
 var optional_collected: int = 0
-
-#acts
-const ACT_1 = preload("uid://dc6mlfql3moyl")
-const ACT_2 = preload("uid://k2t6pk66rnl3")
 
 #camera
 @onready var ghost_camera: Camera2D = $GhostCamera

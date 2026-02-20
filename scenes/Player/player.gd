@@ -181,7 +181,6 @@ func _save_record(input: InputRecord.InputType, current_time: float) -> void:
 
 
 func _play_input(input: InputRecord.InputType) -> void:
-
 	if input == InputRecord.InputType.UP:
 		if jump_available:
 			jump()
