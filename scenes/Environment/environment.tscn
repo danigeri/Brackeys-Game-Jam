@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://v1l3p8fvb1i7" path="res://assets/background/act1-layers/act1_layer_4.png" id="7_1a3dw"]
 [ext_resource type="Texture2D" uid="uid://vpuhh0gvb1eg" path="res://assets/background/act1-layers/act1_layer_3.png" id="8_i8eu5"]
 [ext_resource type="Texture2D" uid="uid://bv01o5lb6d2nx" path="res://assets/background/act1-layers/act1_layer_2.png" id="9_4adhj"]
-[ext_resource type="Texture2D" uid="uid://bgdi2w3ntqvwv" path="res://assets/curtains/curtain_record_run.png" id="10_cg5hk"]
 [ext_resource type="Texture2D" uid="uid://uqkudoalrotd" path="res://assets/background/act1-layers/act1_layer_1.png" id="10_ehdal"]
 
 [node name="Environment" type="Node2D" unique_id=1633693839]

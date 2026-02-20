@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cwmaku2j11fh1"
+path="res://.godot/imported/level2_hell_strange places.ogg-657e30f494adf577018adc3841aff591.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/level2_hell_strange places.ogg"
+dest_files=["res://.godot/imported/level2_hell_strange places.ogg-657e30f494adf577018adc3841aff591.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

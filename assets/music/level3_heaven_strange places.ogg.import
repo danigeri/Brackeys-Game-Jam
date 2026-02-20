@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cwatqnxxrxdm5"
+path="res://.godot/imported/level3_heaven_strange places.ogg-5852783b4ed83e34ea147c76ff00cea1.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/level3_heaven_strange places.ogg"
+dest_files=["res://.godot/imported/level3_heaven_strange places.ogg-5852783b4ed83e34ea147c76ff00cea1.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -53,15 +53,15 @@ position = Vector2(134, 2)
 [node name="Ground4" parent="." unique_id=404606899 instance=ExtResource("2_yofwx")]
 position = Vector2(630, -86)
 
-[node name="Star" parent="." unique_id=1164754737 instance=ExtResource("4_star")]
+[node name="Star" parent="." unique_id=1164754737 groups=["stars1"] instance=ExtResource("4_star")]
 position = Vector2(-214, 106)
+star_type = 1
 
-[node name="Star2" parent="." unique_id=1803877381 instance=ExtResource("4_star")]
+[node name="Star2" parent="." unique_id=1803877381 groups=["stars1"] instance=ExtResource("4_star")]
 position = Vector2(132, -103)
 
-[node name="Star3" parent="." unique_id=987306707 instance=ExtResource("4_star")]
+[node name="Star3" parent="." unique_id=987306707 groups=["stars1"] instance=ExtResource("4_star")]
 position = Vector2(745, -188)
-star_type = 1
 
 [node name="KillZone" parent="." unique_id=41493325 instance=ExtResource("5_killzone")]
 position = Vector2(-481, 351)

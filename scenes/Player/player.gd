@@ -33,7 +33,6 @@ var jump_buffer_timer: float = 0.1
 
 func _ready() -> void:
 	GameEvents.ghost_mode_on.connect(ghost_mode_on)
-	starting_position = position
 
 
 func _physics_process(delta: float) -> void:
@@ -190,3 +189,8 @@ func on_jump_buffer_timeout() -> void:
 func jump() -> void:
 	velocity.y = JUMP_VELOCITY
 	jump_available = false
+
+func update_starting_position(_updated_starting_position: Vector2) -> void:
+	position = _updated_starting_position
+	starting_position = position
+	

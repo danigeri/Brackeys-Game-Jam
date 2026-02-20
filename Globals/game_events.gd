@@ -3,10 +3,12 @@ extends Node
 signal menu_back_pressed
 signal ghost_mode_on(value: bool)
 signal easy_mode_on(value: bool)
+signal act_changed_to(act: int)
 
 var ghost_mode: bool = false
 var easy_mode: bool = false
 var death_counter = 0
+var current_act = 1
 
 
 func show_cursor() -> void:
@@ -29,6 +31,13 @@ func update_cursor() -> void:
 func _set_ghost_mode(is_on: bool) -> void:
 	ghost_mode = is_on
 	ghost_mode_on.emit(is_on)
+
+func _change_act_to(act: int) -> void:
+	current_act = act
+	act_changed_to.emit(act)
+
+func change_act_to(act: int) -> void:
+	call_deferred("_change_act_to", act)
 
 
 func set_ghost_mode(is_on: bool) -> void:
