@@ -54,18 +54,19 @@ func play_sfx(stream: AudioStream, bus: String) -> AudioStreamPlayer:
 
 	var new_player = AudioStreamPlayer.new()
 	add_child(new_player)
-	
+
 	new_player.bus = bus
 	new_player.stream = stream
 	new_player.play()
-	
+
 	active_sounds[stream] = new_player
-	
-	new_player.finished.connect(func():
-		active_sounds.erase(stream)
-		new_player.queue_free()
+
+	new_player.finished.connect(
+		func():
+			active_sounds.erase(stream)
+			new_player.queue_free()
 	)
-	
+
 	return new_player
 
 
@@ -77,5 +78,5 @@ func play_random_crowd_sound() -> AudioStreamPlayer:
 		non_repeating_crowd_sounds.remove_at(random_sound_id)
 	else:
 		random_sound = crowd_sounds.pick_random()
-	
+
 	return play_sfx(random_sound, "SFX")

@@ -35,7 +35,7 @@ func _ready() -> void:
 	count_stars_palced_on_map()
 	#print("ready, required_total: ", required_total)
 	#print("ready, optional_total: ", optional_total)
-	
+
 	start_crowd_timer()
 	await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
 	# TODO: Tutorial happens between these two sounds
@@ -120,7 +120,7 @@ func count_stars_palced_on_map():
 
 func start_crowd_timer() -> void:
 	var random_crowd_noise_timer := Timer.new()
-	
+
 	random_crowd_noise_timer.autostart = true
 	random_crowd_noise_timer.wait_time = crowd_reaction_timeout
 	random_crowd_noise_timer.connect("timeout", _on_timer_timeout)
@@ -131,9 +131,9 @@ func start_crowd_timer() -> void:
 func _on_star_collected(star):
 	if GameEvents.ghost_mode:
 		SoundManager.play_sound_by_id(SoundManager.Sound.STAR_PICKUP, "Muffled")
-	else:	
+	else:
 		SoundManager.play_sound_by_id(SoundManager.Sound.STAR_PICKUP)
-	
+
 	if star.star_type == star.StarType.REQUIRED:
 		required_collected += 1
 	elif star.star_type == star.StarType.OPTIONAL:
