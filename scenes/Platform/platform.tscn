@@ -139,6 +139,7 @@ animations = [{
 script = ExtResource("1_7j252")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=709115572]
+visible = false
 closed = true
 width = 7.0
 texture = SubResource("GradientTexture2D_kqafi")
@@ -162,15 +163,15 @@ scale = Vector2(0.953125, 0.203125)
 texture = ExtResource("2_7j252")
 
 [node name="Left" type="AnimatedSprite2D" parent="Node2D/Icon" unique_id=542383551]
-position = Vector2(-53.5082, 137.84615)
-scale = Vector2(0.3, 1.408)
+position = Vector2(-43.016396, 216.61539)
+scale = Vector2(0.6, 2.817)
 sprite_frames = SubResource("SpriteFrames_x7ctr")
 autoplay = "default"
 flip_h = true
 
 [node name="Right" type="AnimatedSprite2D" parent="Node2D/Icon" unique_id=1228772332]
-position = Vector2(53.508194, 137.84616)
-scale = Vector2(0.3, 1.408)
+position = Vector2(43.016396, 221.53845)
+scale = Vector2(0.6, 2.815)
 sprite_frames = SubResource("SpriteFrames_ekp6q")
 autoplay = "default"
 
