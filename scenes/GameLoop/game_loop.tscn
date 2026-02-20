@@ -8,6 +8,17 @@
 [ext_resource type="PackedScene" uid="uid://3ibhlt1dyusg" path="res://scenes/Player/player.tscn" id="5_t2325"]
 [ext_resource type="Texture2D" uid="uid://cwa5cxfykhn5y" path="res://assets/dots.png" id="8_5ts88"]
 
+[sub_resource type="Gradient" id="Gradient_vldm1"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5ts88"]
+gradient = SubResource("Gradient_vldm1")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
 [node name="GameLoop" type="Node2D" unique_id=1058436466]
 script = ExtResource("1_7f3si")
 crowd_reaction_timeout = 45.0
@@ -50,6 +61,11 @@ position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
+[node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=71324500]
+position = Vector2(3.5000114, -8.999981)
+energy = 1.21
+texture = SubResource("GradientTexture2D_5ts88")
+
 [node name="GhostCamera" type="Camera2D" parent="." unique_id=1831260324]
 limit_left = -960
 limit_top = -540
@@ -58,6 +74,9 @@ limit_bottom = 540
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1700915103]
+color = Color(0.78775924, 0.78775924, 0.78775924, 1)
 
 [connection signal="credits_menu_requested" from="UI/PauseMenu" to="UI" method="_on_pause_menu_credits_menu_requested"]
 [connection signal="settings_menu_requested" from="UI/PauseMenu" to="UI" method="_on_pause_menu_settings_menu_requested"]
