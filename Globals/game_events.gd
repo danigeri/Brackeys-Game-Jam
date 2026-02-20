@@ -32,9 +32,11 @@ func _set_ghost_mode(is_on: bool) -> void:
 	ghost_mode = is_on
 	ghost_mode_on.emit(is_on)
 
+
 func _change_act_to(act: int) -> void:
 	current_act = act
 	act_changed_to.emit(act)
+
 
 func change_act_to(act: int) -> void:
 	call_deferred("_change_act_to", act)

@@ -30,9 +30,7 @@ const ACT_2 = preload("uid://k2t6pk66rnl3")
 @onready var act_container: Node2D = $ActContainer
 
 
-
 func _ready() -> void:
-	
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 	#signals
@@ -40,7 +38,7 @@ func _ready() -> void:
 	GameEvents.easy_mode_on.connect(handle_easy_mode)
 	GameEvents.act_changed_to.connect(change_act)
 	GameEvents.change_act_to(1)
-	
+
 	#print("ready, required_total: ", required_total)
 	#print("ready, optional_total: ", optional_total)
 
@@ -52,23 +50,25 @@ func _process(delta: float) -> void:
 			record_timer -= RECORD_INTERVAL
 			positions.append(player.global_position)
 
-func change_act(act:int):
+
+func change_act(act: int):
 	print("change act", act)
 	for child in act_container.get_children():
 		child.queue_free()
 	var act_scene = null
 	var player_starting_position = Vector2.ZERO
 	match act:
-		1: 
+		1:
 			act_scene = ACT_1.instantiate()
-			player_starting_position = Vector2(-795,145)
-		2: 
+			player_starting_position = Vector2(-795, 145)
+		2:
 			act_scene = ACT_2.instantiate()
-			player_starting_position = Vector2(-790,-420)
-		
+			player_starting_position = Vector2(-790, -420)
+
 	act_container.add_child(act_scene)
 	player.update_starting_position(player_starting_position)
 	call_deferred("count_stars_palced_on_map")
+
 
 func handle_ghost_mode(is_ghost_mode) -> void:
 	use_ghost_camera(is_ghost_mode)
@@ -85,7 +85,7 @@ func handle_ghost_mode(is_ghost_mode) -> void:
 func reset_stars() -> void:
 	required_collected = 0
 	optional_collected = 0
-	for star in get_tree().get_nodes_in_group("stars"+str(GameEvents.current_act)):
+	for star in get_tree().get_nodes_in_group("stars" + str(GameEvents.current_act)):
 		star.reset_star()
 
 
@@ -137,9 +137,9 @@ func show_hide_cursor(is_ghost_mode):
 func count_stars_palced_on_map():
 	required_total = 0
 	optional_total = 0
-	print(get_tree().get_nodes_in_group("stars"+str(GameEvents.current_act)))
+	print(get_tree().get_nodes_in_group("stars" + str(GameEvents.current_act)))
 	print(str(GameEvents.current_act))
-	for star in get_tree().get_nodes_in_group("stars"+str(GameEvents.current_act)):
+	for star in get_tree().get_nodes_in_group("stars" + str(GameEvents.current_act)):
 		star.collected.connect(_on_star_collected)
 		if star.star_type == star.StarType.REQUIRED:
 			required_total += 1
@@ -147,6 +147,7 @@ func count_stars_palced_on_map():
 			optional_total += 1
 	print(required_total)
 	print(optional_total)
+
 
 func _on_star_collected(star):
 	if star.star_type == star.StarType.REQUIRED:
@@ -160,7 +161,7 @@ func _on_star_collected(star):
 	print("start collected")
 	if required_collected >= required_total:
 		print("start collected required total")
-		if (!GameEvents.ghost_mode):
+		if !GameEvents.ghost_mode:
 			GameEvents.set_ghost_mode(true)
 		else:
 			GameEvents.change_act_to(GameEvents.current_act + 1)

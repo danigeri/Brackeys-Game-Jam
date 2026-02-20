@@ -190,7 +190,7 @@ func jump() -> void:
 	velocity.y = JUMP_VELOCITY
 	jump_available = false
 
+
 func update_starting_position(_updated_starting_position: Vector2) -> void:
 	position = _updated_starting_position
 	starting_position = position
-	
