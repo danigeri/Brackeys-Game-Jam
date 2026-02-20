@@ -6,6 +6,8 @@ const PATH_DOT_SCENE = preload("uid://co43cv8qwqnmv")
 const CURTAIN_GHOST_RUN_BG = preload("uid://cmmtqnqiedirl")
 const CURTAIN_RECORD_RUN = preload("uid://bgdi2w3ntqvwv")
 
+@export var crowd_reaction_timeout = 30.0
+
 var positions = []
 var record_timer: float = 0.0
 
@@ -41,6 +43,11 @@ func _ready() -> void:
 
 	#print("ready, required_total: ", required_total)
 	#print("ready, optional_total: ", optional_total)
+
+	start_crowd_timer()
+	await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
+	# TODO: Tutorial happens between these two sounds
+	await SoundManager.play_sound_by_id(SoundManager.Sound.SPOTLIGHT).finished
 
 
 func _process(delta: float) -> void:
@@ -149,7 +156,22 @@ func count_stars_palced_on_map():
 	print(optional_total)
 
 
+func start_crowd_timer() -> void:
+	var random_crowd_noise_timer := Timer.new()
+
+	random_crowd_noise_timer.autostart = true
+	random_crowd_noise_timer.wait_time = crowd_reaction_timeout
+	random_crowd_noise_timer.connect("timeout", _on_timer_timeout)
+
+	add_child(random_crowd_noise_timer)
+
+
 func _on_star_collected(star):
+	if GameEvents.ghost_mode:
+		SoundManager.play_sound_by_id(SoundManager.Sound.STAR_PICKUP, "Muffled")
+	else:
+		SoundManager.play_sound_by_id(SoundManager.Sound.STAR_PICKUP)
+
 	if star.star_type == star.StarType.REQUIRED:
 		required_collected += 1
 	elif star.star_type == star.StarType.OPTIONAL:

@@ -159,7 +159,13 @@ func handle_platform_moving(delta) -> void:
 
 
 func handle_platform_release_and_hovering() -> void:
+	if not GameEvents.ghost_mode:
+		return
+
 	if Input.is_action_pressed("click") and is_hovering:
+		if not is_moving:
+			SoundManager.play_sound_by_id(SoundManager.Sound.PLATFORM_MOVE)
+
 		is_moving = true
 	else:
 		is_moving = false
