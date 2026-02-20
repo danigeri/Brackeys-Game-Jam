@@ -11,7 +11,7 @@ const FRICTION = 1000.0
 ## 0-384 will trigger during a simple vertical jump
 @export var crowd_sensitivity_on_falling = 450
 
-#player input record
+# player input record
 var records = []
 var record_index: int = 0
 var runtime: float = 0.0
@@ -28,7 +28,7 @@ var jump_available: bool = true
 var coyote_time: float = 0.15
 var jump_buffer: bool = false
 var jump_buffer_timer: float = 0.1
-var is_falling
+var is_falling: bool = false
 
 @onready var coyote_timer: Timer = $Coyote_Timer
 @onready var camera_2d: Camera2D = $Camera2D
@@ -53,7 +53,6 @@ func _physics_process(delta: float) -> void:
 
 		if jump_buffer:
 			jump()
-			#print("JUMP BUFFER: ", jump_buffer)
 			jump_buffer = false
 
 	var current_time = runtime
@@ -90,12 +89,10 @@ func _physics_process(delta: float) -> void:
 			record_index += 1
 
 	if Input.is_action_just_pressed("ghost_run"):
-		#print("GHOST_RUN pressed")
 		await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
 		GameEvents.set_ghost_mode(true)
 
 	if Input.is_action_just_pressed("player_run"):
-		#print("PLAYER_RUN pressed")
 		await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
 		GameEvents.set_ghost_mode(false)
 
@@ -181,21 +178,15 @@ func _save_record(input: InputRecord.InputType, current_time: float) -> void:
 	input_record.input_type = input
 	input_record.time = current_time
 	records.append(input_record)
-	#print("SAVED record: ", InputRecord.InputType.find_key(input_record.input_type),
-	#      " : ", input_record.time)
 
 
 func _play_input(input: InputRecord.InputType) -> void:
-	#print("USER input: ", InputRecord.InputType.find_key(input))
 	if input == InputRecord.InputType.UP:
-		if is_ghost_mode:
+		if jump_available:
 			jump()
 		else:
-			if jump_available:
-				jump()
-			else:
-				jump_buffer = true
-				get_tree().create_timer(jump_buffer_timer).timeout.connect(on_jump_buffer_timeout)
+			jump_buffer = true
+			get_tree().create_timer(jump_buffer_timer).timeout.connect(on_jump_buffer_timeout)
 
 	elif input == InputRecord.InputType.LEFT_PRESS:
 		left_button_is_down = true
@@ -219,7 +210,6 @@ func on_jump_buffer_timeout() -> void:
 
 
 func jump() -> void:
-	#print("JUMP BUFFER: ", jump_buffer)
 	velocity.y = JUMP_VELOCITY
 	jump_available = false
 
