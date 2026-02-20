@@ -135,9 +135,11 @@ func ghost_mode_on(value) -> void:
 
 	if value:
 		start_ghost_run()
+		set_modulate(Color())
 	else:
 		start_player_run()
 		camera_2d.make_current()
+		set_modulate(Color(1, 1, 1, 1))
 
 
 func start_ghost_run():
