@@ -8,6 +8,9 @@
 
 [node name="Act1" type="Node2D" unique_id=858034748]
 
+[node name="Environment" parent="." unique_id=1633693839 instance=ExtResource("3_yofwx")]
+position = Vector2(644, 298)
+
 [node name="Platform" parent="." unique_id=466164217 instance=ExtResource("1_ftaa2")]
 position = Vector2(-499, 210)
 dir = "x"
@@ -50,6 +53,3 @@ star_type = 1
 
 [node name="KillZone" parent="." unique_id=41493325 instance=ExtResource("5_killzone")]
 position = Vector2(-481, 351)
-
-[node name="Environment" parent="." unique_id=1633693839 instance=ExtResource("3_yofwx")]
-visible = false
