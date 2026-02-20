@@ -1,12 +1,16 @@
 extends CanvasLayer
 
 var menu_stack = []
+#custom cursor
+var pressed_cursor: Texture2D = preload("uid://ce0hb8pyl704b")
+var default_custom_cursor: Texture2D = preload("uid://cfjpyrl35fsfr")
 
 @onready var pause_menu = $PauseMenu
 @onready var settings_menu = $SettingsMenu
 
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	GameEvents.menu_back_pressed.connect(go_back)
 
 
@@ -16,9 +20,17 @@ func _input(event) -> void:
 			open_menu(pause_menu)
 		else:
 			go_back()
+	if event is InputEventMouseButton:
+		if event.pressed:
+			Input.set_custom_mouse_cursor(pressed_cursor, Input.CURSOR_ARROW, Vector2(24, 24))
+		else:
+			Input.set_custom_mouse_cursor(
+				default_custom_cursor, Input.CURSOR_ARROW, Vector2(24, 24)
+			)
 
 
 func open_menu(menu) -> void:
+	get_tree().paused = true
 	if not menu_stack.is_empty():
 		menu_stack.back().hide()
 	else:
