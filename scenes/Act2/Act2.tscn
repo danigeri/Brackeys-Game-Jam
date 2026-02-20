@@ -55,13 +55,13 @@ position = Vector2(800, 349)
 
 [node name="Star" parent="." unique_id=1164754737 groups=["stars2"] instance=ExtResource("7_6ovle")]
 position = Vector2(-146, -319)
-star_type = 1
 
 [node name="Star2" parent="." unique_id=1786637024 groups=["stars2"] instance=ExtResource("7_6ovle")]
 position = Vector2(228, 361)
 
 [node name="Star3" parent="." unique_id=1876686271 groups=["stars2"] instance=ExtResource("7_6ovle")]
 position = Vector2(794, 268)
+star_type = 1
 
 [node name="KillZone" parent="." unique_id=41493325 instance=ExtResource("8_g6irs")]
 position = Vector2(-481, 351)

@@ -161,7 +161,7 @@ func start_crowd_timer() -> void:
 
 	random_crowd_noise_timer.autostart = true
 	random_crowd_noise_timer.wait_time = crowd_reaction_timeout
-	random_crowd_noise_timer.connect("timeout", _on_timer_timeout)
+	#random_crowd_noise_timer.connect("timeout", _on_timer_timeout)
 
 	add_child(random_crowd_noise_timer)
 
