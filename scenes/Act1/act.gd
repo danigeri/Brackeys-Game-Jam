@@ -9,7 +9,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	MusicPlayer.play_act_1()
+	MusicPlayer.play_act(GameEvents.current_act)
 	GameEvents.ghost_mode_on.connect(_handle_ghost_mode_on)
 
 
