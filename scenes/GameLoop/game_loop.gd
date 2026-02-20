@@ -3,6 +3,8 @@ extends Node2D
 #player trail
 const RECORD_INTERVAL := 0.05  # 1 second
 const PATH_DOT_SCENE = preload("uid://co43cv8qwqnmv")
+const CURTAIN_GHOST_RUN_BG = preload("uid://cmmtqnqiedirl")
+const CURTAIN_RECORD_RUN = preload("uid://bgdi2w3ntqvwv")
 
 var positions = []
 var record_timer: float = 0.0
@@ -22,8 +24,6 @@ var optional_collected: int = 0
 @onready var path_dot_container: Node2D = $PathDotContainer
 @onready var curtain: Sprite2D = $Curtain
 
-const CURTAIN_GHOST_RUN_BG = preload("uid://cmmtqnqiedirl")
-const CURTAIN_RECORD_RUN = preload("uid://bgdi2w3ntqvwv")
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -52,7 +52,7 @@ func handle_ghost_mode(is_ghost_mode) -> void:
 	show_hide_cursor(is_ghost_mode)
 	reset_stars()
 	handle_player_path(is_ghost_mode)
-	
+
 	if is_ghost_mode:
 		curtain.texture = CURTAIN_GHOST_RUN_BG
 	else:
