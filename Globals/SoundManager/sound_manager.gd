@@ -54,6 +54,7 @@ func play_sfx(stream: AudioStream) -> AudioStreamPlayer:
 	var new_player = AudioStreamPlayer.new()
 	add_child(new_player)
 	
+	new_player.bus = "SFX"
 	new_player.stream = stream
 	new_player.play()
 	

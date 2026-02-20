@@ -147,4 +147,5 @@ func _trigger_ghost_mode():
 
 
 func _on_timer_timeout():
-	SoundManager.play_random_crowd_sound()
+	if GameEvents.ghost_mode:
+		SoundManager.play_random_crowd_sound()
