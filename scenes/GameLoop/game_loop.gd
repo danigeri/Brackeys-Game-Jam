@@ -42,6 +42,8 @@ func _ready() -> void:
 	
 	start_crowd_timer()
 	await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
+	# TODO: Tutorial happens between these two sounds
+	await SoundManager.play_sound_by_id(SoundManager.Sound.SPOTLIGHT).finished
 
 
 func _input(event: InputEvent) -> void:
