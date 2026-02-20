@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmmtqnqiedirl"
-path="res://.godot/imported/curtain_ghost_run_bg.png-a9fe56c00bfdcbc56296cf1cb4cde14c.ctex"
+uid="uid://ce0hb8pyl704b"
+path="res://.godot/imported/cursor2_harmad.png-54bcd86d16f47d6de399e6ac63ed31d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/curtain_ghost_run_bg.png"
-dest_files=["res://.godot/imported/curtain_ghost_run_bg.png-a9fe56c00bfdcbc56296cf1cb4cde14c.ctex"]
+source_file="res://assets/cursor/cursor2_harmad.png"
+dest_files=["res://.godot/imported/cursor2_harmad.png-54bcd86d16f47d6de399e6ac63ed31d1.ctex"]
 
 [params]
 

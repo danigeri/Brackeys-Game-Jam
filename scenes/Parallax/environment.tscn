@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://562kr87tx0wf"]
 
-[ext_resource type="Script" uid="uid://ei1xc4dy477c" path="res://scenes/Parallax/environment.gd" id="1_0dshf"]
+[ext_resource type="Script" path="res://scenes/Parallax/environment.gd" id="1_0dshf"]
 [ext_resource type="Texture2D" uid="uid://b6c3wjirwjxy0" path="res://scenes/Parallax/Layers/layer09_Sky.png" id="1_0e0uu"]
 [ext_resource type="Texture2D" uid="uid://bjn4y232xsixf" path="res://assets/background/act1-layers/act1_layer_8.png" id="3_0dshf"]
 [ext_resource type="Texture2D" uid="uid://cv3qg26nv5o7c" path="res://assets/background/act1-layers/act1_layer_7.png" id="4_kbdq4"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://v1l3p8fvb1i7" path="res://assets/background/act1-layers/act1_layer_4.png" id="7_1a3dw"]
 [ext_resource type="Texture2D" uid="uid://vpuhh0gvb1eg" path="res://assets/background/act1-layers/act1_layer_3.png" id="8_i8eu5"]
 [ext_resource type="Texture2D" uid="uid://bv01o5lb6d2nx" path="res://assets/background/act1-layers/act1_layer_2.png" id="9_4adhj"]
-[ext_resource type="Texture2D" uid="uid://bgdi2w3ntqvwv" path="res://assets/curtain_record_run.png" id="10_cg5hk"]
+[ext_resource type="Texture2D" uid="uid://bgdi2w3ntqvwv" path="res://assets/curtains/curtain_record_run.png" id="10_cg5hk"]
 [ext_resource type="Texture2D" uid="uid://uqkudoalrotd" path="res://assets/background/act1-layers/act1_layer_1.png" id="10_ehdal"]
 [ext_resource type="Texture2D" uid="uid://3uxbl0sfqriw" path="res://assets/background/act1-layers/act1_layer_full.png" id="11_kbdq4"]
 
