@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ybfc6cyxat36"
-path="res://.godot/imported/curtain_opening.png-17f2761d69ebf381d18a54039e647d3b.ctex"
+uid="uid://cqo5ewah80vds"
+path="res://.godot/imported/strange_places_run_012.png-6e1ea48065b824e5ffd4e7dbe3d99bb7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/curtain_opening.png"
-dest_files=["res://.godot/imported/curtain_opening.png-17f2761d69ebf381d18a54039e647d3b.ctex"]
+source_file="res://assets/player/run/strange_places_run_012.png"
+dest_files=["res://.godot/imported/strange_places_run_012.png-6e1ea48065b824e5ffd4e7dbe3d99bb7.ctex"]
 
 [params]
 

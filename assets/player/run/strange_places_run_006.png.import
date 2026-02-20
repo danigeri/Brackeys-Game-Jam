@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce0hb8pyl704b"
-path="res://.godot/imported/cursor2_harmad.png-e785f2d019d0f97688c815d9fac36acc.ctex"
+uid="uid://dehhblympkvqq"
+path="res://.godot/imported/strange_places_run_006.png-7669f7a1d50cb61fc883471cac7a8cd9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cursor2_harmad.png"
-dest_files=["res://.godot/imported/cursor2_harmad.png-e785f2d019d0f97688c815d9fac36acc.ctex"]
+source_file="res://assets/player/run/strange_places_run_006.png"
+dest_files=["res://.godot/imported/strange_places_run_006.png-7669f7a1d50cb61fc883471cac7a8cd9.ctex"]
 
 [params]
 
