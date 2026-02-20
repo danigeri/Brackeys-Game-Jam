@@ -28,7 +28,7 @@ var jump_available: bool = true
 var coyote_time: float = 0.15
 var jump_buffer: bool = false
 var jump_buffer_timer: float = 0.1
-var is_falling
+var is_falling: bool = false
 
 @onready var coyote_timer: Timer = $Coyote_Timer
 @onready var camera_2d: Camera2D = $Camera2D

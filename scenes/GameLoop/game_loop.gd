@@ -8,6 +8,10 @@ const PATH_DOT_SCENE = preload("uid://co43cv8qwqnmv")
 const ACT_1 = preload("uid://dc6mlfql3moyl")
 const ACT_2 = preload("uid://k2t6pk66rnl3")
 
+#acts
+const ACT_1 = preload("uid://dc6mlfql3moyl")
+const ACT_2 = preload("uid://k2t6pk66rnl3")
+
 @export var crowd_reaction_timeout = 30.0
 
 var positions = []
@@ -189,3 +193,8 @@ func handle_easy_mode(is_on) -> void:
 		clear_line_positions()
 	elif GameEvents.ghost_mode:
 		draw_player_path()
+
+
+func _on_timer_timeout():
+	if not GameEvents.ghost_mode:
+		SoundManager.play_random_crowd_sound()
