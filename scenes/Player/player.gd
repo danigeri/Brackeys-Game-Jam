@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 		if jump_buffer:
 			jump()
 			jump_buffer = false
-			print("JUMP BUFFER: ", jump_buffer)
+			#print("JUMP BUFFER: ", jump_buffer)
 
 	var current_time = runtime
 	# Handle jump.
@@ -63,7 +63,7 @@ func _physics_process(delta: float) -> void:
 				_save_record(InputRecord.InputType.UP, current_time)
 			else:
 				jump_buffer = true
-				print("JUMP BUFFER: ", jump_buffer)
+				#print("JUMP BUFFER: ", jump_buffer)
 				get_tree().create_timer(jump_buffer_timer).timeout.connect(on_jump_buffer_timeout)
 
 		if Input.is_action_just_pressed("left"):
@@ -186,7 +186,7 @@ func coyote_timeout() -> void:
 
 
 func on_jump_buffer_timeout() -> void:
-	print("JUMP BUFFER: ", jump_buffer)
+	#print("JUMP BUFFER: ", jump_buffer)
 	jump_buffer = false
 
 
