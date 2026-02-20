@@ -29,7 +29,8 @@ curtain_sound = ExtResource("8_voo08")
 cheer_act_finish_sound = ExtResource("9_veefb")
 cheer_game_finish_sound = ExtResource("10_fup8g")
 set_move_sound = ExtResource("11_2wqa8")
-crowd_sounds = Array[AudioStream]([ExtResource("4_sotl8"), ExtResource("5_5pkv0"), ExtResource("6_k8fwk"), ExtResource("7_x1qd5"), ExtResource("8_5pkv0")])
+crowd_sounds = Array[AudioStream]([ExtResource("4_sotl8"), ExtResource("8_5pkv0")])
+non_repeating_crowd_sounds = Array[AudioStream]([ExtResource("5_5pkv0"), ExtResource("7_x1qd5"), ExtResource("6_k8fwk")])
 
 [node name="SfxPlayer" type="AudioStreamPlayer" parent="." unique_id=1660170897]
 process_mode = 3

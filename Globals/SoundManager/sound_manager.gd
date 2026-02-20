@@ -24,6 +24,7 @@ enum Sound {
 @export var cheer_game_finish_sound: AudioStream
 @export var set_move_sound: AudioStream
 @export var crowd_sounds: Array[AudioStream]
+@export var non_repeating_crowd_sounds: Array[AudioStream]
 
 var sound_library: Dictionary
 var active_sounds = {}
@@ -69,4 +70,12 @@ func play_sfx(stream: AudioStream, bus: String) -> AudioStreamPlayer:
 
 
 func play_random_crowd_sound() -> AudioStreamPlayer:
-	return play_sfx(crowd_sounds.pick_random(), "SFX")
+	var random_sound: AudioStream
+	if not non_repeating_crowd_sounds.is_empty() and [true, false].pick_random():
+		var random_sound_id = range(0, non_repeating_crowd_sounds.size()).pick_random()
+		random_sound = non_repeating_crowd_sounds[random_sound_id]
+		non_repeating_crowd_sounds.remove_at(random_sound_id)
+	else:
+		random_sound = crowd_sounds.pick_random()
+	
+	return play_sfx(random_sound, "SFX")
