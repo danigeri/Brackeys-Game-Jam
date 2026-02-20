@@ -20,6 +20,11 @@ var starting_position
 var left_button_is_down: bool = false
 var right_button_is_down: bool = false
 
+# coyote time:
+var jump_available: bool = true
+var coyote_time: float = 0.15
+@onready var coyote_timer: Timer = $Coyote_Timer
+
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -34,14 +39,22 @@ func _physics_process(delta: float) -> void:
 
 	# Add the gravity.
 	if not is_on_floor():
+		if jump_available:
+			if coyote_timer.is_stopped():
+				coyote_timer.start(coyote_time)
+
 		velocity += get_gravity() * delta
+	else:
+		jump_available = true
+		coyote_timer.stop()
 
 	var current_time = runtime
 	# Handle jump.
 	if not is_ghost_mode:
-		if Input.is_action_just_pressed("up") and is_on_floor():
+		if Input.is_action_just_pressed("up") and jump_available:
 			velocity.y = JUMP_VELOCITY
 			_save_record(InputRecord.InputType.UP, current_time)
+			jump_available = false
 
 		if Input.is_action_just_pressed("left"):
 			_save_record(InputRecord.InputType.LEFT_PRESS, current_time)
@@ -150,9 +163,13 @@ func _save_record(input: InputRecord.InputType, current_time: float) -> void:
 
 func _play_input(input: InputRecord.InputType) -> void:
 	#print("USER input: ", InputRecord.InputType.find_key(input))
-	if input == InputRecord.InputType.UP and is_on_floor():
+	if input == InputRecord.InputType.UP and jump_available:
 		velocity.y = JUMP_VELOCITY
 	elif input == InputRecord.InputType.LEFT_PRESS or input == InputRecord.InputType.LEFT_RELEASE:
 		left_button_is_down = (input == InputRecord.InputType.LEFT_PRESS)
 	elif input == InputRecord.InputType.RIGHT_PRESS or input == InputRecord.InputType.RIGHT_RELEASE:
 		right_button_is_down = (input == InputRecord.InputType.RIGHT_PRESS)
+
+
+func coyote_timeout() -> void:
+	jump_available = false
