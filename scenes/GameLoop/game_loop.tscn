@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://inxv7ghoaf62" path="res://UI/Menus/PauseMenu/pause_menu.tscn" id="2_u3r3m"]
 [ext_resource type="PackedScene" uid="uid://c55vl17w7kkn0" path="res://UI/Menus/SettingsMenu/settings_menu.tscn" id="4_x7b5a"]
 [ext_resource type="PackedScene" uid="uid://562kr87tx0wf" path="res://scenes/Environment/environment.tscn" id="5_73e4h"]
+[ext_resource type="PackedScene" uid="uid://b84w6vkq7v580" path="res://UI/press_restart_overlay.tscn" id="5_o2r4w"]
 [ext_resource type="PackedScene" uid="uid://3ibhlt1dyusg" path="res://scenes/Player/player.tscn" id="5_t2325"]
 [ext_resource type="Texture2D" uid="uid://cwa5cxfykhn5y" path="res://assets/dots.png" id="8_5ts88"]
 [ext_resource type="Texture2D" uid="uid://spwm537qmtem" path="res://gradient_texture_regular.tres" id="8_73e4h"]
@@ -19,6 +20,9 @@ script = ExtResource("2_ksmgf")
 visible = false
 
 [node name="SettingsMenu" parent="UI" unique_id=361400704 instance=ExtResource("4_x7b5a")]
+visible = false
+
+[node name="PressRestartOverlay" parent="UI" unique_id=500854039 instance=ExtResource("5_o2r4w")]
 visible = false
 
 [node name="Environment" parent="." unique_id=1633693839 instance=ExtResource("5_73e4h")]

@@ -4,11 +4,13 @@ signal menu_back_pressed
 signal ghost_mode_on(value: bool)
 signal easy_mode_on(value: bool)
 signal act_changed_to(act: int)
+signal records_completed
 
 var ghost_mode: bool = false
 var easy_mode: bool = false
 var death_counter = 0
 var current_act = 1
+var no_moves_left: bool = false
 
 
 func show_cursor() -> void:

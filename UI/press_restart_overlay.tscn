@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://b84w6vkq7v580"]
+
+[ext_resource type="Script" uid="uid://cxd6h04qfxwi5" path="res://UI/press_restart_overlay.gd" id="1_g56ua"]
+[ext_resource type="FontFile" uid="uid://dmjao2wsks8te" path="res://assets/fonts/Black Drama Demo.ttf" id="1_vfkp8"]
+
+[node name="PressRestartOverlay" type="Control" unique_id=500854039]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g56ua")
+
+[node name="Label" type="Label" parent="." unique_id=135829704]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 782.0
+offset_right = 1922.0
+offset_bottom = 905.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.837)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_vfkp8")
+theme_override_font_sizes/font_size = 60
+text = "no moves left
+press space to restart"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=209011512]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

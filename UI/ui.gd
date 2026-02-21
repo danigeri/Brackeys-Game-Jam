@@ -7,6 +7,7 @@ var default_custom_cursor: Texture2D = preload("uid://cfjpyrl35fsfr")
 
 @onready var pause_menu = $PauseMenu
 @onready var settings_menu = $SettingsMenu
+@onready var press_restart_overlay: Control = $PressRestartOverlay
 
 
 func _ready() -> void:
