@@ -6,7 +6,8 @@ const PATH_DOT_SCENE = preload("uid://co43cv8qwqnmv")
 
 #acts
 const ACT_1 = preload("uid://dc6mlfql3moyl")
-const ACT_2 = preload("uid://k2t6pk66rnl3")
+const ACT_2 = preload("uid://dkqrhp8obyxw4")
+const ACT_3 = preload("uid://k2t6pk66rnl3")
 
 const REGULAR_GRADIENT_TEXTURE = preload("res://gradient_texture_regular.tres")
 const GHOST_GRADIENT_TEXTURE = preload("res://gradient_texture_ghost.tres")
