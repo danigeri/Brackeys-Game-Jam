@@ -66,7 +66,7 @@ func _process(delta: float) -> void:
 
 
 func change_act(act: int):
-	print("change act", act)
+	#print("change act", act)
 	for child in act_container.get_children():
 		child.queue_free()
 	var act_scene = null
@@ -103,12 +103,12 @@ func handle_ghost_mode(is_ghost_mode):
 func reset_stars() -> void:
 	required_collected = 0
 	optional_collected = 0
-	print("RESET")
+	#print("RESET")
 	for star in get_tree().get_nodes_in_group("stars" + str(GameEvents.current_act)):
 		star.reset_star()
 
-	print("ready, required_total: ", required_total)
-	print("ready, optional_total: ", optional_total)
+	#print("ready, required_total: ", required_total)
+	#print("ready, optional_total: ", optional_total)
 
 
 func use_ghost_camera(is_ghost_mode) -> void:
@@ -159,16 +159,16 @@ func show_hide_cursor(is_ghost_mode):
 func count_stars_palced_on_map():
 	required_total = 0
 	optional_total = 0
-	print(get_tree().get_nodes_in_group("stars" + str(GameEvents.current_act)))
-	print(str(GameEvents.current_act))
+	#print(get_tree().get_nodes_in_group("stars" + str(GameEvents.current_act)))
+	#print(str(GameEvents.current_act))
 	for star in get_tree().get_nodes_in_group("stars" + str(GameEvents.current_act)):
 		star.collected.connect(_on_star_collected)
 		if star.star_type == star.StarType.REQUIRED:
 			required_total += 1
 		elif star.star_type == star.StarType.OPTIONAL:
 			optional_total += 1
-	print("ready, required_total: ", required_total)
-	print("ready, optional_total: ", optional_total)
+	#print("ready, required_total: ", required_total)
+	#print("ready, optional_total: ", optional_total)
 
 
 func start_crowd_timer() -> void:
@@ -176,9 +176,11 @@ func start_crowd_timer() -> void:
 
 	random_crowd_noise_timer.autostart = true
 	random_crowd_noise_timer.wait_time = crowd_reaction_timeout
-	#random_crowd_noise_timer.connect("timeout", _on_timer_timeout)
+	random_crowd_noise_timer.connect("timeout", _on_timer_timeout)
 
 	add_child(random_crowd_noise_timer)
+	#print("SOUND, start_crowd_timer : ", random_crowd_noise_timer.wait_time)
+	#print("SOUND, time : ", Time.get_datetime_dict_from_system())
 
 
 func _on_star_collected(star):
@@ -189,17 +191,17 @@ func _on_star_collected(star):
 
 	if star.star_type == star.StarType.REQUIRED:
 		required_collected += 1
-		print("STAR required_collected: ", required_collected)
+		#print("STAR required_collected: ", required_collected)
 	elif star.star_type == star.StarType.OPTIONAL:
 		optional_collected += 1
-		print("STAR optional_collected: ", optional_collected)
+		#print("STAR optional_collected: ", optional_collected)
 
 	if required_collected >= required_total:
 		if !GameEvents.ghost_mode:
-			print("STAR ghost mode triggered: ", optional_collected)
+			#print("STAR ghost mode triggered: ", optional_collected)
 			GameEvents.set_ghost_mode(true)
 		else:
-			print("STAR next act triggered: ", optional_collected)
+			#print("STAR next act triggered: ", optional_collected)
 			GameEvents.change_act_to(GameEvents.current_act + 1)
 			GameEvents.set_ghost_mode(false)
 
@@ -212,5 +214,8 @@ func handle_easy_mode(is_on) -> void:
 
 
 func _on_timer_timeout():
+	#print("SOUND, ghost_mode : ", GameEvents.ghost_mode)
+	#print("SOUND, time : ", Time.get_datetime_dict_from_system())
+
 	if not GameEvents.ghost_mode:
 		SoundManager.play_random_crowd_sound()
