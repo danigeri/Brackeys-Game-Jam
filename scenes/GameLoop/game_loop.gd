@@ -86,28 +86,22 @@ func change_act(act: int):
 
 
 func curtain_in_and_out(act: int) -> void:
-	player_camera.visible = false
-	player_camera.set_position_smoothing_speed(1.0)
-	ghost_camera.make_current()
+	player_camera.zoom = Vector2(1.0,1.0)
 	point_light_2d.visible = false
-	
+
 	curtain_effect.visible = true
 	curtain_effect.set_act_number(act)
 	
-	Engine.time_scale = 0.0
-	await get_tree().create_timer(0.75, true, false, true).timeout
-	Engine.time_scale = 2.0
-	
+	await get_tree().create_timer(0.8).timeout
 	await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
 	curtain_effect.visible = false
+	
 	await get_tree().create_timer(0.3).timeout
 	point_light_2d.visible = true
 	await SoundManager.play_sound_by_id(SoundManager.Sound.SPOTLIGHT).finished
 
-	player_camera.visible = true
-	player_camera.make_current()
-	await get_tree().create_timer(2).timeout
-	player_camera.set_position_smoothing_speed(5.0)
+	var tween = create_tween()
+	tween.tween_property(player_camera, "zoom", Vector2(1.6, 1.6), 0.5)
 
 
 func handle_ghost_mode(is_ghost_mode) -> void:
