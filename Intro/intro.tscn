@@ -53,18 +53,18 @@ script = ExtResource("1_htspg")
 [node name="Background" type="ColorRect" parent="." unique_id=1157964384]
 y_sort_enabled = true
 layout_mode = 0
-offset_left = -36.0
-offset_top = -42.0
-offset_right = 1995.0
-offset_bottom = 1124.0
+offset_left = 381.0
+offset_top = 178.0
+offset_right = 2412.0
+offset_bottom = 1344.0
 color = Color(0, 0, 0, 1)
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=989055687]
 layout_mode = 0
-offset_left = 401.0
-offset_top = 230.0
-offset_right = 2124.0
-offset_bottom = 1171.0
+offset_left = 860.0
+offset_top = 487.0
+offset_right = 2384.3733
+offset_bottom = 1339.8572
 scale = Vector2(0.7, 0.7)
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="AspectRatioContainer" unique_id=246764384]
@@ -79,10 +79,10 @@ bus = &"Music"
 
 [node name="FaderColor" type="ColorRect" parent="." unique_id=1471557361]
 layout_mode = 0
-offset_left = -57.0
-offset_top = -55.0
-offset_right = 2033.0
-offset_bottom = 1140.0
+offset_left = 354.0
+offset_top = 174.0
+offset_right = 2444.0
+offset_bottom = 1369.0
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=136258068]
