@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dbmomybyv6vrt" path="res://scenes/Act1/act.gd" id="1_ae7cj"]
 [ext_resource type="PackedScene" uid="uid://cmvu72hfj0uu4" path="res://scenes/Platform/platform.tscn" id="1_ftaa2"]
+[ext_resource type="Texture2D" uid="uid://ceu3rptwym1vv" path="res://assets/background/act1-layers/level1_fx_full.png" id="2_11emk"]
 [ext_resource type="PackedScene" uid="uid://c7xrocq7m8k0u" path="res://scenes/Ground/ground.tscn" id="2_yofwx"]
 [ext_resource type="Texture2D" uid="uid://c5s0r0ilyxv54" path="res://scenes/Act1/act1_ghost_layer1.png" id="3_ae7cj"]
 [ext_resource type="Texture2D" uid="uid://cmmtqnqiedirl" path="res://assets/curtains/curtain_ghost_run_bg.png" id="4_11emk"]
@@ -14,6 +15,7 @@
 script = ExtResource("1_ae7cj")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1651066246]
+texture = ExtResource("2_11emk")
 
 [node name="GhostBackground" type="Sprite2D" parent="." unique_id=1366409566]
 visible = false
