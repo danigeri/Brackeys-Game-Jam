@@ -13,6 +13,7 @@ var tween: Tween
 var is_playing: bool = false
 var ease_mode = Tween.EASE_IN_OUT
 
+
 func _ready() -> void:
 	layer = 100  # renders above everything, including your game UI
 
