@@ -19,7 +19,7 @@ fill_from = Vector2(0.5, 0.4871795)
 size = Vector2(156, 54)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7j252"]
-size = Vector2(126, 32)
+size = Vector2(122, 26)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kqafi"]
 atlas = ExtResource("4_harwm")
