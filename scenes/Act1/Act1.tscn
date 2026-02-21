@@ -34,6 +34,7 @@ visible = false
 texture = ExtResource("4_aosy8")
 
 [node name="Curtain" type="Sprite2D" parent="." unique_id=2012937276]
+z_index = 1
 texture = ExtResource("6_ij5lp")
 
 [node name="Platform" parent="." unique_id=466164217 instance=ExtResource("1_ftaa2")]
