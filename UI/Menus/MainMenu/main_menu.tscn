@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c64idl1pun738"]
 
 [ext_resource type="Script" uid="uid://1ik2fjtqa7qp" path="res://UI/Menus/MainMenu/main_menu.gd" id="1_nhkf3"]
+[ext_resource type="Texture2D" uid="uid://ybfc6cyxat36" path="res://assets/curtains/curtain_opening.png" id="2_biwnh"]
 
 [node name="MainMenu" type="Control" unique_id=1063606464]
 layout_mode = 3
@@ -10,6 +11,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nhkf3")
+
+[node name="CurtainBG" type="Sprite2D" parent="." unique_id=769713568]
+position = Vector2(962, 542)
+texture = ExtResource("2_biwnh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=635006360]
 layout_mode = 1
@@ -27,7 +32,8 @@ grow_vertical = 2
 
 [node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=2087660580]
 layout_mode = 2
-text = "GerappaGamesTemplate"
+text = "Comedia"
+horizontal_alignment = 1
 
 [node name="StartButton" type="Button" parent="VBoxContainer" unique_id=990528875]
 layout_mode = 2

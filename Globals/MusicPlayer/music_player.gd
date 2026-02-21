@@ -10,11 +10,6 @@ const NORMAL_DB = 0.0
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 
-func start_music() -> void:
-	audio_stream_player.stream = MAIN_MENU_MUSIC
-	audio_stream_player.play()
-
-
 ##act change signallal és egy swtich-ben jobb lenne de így bután is működik
 ##ha az act-ek ready-jében meghívjuk
 func play_act(act: int) -> void:
