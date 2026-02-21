@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var environment: Node2D = $Environment
+@onready var background: Sprite2D = $Background
 @onready var ghost_background: Sprite2D = $GhostBackground
 @onready var ghost_background_layer_2: Sprite2D = $GhostBackgroundLayer2
 @onready var curtain: Sprite2D = $Curtain
@@ -14,7 +14,7 @@ func _ready() -> void:
 
 
 func _handle_ghost_mode_on(is_on: bool):
-	environment.visible = not is_on
+	background.visible = not is_on
 	ghost_background.visible = is_on
 	ghost_background_layer_2.visible = is_on
 	curtain.visible = !is_on
