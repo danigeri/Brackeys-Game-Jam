@@ -106,7 +106,7 @@ func reset_stars() -> void:
 	print("RESET")
 	for star in get_tree().get_nodes_in_group("stars" + str(GameEvents.current_act)):
 		star.reset_star()
-		
+
 	print("ready, required_total: ", required_total)
 	print("ready, optional_total: ", optional_total)
 
@@ -193,7 +193,7 @@ func _on_star_collected(star):
 	elif star.star_type == star.StarType.OPTIONAL:
 		optional_collected += 1
 		print("STAR optional_collected: ", optional_collected)
-	
+
 	if required_collected >= required_total:
 		if !GameEvents.ghost_mode:
 			print("STAR ghost mode triggered: ", optional_collected)
