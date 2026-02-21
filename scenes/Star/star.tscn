@@ -1,7 +1,64 @@
 [gd_scene format=3 uid="uid://bn7lxk0ph8aym"]
 
-[ext_resource type="Texture2D" uid="uid://bpk8mwrd5w4tv" path="res://icon.svg" id="1_640aq"]
 [ext_resource type="Script" uid="uid://djq7mkv372ovk" path="res://scenes/Star/star.gd" id="1_ddach"]
+[ext_resource type="Texture2D" uid="uid://cn242qcogpyuf" path="res://assets/star/star.png" id="2_6jgf2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fktpo"]
+atlas = ExtResource("2_6jgf2")
+region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bki61"]
+atlas = ExtResource("2_6jgf2")
+region = Rect2(300, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rq38e"]
+atlas = ExtResource("2_6jgf2")
+region = Rect2(600, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsw5y"]
+atlas = ExtResource("2_6jgf2")
+region = Rect2(900, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b432y"]
+atlas = ExtResource("2_6jgf2")
+region = Rect2(1200, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4opy"]
+atlas = ExtResource("2_6jgf2")
+region = Rect2(1500, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnmxu"]
+atlas = ExtResource("2_6jgf2")
+region = Rect2(1800, 0, 300, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yko70"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fktpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bki61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rq38e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsw5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b432y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4opy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnmxu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgif7"]
 size = Vector2(128, 128)
@@ -9,9 +66,11 @@ size = Vector2(128, 128)
 [node name="Star" type="Area2D" unique_id=1164754737]
 script = ExtResource("1_ddach")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=288951724]
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("1_640aq")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1603045144]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_yko70")
+autoplay = "default"
+frame_progress = 0.6736072
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2144517963]
 scale = Vector2(0.4, 0.4)
