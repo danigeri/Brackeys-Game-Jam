@@ -61,7 +61,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgif7"]
-size = Vector2(128, 128)
+size = Vector2(274.99997, 114.99999)
 
 [sub_resource type="Gradient" id="Gradient_vldm1"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -84,11 +84,12 @@ autoplay = "default"
 frame_progress = 0.21506223
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2144517963]
+position = Vector2(0, -4.9999995)
 scale = Vector2(0.4, 0.4)
 shape = SubResource("RectangleShape2D_mgif7")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1235468326]
-position = Vector2(0.9999914, 0.9999943)
+position = Vector2(-5.9604645e-08, 1)
 scale = Vector2(0.5234375, 0.5390625)
 color = Color(1, 1, 0.7432059, 1)
 energy = 0.48

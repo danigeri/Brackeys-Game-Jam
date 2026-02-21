@@ -77,7 +77,7 @@ position = Vector2(-208, 156)
 position = Vector2(116, -118)
 
 [node name="Star3" parent="." unique_id=987306707 groups=["stars1"] instance=ExtResource("4_star")]
-position = Vector2(460, 266)
+position = Vector2(500, 273)
 star_type = 1
 
 [node name="KillZone" parent="." unique_id=41493325 instance=ExtResource("5_killzone")]
