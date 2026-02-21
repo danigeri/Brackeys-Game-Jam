@@ -12,6 +12,7 @@ var death_counter = 0
 var current_act = 1
 var no_moves_left: bool = false
 
+
 func show_cursor() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	Input.warp_mouse(get_viewport().get_visible_rect().size / 2)

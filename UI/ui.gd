@@ -41,7 +41,6 @@ func open_menu(menu) -> void:
 	menu.show()
 
 
-
 func go_back() -> void:
 	var current_menu = menu_stack.pop_back()
 	current_menu.hide()

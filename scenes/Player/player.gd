@@ -87,10 +87,10 @@ func _physics_process(delta: float) -> void:
 
 			_play_input(current_record.input_type)
 			record_index += 1
-		
+
 		if not GameEvents.no_moves_left and record_index >= records.size() and records.size() > 0:
 			GameEvents.no_moves_left = true
-			await get_tree().create_timer(2.0).timeout # simple timer before showing the restart overlay
+			await get_tree().create_timer(2.0).timeout  # simple timer before showing the restart overlay
 			GameEvents.records_completed.emit()
 
 	if Input.is_action_just_pressed("ghost_run"):
