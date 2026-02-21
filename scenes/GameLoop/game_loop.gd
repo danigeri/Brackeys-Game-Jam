@@ -52,7 +52,7 @@ func _ready() -> void:
 	#print("ready, optional_total: ", optional_total)
 
 	start_crowd_timer()
-	
+
 	point_light_2d.texture = REGULAR_GRADIENT_TEXTURE
 	point_light_2d.energy = energy_regular_run
 
@@ -86,16 +86,16 @@ func change_act(act: int):
 
 
 func curtain_in_and_out(act: int) -> void:
-	player_camera.zoom = Vector2(1.0,1.0)
+	player_camera.zoom = Vector2(1.0, 1.0)
 	point_light_2d.visible = false
 
 	curtain_effect.visible = true
 	curtain_effect.set_act_number(act)
-	
+
 	await get_tree().create_timer(0.8).timeout
 	await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
 	curtain_effect.visible = false
-	
+
 	await get_tree().create_timer(0.3).timeout
 	point_light_2d.visible = true
 	await SoundManager.play_sound_by_id(SoundManager.Sound.SPOTLIGHT).finished
