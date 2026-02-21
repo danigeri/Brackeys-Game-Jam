@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjn4y232xsixf"
-path="res://.godot/imported/act1_layer_8.png-6c55a4e0e7bc4d234b9a04ce261d3f9c.ctex"
+uid="uid://burttk6tp4gav"
+path="res://.godot/imported/act3_fx__0006_06-felhok-bg.png-f346235317a2ba01f8e0686f688257e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/act1-layers/act1_layer_8.png"
-dest_files=["res://.godot/imported/act1_layer_8.png-6c55a4e0e7bc4d234b9a04ce261d3f9c.ctex"]
+source_file="res://assets/background/act3-layers/act3_fx__0006_06-felhok-bg.png"
+dest_files=["res://.godot/imported/act3_fx__0006_06-felhok-bg.png-f346235317a2ba01f8e0686f688257e6.ctex"]
 
 [params]
 

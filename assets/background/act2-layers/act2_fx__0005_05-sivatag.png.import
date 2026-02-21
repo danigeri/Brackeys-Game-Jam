@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3uxbl0sfqriw"
-path="res://.godot/imported/act1_layer_full.png-1422db7adb1d30abe2b461e74960aee3.ctex"
+uid="uid://b4gghwkloyy6a"
+path="res://.godot/imported/act2_fx__0005_05-sivatag.png-e54be61a8669879022c5caff7eb4db9f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/act1-layers/act1_layer_full.png"
-dest_files=["res://.godot/imported/act1_layer_full.png-1422db7adb1d30abe2b461e74960aee3.ctex"]
+source_file="res://assets/background/act2-layers/act2_fx__0005_05-sivatag.png"
+dest_files=["res://.godot/imported/act2_fx__0005_05-sivatag.png-e54be61a8669879022c5caff7eb4db9f.ctex"]
 
 [params]
 

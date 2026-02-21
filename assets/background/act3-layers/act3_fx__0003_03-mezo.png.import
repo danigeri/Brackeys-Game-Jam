@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ix0ncpdbqvnr"
-path="res://.godot/imported/act1_layer_5.png-a65544a68e340fe58b69ecf457347368.ctex"
+uid="uid://ckltknbsebxnt"
+path="res://.godot/imported/act3_fx__0003_03-mezo.png-341c17f4e4c190f03dcbbeb3280fb575.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/act1-layers/act1_layer_5.png"
-dest_files=["res://.godot/imported/act1_layer_5.png-a65544a68e340fe58b69ecf457347368.ctex"]
+source_file="res://assets/background/act3-layers/act3_fx__0003_03-mezo.png"
+dest_files=["res://.godot/imported/act3_fx__0003_03-mezo.png-341c17f4e4c190f03dcbbeb3280fb575.ctex"]
 
 [params]
 
