@@ -6,7 +6,7 @@ on:
 env:
   GODOT_VERSION: 4.6
   ITCH_USERNAME: zahkros
-  ITCH_GAME_ID: wagner
+  ITCH_GAME_ID:  comedia
 
 jobs:
   build:
