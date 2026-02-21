@@ -55,7 +55,7 @@ func _ready() -> void:
 	# TODO: Tutorial happens between these two sounds
 	await SoundManager.play_sound_by_id(SoundManager.Sound.SPOTLIGHT).finished
 
-	point_light_2d.texture = regular_gradient_texture
+	point_light_2d.texture = REGULAR_GRADIENT_TEXTURE
 	point_light_2d.energy = energy_regular_run
 
 
@@ -92,10 +92,10 @@ func handle_ghost_mode(is_ghost_mode) -> void:
 	reset_stars()
 	handle_player_path(is_ghost_mode)
 	if is_ghost_mode:
-		point_light_2d.texture = ghost_gradient_texture
+		point_light_2d.texture = GHOST_GRADIENT_TEXTURE
 		point_light_2d.energy = energy_ghost_run
 	else:
-		point_light_2d.texture = regular_gradient_texture
+		point_light_2d.texture = REGULAR_GRADIENT_TEXTURE
 		point_light_2d.energy = energy_regular_run
 
 
