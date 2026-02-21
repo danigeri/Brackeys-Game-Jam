@@ -38,7 +38,7 @@ void fragment() {
     vec4 color = vec4(r, g, b, 1.0);
 
     // Dream tint - scales with how active the effect is
-    float effect_amount = clamp(wave_intensity / 0.02, 0.0, 1.0);
+    float effect_amount = clamp(wave_intensity / 0.05, 0.0, 1.0);
     color.rgb = mix(color.rgb, color.rgb * dream_tint.rgb, tint_strength * effect_amount);
 
     // Brightness glow

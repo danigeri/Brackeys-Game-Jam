@@ -9,8 +9,8 @@ shader_parameter/wave_intensity = 0.0
 shader_parameter/noise_strength = 0.0
 shader_parameter/wave_frequency = 9.5610004066475
 shader_parameter/wave_speed = 3.57600016660012
-shader_parameter/dream_tint = Color(0.75, 0.85, 1, 1)
-shader_parameter/tint_strength = 0.3
+shader_parameter/dream_tint = Color(0, 0, 0, 1)
+shader_parameter/tint_strength = 1.0
 shader_parameter/brightness = 1.1
 shader_parameter/vignette = 0.6
 
@@ -19,7 +19,5 @@ script = ExtResource("1_s5p8k")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1692819030]
 material = SubResource("ShaderMaterial_ijs7n")
-offset_left = 2.0
-offset_top = 1.0
-offset_right = 1931.0
-offset_bottom = 1101.0
+offset_right = 1920.0
+offset_bottom = 1080.0
