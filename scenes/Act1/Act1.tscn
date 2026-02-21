@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cmvu72hfj0uu4" path="res://scenes/Platform/platform.tscn" id="1_ftaa2"]
 [ext_resource type="PackedScene" uid="uid://c7xrocq7m8k0u" path="res://scenes/Ground/ground.tscn" id="2_yofwx"]
 [ext_resource type="Texture2D" uid="uid://c5s0r0ilyxv54" path="res://scenes/Act1/act1_ghost_layer1.png" id="3_ae7cj"]
+[ext_resource type="Texture2D" uid="uid://3uxbl0sfqriw" path="res://assets/background/act1-layers/act1_layer_full.png" id="3_ij5lp"]
 [ext_resource type="PackedScene" uid="uid://562kr87tx0wf" path="res://scenes/Environment/environment.tscn" id="3_yofwx"]
 [ext_resource type="Texture2D" uid="uid://cmmtqnqiedirl" path="res://assets/curtains/curtain_ghost_run_bg.png" id="4_11emk"]
 [ext_resource type="Texture2D" uid="uid://cknr6ev3gilni" path="res://scenes/Act1/act1_ghost_layer2.png" id="4_aosy8"]
@@ -15,7 +16,10 @@
 script = ExtResource("1_ae7cj")
 
 [node name="Environment" parent="." unique_id=1633693839 instance=ExtResource("3_yofwx")]
-position = Vector2(644, 298)
+position = Vector2(1, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1651066246]
+texture = ExtResource("3_ij5lp")
 
 [node name="GhostBackground" type="Sprite2D" parent="." unique_id=1366409566]
 visible = false
@@ -38,17 +42,23 @@ dir = "x"
 distance = 150
 duration = 3
 
+[node name="Platform3" parent="." unique_id=482604351 instance=ExtResource("1_ftaa2")]
+position = Vector2(316, -160)
+dir = "y"
+distance = 100
+duration = 3
+
+[node name="Platform4" parent="." unique_id=1809506526 instance=ExtResource("1_ftaa2")]
+position = Vector2(662, 112)
+dir = "y"
+distance = 200
+duration = 3
+
 [node name="Platform2" parent="." unique_id=621127873 instance=ExtResource("1_ftaa2")]
 position = Vector2(-57, 83)
 dir = "y"
-distance = 300
-duration = 3
-
-[node name="Platform3" parent="." unique_id=1290201206 instance=ExtResource("1_ftaa2")]
-position = Vector2(505, 0)
-dir = "x"
 distance = 200
-duration = 5
+duration = 3
 
 [node name="Ground" parent="." unique_id=842944472 instance=ExtResource("2_yofwx")]
 position = Vector2(-793, 212)
@@ -57,19 +67,19 @@ position = Vector2(-793, 212)
 position = Vector2(-209, 209)
 
 [node name="Ground3" parent="." unique_id=1475781085 instance=ExtResource("2_yofwx")]
-position = Vector2(134, 2)
+position = Vector2(114, -73)
 
 [node name="Ground4" parent="." unique_id=404606899 instance=ExtResource("2_yofwx")]
-position = Vector2(630, -86)
+position = Vector2(500, 313)
 
 [node name="Star" parent="." unique_id=1164754737 groups=["stars1"] instance=ExtResource("4_star")]
 position = Vector2(-214, 106)
 
 [node name="Star2" parent="." unique_id=1803877381 groups=["stars1"] instance=ExtResource("4_star")]
-position = Vector2(132, -103)
+position = Vector2(117, -164)
 
 [node name="Star3" parent="." unique_id=987306707 groups=["stars1"] instance=ExtResource("4_star")]
-position = Vector2(745, -188)
+position = Vector2(499, 358)
 star_type = 1
 
 [node name="KillZone" parent="." unique_id=41493325 instance=ExtResource("5_killzone")]
