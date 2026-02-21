@@ -48,7 +48,7 @@ func _ready() -> void:
 	icon.texture = PLATFORM_TEXTURES_BY_ACT[GameEvents.current_act - 1]
 
 	GameEvents.act_changed_to.connect(
-		func(act_num: int): icon.texture = PLATFORM_TEXTURES_BY_ACT[GameEvents.current_act - 1]
+		func(_act_num: int): icon.texture = PLATFORM_TEXTURES_BY_ACT[GameEvents.current_act - 1]
 	)
 
 	# todo ghost
@@ -56,6 +56,8 @@ func _ready() -> void:
 		func(ghost_mode: bool):
 			if ghost_mode:
 				icon.texture = GHOST_PLATFORM_MOVEABLE
+			else:
+				icon.texture = PLATFORM_TEXTURES_BY_ACT[GameEvents.current_act - 1]
 	)
 
 	_create_tween()

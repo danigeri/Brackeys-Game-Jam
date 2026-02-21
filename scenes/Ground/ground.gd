@@ -18,7 +18,7 @@ func _ready() -> void:
 	sprite_2d.texture = PLATFORM_TEXTURES_BY_ACT[GameEvents.current_act - 1]
 
 	GameEvents.act_changed_to.connect(
-		func(act_num: int): sprite_2d.texture = PLATFORM_TEXTURES_BY_ACT[GameEvents.current_act - 1]
+		func(_act_num: int): sprite_2d.texture = PLATFORM_TEXTURES_BY_ACT[GameEvents.current_act - 1]
 	)
 
 	# todo ghost
@@ -26,4 +26,6 @@ func _ready() -> void:
 		func(ghost_mode: bool):
 			if ghost_mode:
 				sprite_2d.texture = GHOST_PLATFORM_FIX
+			else:
+				sprite_2d.texture = PLATFORM_TEXTURES_BY_ACT[GameEvents.current_act - 1]
 	)
