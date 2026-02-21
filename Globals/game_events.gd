@@ -30,7 +30,8 @@ func update_cursor() -> void:
 
 func _set_ghost_mode(is_on: bool) -> void:
 	ghost_mode = is_on
-	ghost_mode_on.emit(is_on)
+	HululuCanvas.hululu_middle.connect(func(): ghost_mode_on.emit(is_on), CONNECT_ONE_SHOT)
+	#ghost_mode_on.emit(is_on)
 
 
 func _change_act_to(act: int) -> void:
@@ -43,6 +44,7 @@ func change_act_to(act: int) -> void:
 
 
 func set_ghost_mode(is_on: bool) -> void:
+	HululuCanvas.play_dream()
 	call_deferred("_set_ghost_mode", is_on)
 
 

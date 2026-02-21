@@ -87,7 +87,7 @@ func change_act(act: int):
 	call_deferred("count_stars_palced_on_map")
 
 
-func handle_ghost_mode(is_ghost_mode) -> void:
+func handle_ghost_mode(is_ghost_mode):
 	use_ghost_camera(is_ghost_mode)
 	show_hide_cursor(is_ghost_mode)
 	reset_stars()
