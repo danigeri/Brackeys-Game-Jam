@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bugwgq2ghutgy"]
+
+[ext_resource type="Script" uid="uid://c105f81nqvfnb" path="res://scenes/GameLoop/hululu_canvas.gd" id="1_s5p8k"]
+[ext_resource type="Shader" uid="uid://cax104lg8o7w6" path="res://scenes/GameLoop/hululu.gdshader" id="2_feb2t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ijs7n"]
+shader = ExtResource("2_feb2t")
+shader_parameter/wave_intensity = 0.0
+shader_parameter/noise_strength = 0.0
+shader_parameter/wave_frequency = 9.5610004066475
+shader_parameter/wave_speed = 3.57600016660012
+shader_parameter/dream_tint = Color(0.75, 0.85, 1, 1)
+shader_parameter/tint_strength = 0.3
+shader_parameter/brightness = 1.1
+shader_parameter/vignette = 0.6
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=979160839]
+script = ExtResource("1_s5p8k")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1692819030]
+material = SubResource("ShaderMaterial_ijs7n")
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 1931.0
+offset_bottom = 1101.0
