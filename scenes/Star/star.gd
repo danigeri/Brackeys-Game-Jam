@@ -8,6 +8,18 @@ enum StarType { OPTIONAL, REQUIRED }
 
 var collected_once: bool = false
 
+@onready var point_light_2d: PointLight2D = $PointLight2D
+var noise := FastNoiseLite.new()
+var time_passed := 0.0
+
+
+func _ready() -> void:
+	noise.frequency = 5.0
+
+func _process(delta):
+	time_passed += delta
+	var n = noise.get_noise_1d(time_passed)
+	point_light_2d.energy = 0.3 + n * 0.05
 
 func _on_body_entered(body):
 	#print("COLLISION: ", body.is_in_group("Player"))

@@ -2,6 +2,23 @@
 
 [ext_resource type="Script" uid="uid://1ik2fjtqa7qp" path="res://UI/Menus/MainMenu/main_menu.gd" id="1_nhkf3"]
 [ext_resource type="Texture2D" uid="uid://ybfc6cyxat36" path="res://assets/curtains/curtain_opening.png" id="2_biwnh"]
+[ext_resource type="Texture2D" uid="uid://b30f46dt8ejej" path="res://UI/Menus/MainMenu/comedia_fx.png" id="3_8frdl"]
+[ext_resource type="FontFile" uid="uid://dmjao2wsks8te" path="res://assets/fonts/Black Drama Demo.ttf" id="3_ex7bm"]
+[ext_resource type="StyleBox" uid="uid://uofebderctyi" path="res://UI/standard_button.tres" id="4_16sb5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qluod"]
+bg_color = Color(0.47761095, 0.46365726, 8.663535e-07, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bud5s"]
+bg_color = Color(0.8422873, 0.49010885, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="MainMenu" type="Control" unique_id=1063606464]
 layout_mode = 3
@@ -16,7 +33,22 @@ script = ExtResource("1_nhkf3")
 position = Vector2(962, 542)
 texture = ExtResource("2_biwnh")
 
+[node name="StartButton" type="Button" parent="." unique_id=990528875]
+layout_mode = 0
+offset_left = 809.0
+offset_top = 597.0
+offset_right = 1092.5
+offset_bottom = 711.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ex7bm")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = ExtResource("4_16sb5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qluod")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_bud5s")
+text = "play"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=635006360]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -31,18 +63,21 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=2087660580]
+visible = false
 layout_mode = 2
 text = "Comedia"
 horizontal_alignment = 1
 
-[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=990528875]
-layout_mode = 2
-text = "Start"
-
 [node name="ExitButton" type="Button" parent="VBoxContainer" unique_id=1999533003]
+visible = false
 layout_mode = 2
 text = "Exit
 "
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[node name="ComediaFx" type="Sprite2D" parent="." unique_id=878344963]
+position = Vector2(1093, 388)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_8frdl")
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
