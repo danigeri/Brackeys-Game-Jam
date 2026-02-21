@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cwa5cxfykhn5y" path="res://assets/dots.png" id="8_5ts88"]
 [ext_resource type="Texture2D" uid="uid://spwm537qmtem" path="res://gradient_texture_regular.tres" id="8_73e4h"]
 [ext_resource type="Texture2D" uid="uid://ybfc6cyxat36" path="res://assets/curtains/curtain_opening.png" id="9_73e4h"]
+[ext_resource type="Script" uid="uid://6hjre4bh741v" path="res://scenes/GameLoop/curtain_effect.gd" id="10_o2r4w"]
 
 [node name="GameLoop" type="Node2D" unique_id=1058436466]
 script = ExtResource("1_7f3si")
@@ -71,8 +72,19 @@ position = Vector2(1, 0)
 color = Color(0.89492244, 0.89492244, 0.8949223, 1)
 
 [node name="CurtainEffect" type="Sprite2D" parent="." unique_id=1836994531]
-visible = false
 texture = ExtResource("9_73e4h")
+script = ExtResource("10_o2r4w")
+
+[node name="Label" type="Label" parent="CurtainEffect" unique_id=507432425]
+offset_left = -68.0
+offset_top = -39.0
+offset_right = 54.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 50
+text = "Act X"
+vertical_alignment = 1
+
+[node name="TransitionCamera" type="Camera2D" parent="." unique_id=1666931038]
 
 [connection signal="credits_menu_requested" from="UI/PauseMenu" to="UI" method="_on_pause_menu_credits_menu_requested"]
 [connection signal="settings_menu_requested" from="UI/PauseMenu" to="UI" method="_on_pause_menu_settings_menu_requested"]

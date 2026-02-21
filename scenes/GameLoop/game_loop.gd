@@ -82,21 +82,29 @@ func change_act(act: int):
 	act_container.add_child(act_scene)
 	player.update_starting_position(player_starting_position)
 	call_deferred("count_stars_palced_on_map")
-	curtain_in_and_out()
+	curtain_in_and_out(act)
 
 
-func curtain_in_and_out() -> void:
+func curtain_in_and_out(act: int) -> void:
+	player_camera.visible = false
 	player_camera.set_position_smoothing_speed(1.0)
-	use_ghost_camera(true)
+	ghost_camera.make_current()
 	point_light_2d.visible = false
 	
 	curtain_effect.visible = true
+	curtain_effect.set_act_number(act)
+	
+	Engine.time_scale = 0.0
+	await get_tree().create_timer(0.75, true, false, true).timeout
+	Engine.time_scale = 2.0
+	
 	await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
 	curtain_effect.visible = false
 	await get_tree().create_timer(0.3).timeout
 	point_light_2d.visible = true
 	await SoundManager.play_sound_by_id(SoundManager.Sound.SPOTLIGHT).finished
 
+	player_camera.visible = true
 	player_camera.make_current()
 	await get_tree().create_timer(2).timeout
 	player_camera.set_position_smoothing_speed(5.0)
