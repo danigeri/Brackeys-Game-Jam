@@ -16,6 +16,9 @@ func _ready() -> void:
 		await get_tree().create_timer(2.0).timeout
 		video_player.paused = false
 		audio_player.play()
+		
+		await video_player.finished
+		go_to_main_menu()
 
 
 func go_to_main_menu() -> void:
