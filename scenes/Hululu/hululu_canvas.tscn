@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bugwgq2ghutgy"]
 
-[ext_resource type="Script" uid="uid://c105f81nqvfnb" path="res://scenes/GameLoop/hululu_canvas.gd" id="1_s5p8k"]
-[ext_resource type="Shader" uid="uid://cax104lg8o7w6" path="res://scenes/GameLoop/hululu.gdshader" id="2_feb2t"]
+[ext_resource type="Script" uid="uid://c105f81nqvfnb" path="res://scenes/Hululu/hululu_canvas.gd" id="1_s5p8k"]
+[ext_resource type="Shader" uid="uid://cax104lg8o7w6" path="res://scenes/Hululu/hululu.gdshader" id="2_feb2t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ijs7n"]
 shader = ExtResource("2_feb2t")

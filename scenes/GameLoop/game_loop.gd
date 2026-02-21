@@ -36,13 +36,12 @@ var optional_collected: int = 0
 @onready var act_container: Node2D = $ActContainer
 
 @onready var point_light_2d: PointLight2D = $Player/PointLight2D
-@onready var canvas_layer: CanvasLayer = $CanvasLayer
 
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
-	canvas_layer.hululu_middle.connect(_on_dream_finished)
+	HululuCanvas.hululu_middle.connect(_on_dream_finished)
 
 	#signals
 	GameEvents.ghost_mode_on.connect(handle_ghost_mode)
@@ -90,11 +89,10 @@ func change_act(act: int):
 
 
 func handle_ghost_mode(is_ghost_mode):
-	canvas_layer.play_dream()
+	HululuCanvas.play_dream()
 
 func _on_dream_finished() -> void:
 	var is_ghost_mode: bool = GameEvents.ghost_mode
-	canvas_layer.play_dream()
 	use_ghost_camera(is_ghost_mode)
 	show_hide_cursor(is_ghost_mode)
 	reset_stars()
