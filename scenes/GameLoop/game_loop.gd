@@ -31,8 +31,12 @@ var optional_collected: int = 0
 #use this if line will be Line2d not Sprites
 #@onready var line_2d: Line2D = $Line2D
 @onready var path_dot_container: Node2D = $PathDotContainer
+
+# TODO: remove these
 @onready var curtain: Sprite2D = $Curtain
 @onready var curtain_ghost: Sprite2D = $CurtainGhost
+
+@onready var curtain_effect: Sprite2D = $CurtainEffect
 @onready var act_container: Node2D = $ActContainer
 
 @onready var point_light_2d: PointLight2D = $Player/PointLight2D
@@ -84,6 +88,11 @@ func change_act(act: int):
 	act_container.add_child(act_scene)
 	player.update_starting_position(player_starting_position)
 	call_deferred("count_stars_palced_on_map")
+	
+	curtain_effect.visible = true
+	await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
+	await get_tree().create_timer(0.5).timeout
+	curtain_effect.visible = false
 
 
 func handle_ghost_mode(is_ghost_mode) -> void:
