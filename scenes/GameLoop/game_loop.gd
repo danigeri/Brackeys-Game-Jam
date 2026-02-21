@@ -27,13 +27,14 @@ var optional_collected: int = 0
 
 #camera
 @onready var ghost_camera: Camera2D = $GhostCamera
+@onready var player_camera: Camera2D = $Player/Camera2D
 
 @onready var player: CharacterBody2D = $Player
 #use this if line will be Line2d not Sprites
 #@onready var line_2d: Line2D = $Line2D
 @onready var path_dot_container: Node2D = $PathDotContainer
-@onready var curtain: Sprite2D = $Curtain
-@onready var curtain_ghost: Sprite2D = $CurtainGhost
+
+@onready var curtain_effect: Sprite2D = $CurtainEffect
 @onready var act_container: Node2D = $ActContainer
 
 @onready var point_light_2d: PointLight2D = $Player/PointLight2D
@@ -49,9 +50,6 @@ func _ready() -> void:
 	GameEvents.change_act_to(1)
 
 	start_crowd_timer()
-	await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
-	# TODO: Tutorial happens between these two sounds
-	await SoundManager.play_sound_by_id(SoundManager.Sound.SPOTLIGHT).finished
 
 	point_light_2d.texture = REGULAR_GRADIENT_TEXTURE
 	point_light_2d.energy = energy_regular_run
@@ -85,6 +83,26 @@ func change_act(act: int):
 	act_container.add_child(act_scene)
 	player.update_starting_position(player_starting_position)
 	call_deferred("count_stars_palced_on_map")
+	curtain_in_and_out(act)
+
+
+func curtain_in_and_out(act: int) -> void:
+	player_camera.zoom = Vector2(1.0, 1.0)
+	point_light_2d.visible = false
+
+	curtain_effect.visible = true
+	curtain_effect.set_act_number(act)
+
+	await get_tree().create_timer(0.8).timeout
+	await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
+	curtain_effect.visible = false
+
+	await get_tree().create_timer(0.3).timeout
+	point_light_2d.visible = true
+	await SoundManager.play_sound_by_id(SoundManager.Sound.SPOTLIGHT).finished
+
+	var tween = create_tween()
+	tween.tween_property(player_camera, "zoom", Vector2(1.6, 1.6), 0.5)
 
 
 func handle_ghost_mode(is_ghost_mode):

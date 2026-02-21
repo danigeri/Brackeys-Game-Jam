@@ -94,11 +94,9 @@ func _physics_process(delta: float) -> void:
 			GameEvents.records_completed.emit()
 
 	if Input.is_action_just_pressed("ghost_run"):
-		await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
 		GameEvents.set_ghost_mode(true)
 
 	if Input.is_action_just_pressed("player_run"):
-		await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
 		GameEvents.set_ghost_mode(false)
 
 	calculate_movement(delta)
