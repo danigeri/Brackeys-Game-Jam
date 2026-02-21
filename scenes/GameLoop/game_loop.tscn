@@ -11,7 +11,6 @@
 
 [node name="GameLoop" type="Node2D" unique_id=1058436466]
 script = ExtResource("1_7f3si")
-crowd_reaction_timeout = 45.0
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1152001616]
 script = ExtResource("2_ksmgf")
