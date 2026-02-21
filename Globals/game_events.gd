@@ -29,11 +29,13 @@ func update_cursor() -> void:
 #az utoljara felszedett star, csak az osszes tobbi
 #ha van valami jobb megoldas akkor javitsuk
 
-
 func _set_ghost_mode(is_on: bool) -> void:
+	var is_from_run_to_ghost: bool = not ghost_mode and is_on
 	ghost_mode = is_on
-	HululuCanvas.hululu_middle.connect(func(): ghost_mode_on.emit(is_on), CONNECT_ONE_SHOT)
-	#ghost_mode_on.emit(is_on)
+	if is_from_run_to_ghost:
+		HululuCanvas.hululu_middle.connect(func(): ghost_mode_on.emit(is_on), CONNECT_ONE_SHOT)
+	else:
+		ghost_mode_on.emit(is_on)
 
 
 func _change_act_to(act: int) -> void:
@@ -46,7 +48,9 @@ func change_act_to(act: int) -> void:
 
 
 func set_ghost_mode(is_on: bool) -> void:
-	HululuCanvas.play_dream()
+	var is_from_run_to_ghost: bool = not ghost_mode and is_on
+	if is_from_run_to_ghost:
+		HululuCanvas.play_dream()
 	call_deferred("_set_ghost_mode", is_on)
 
 
