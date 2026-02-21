@@ -40,8 +40,6 @@ var optional_collected: int = 0
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	
-	HululuCanvas.hululu_middle.connect(_on_dream_finished)
 
 	#signals
 	GameEvents.ghost_mode_on.connect(handle_ghost_mode)
@@ -89,10 +87,6 @@ func change_act(act: int):
 
 
 func handle_ghost_mode(is_ghost_mode):
-	HululuCanvas.play_dream()
-
-func _on_dream_finished() -> void:
-	var is_ghost_mode: bool = GameEvents.ghost_mode
 	use_ghost_camera(is_ghost_mode)
 	show_hide_cursor(is_ghost_mode)
 	reset_stars()

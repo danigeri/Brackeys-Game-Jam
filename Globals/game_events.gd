@@ -43,6 +43,7 @@ func change_act_to(act: int) -> void:
 
 
 func set_ghost_mode(is_on: bool) -> void:
+	HululuCanvas.play_dream()
 	call_deferred("_set_ghost_mode", is_on)
 
 
