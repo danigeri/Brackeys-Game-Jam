@@ -32,88 +32,84 @@ texture = ExtResource("5_k3p8n")
 [node name="Curtain" type="Sprite2D" parent="." unique_id=1232644688]
 texture = ExtResource("6_p5a4g")
 
-[node name="Platform" parent="." unique_id=466164217 instance=ExtResource("7_q3885")]
-position = Vector2(-85, -151)
-dir = "x"
-distance = 150
-duration = 3
-
-[node name="Platform2" parent="." unique_id=614260946 instance=ExtResource("7_q3885")]
-position = Vector2(423, 219)
-dir = "y"
-distance = 200
-duration = 3
-
-[node name="Platform3" parent="." unique_id=2003547574 instance=ExtResource("7_q3885")]
-position = Vector2(858, 196)
-dir = "x"
-distance = 200
-duration = 3
-
-[node name="Platform4" parent="." unique_id=1382944079 instance=ExtResource("7_q3885")]
-position = Vector2(1325, 122)
-dir = "y"
-distance = 300
-duration = 3
-
-[node name="Platform5" parent="." unique_id=2139322606 instance=ExtResource("7_q3885")]
-position = Vector2(1726, -70)
-dir = "x"
-distance = 300
-duration = 3
-
-[node name="Platform6" parent="." unique_id=444993873 instance=ExtResource("7_q3885")]
+[node name="Platform" parent="." unique_id=444993873 instance=ExtResource("7_q3885")]
 position = Vector2(-582, 97)
 dir = "y"
 distance = 300
 duration = 3
 
-[node name="Platform7" parent="." unique_id=797375074 instance=ExtResource("7_q3885")]
-position = Vector2(2264, 27)
+[node name="Platform2" parent="." unique_id=466164217 instance=ExtResource("7_q3885")]
+position = Vector2(-85, -151)
+dir = "x"
+distance = 150
+duration = 3
+
+[node name="Platform3" parent="." unique_id=614260946 instance=ExtResource("7_q3885")]
+position = Vector2(423, 219)
+dir = "y"
+distance = 200
+duration = 3
+
+[node name="Platform4" parent="." unique_id=2003547574 instance=ExtResource("7_q3885")]
+position = Vector2(858, 196)
+dir = "x"
+distance = 200
+duration = 3
+
+[node name="Platform5" parent="." unique_id=1382944079 instance=ExtResource("7_q3885")]
+position = Vector2(1325, 122)
+dir = "y"
+distance = 300
+duration = 3
+
+[node name="Platform6" parent="." unique_id=2139322606 instance=ExtResource("7_q3885")]
+position = Vector2(1726, -70)
 dir = "x"
 distance = 300
 duration = 3
 
-[node name="Platform8" parent="." unique_id=499737976 instance=ExtResource("7_q3885")]
+[node name="Platform7" parent="." unique_id=499737976 instance=ExtResource("7_q3885")]
 position = Vector2(2065, 288)
 dir = "x"
 distance = 350
 duration = 3
 
-[node name="Ground" parent="." unique_id=842944472 instance=ExtResource("8_gfll1")]
-position = Vector2(-389, -194)
+[node name="Platform8" parent="." unique_id=797375074 instance=ExtResource("7_q3885")]
+position = Vector2(2264, 27)
+dir = "x"
+distance = 300
+duration = 3
 
-[node name="Ground2" parent="." unique_id=345386964 instance=ExtResource("8_gfll1")]
-position = Vector2(267, -71)
-
-[node name="Ground3" parent="." unique_id=844362023 instance=ExtResource("8_gfll1")]
-position = Vector2(201, 293)
-
-[node name="Ground4" parent="." unique_id=2023014513 instance=ExtResource("8_gfll1")]
-position = Vector2(1724, 191)
-
-[node name="Ground6" parent="." unique_id=1469796441 instance=ExtResource("8_gfll1")]
-position = Vector2(1491, -136)
-
-[node name="Ground7" parent="." unique_id=485363198 instance=ExtResource("8_gfll1")]
+[node name="Ground1" parent="." unique_id=485363198 instance=ExtResource("8_gfll1")]
 position = Vector2(-762, 288)
 
-[node name="Ground8" parent="." unique_id=327542969 instance=ExtResource("8_gfll1")]
+[node name="Ground2" parent="." unique_id=842944472 instance=ExtResource("8_gfll1")]
+position = Vector2(-389, -194)
+
+[node name="Ground3" parent="." unique_id=345386964 instance=ExtResource("8_gfll1")]
+position = Vector2(267, -71)
+
+[node name="Ground4" parent="." unique_id=844362023 instance=ExtResource("8_gfll1")]
+position = Vector2(201, 293)
+
+[node name="Ground5" parent="." unique_id=1469796441 instance=ExtResource("8_gfll1")]
+position = Vector2(1491, -136)
+
+[node name="Ground6" parent="." unique_id=2023014513 instance=ExtResource("8_gfll1")]
+position = Vector2(1724, 191)
+
+[node name="Ground7" parent="." unique_id=327542969 instance=ExtResource("8_gfll1")]
 position = Vector2(2533, 366)
 
-[node name="Star" parent="." unique_id=1164754737 groups=["stars2"] instance=ExtResource("9_t6sxg")]
-position = Vector2(1725, 103)
+[node name="Star" parent="." unique_id=1786637024 groups=["stars2"] instance=ExtResource("9_t6sxg")]
+position = Vector2(202, 242)
 
-[node name="Star2" parent="." unique_id=1786637024 groups=["stars2"] instance=ExtResource("9_t6sxg")]
-position = Vector2(200, 215)
+[node name="Star2" parent="." unique_id=1164754737 groups=["stars2"] instance=ExtResource("9_t6sxg")]
+position = Vector2(1723, 136)
 
 [node name="Star3" parent="." unique_id=1876686271 groups=["stars2"] instance=ExtResource("9_t6sxg")]
-position = Vector2(2532, 288)
-star_type = 1
-
-[node name="Star4" parent="." unique_id=1714222196 groups=["stars2"] instance=ExtResource("9_t6sxg")]
-position = Vector2(-629, 235)
+position = Vector2(2530, 316)
 star_type = 1
 
 [node name="KillZone" parent="." unique_id=41493325 instance=ExtResource("10_8cp8b")]
-position = Vector2(-481, 351)
+position = Vector2(-990, 540)

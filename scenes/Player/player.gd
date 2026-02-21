@@ -131,6 +131,7 @@ func calculate_movement(delta) -> void:
 
 
 func ghost_mode_on(value) -> void:
+	show()
 	is_ghost_mode = value
 
 	if value:

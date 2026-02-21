@@ -42,6 +42,12 @@ dir = "x"
 distance = 150
 duration = 3
 
+[node name="Platform2" parent="." unique_id=621127873 instance=ExtResource("1_ftaa2")]
+position = Vector2(-57, 83)
+dir = "y"
+distance = 200
+duration = 3
+
 [node name="Platform3" parent="." unique_id=482604351 instance=ExtResource("1_ftaa2")]
 position = Vector2(316, -160)
 dir = "y"
@@ -50,12 +56,6 @@ duration = 3
 
 [node name="Platform4" parent="." unique_id=1809506526 instance=ExtResource("1_ftaa2")]
 position = Vector2(662, 112)
-dir = "y"
-distance = 200
-duration = 3
-
-[node name="Platform2" parent="." unique_id=621127873 instance=ExtResource("1_ftaa2")]
-position = Vector2(-57, 83)
 dir = "y"
 distance = 200
 duration = 3
@@ -73,14 +73,14 @@ position = Vector2(114, -73)
 position = Vector2(500, 313)
 
 [node name="Star" parent="." unique_id=1164754737 groups=["stars1"] instance=ExtResource("4_star")]
-position = Vector2(-214, 106)
+position = Vector2(-208, 156)
 
 [node name="Star2" parent="." unique_id=1803877381 groups=["stars1"] instance=ExtResource("4_star")]
-position = Vector2(117, -164)
+position = Vector2(116, -118)
 
 [node name="Star3" parent="." unique_id=987306707 groups=["stars1"] instance=ExtResource("4_star")]
-position = Vector2(499, 358)
+position = Vector2(460, 266)
 star_type = 1
 
 [node name="KillZone" parent="." unique_id=41493325 instance=ExtResource("5_killzone")]
-position = Vector2(-481, 351)
+position = Vector2(-990, 540)
