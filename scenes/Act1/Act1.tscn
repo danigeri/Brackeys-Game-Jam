@@ -14,7 +14,7 @@
 [node name="Act1" type="Node2D" unique_id=858034748]
 script = ExtResource("1_ae7cj")
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1651066246]
+[node name="Environment" type="Sprite2D" parent="." unique_id=1651066246]
 texture = ExtResource("2_11emk")
 
 [node name="GhostBackground" type="Sprite2D" parent="." unique_id=1366409566]

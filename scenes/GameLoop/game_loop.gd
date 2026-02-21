@@ -5,8 +5,12 @@ const RECORD_INTERVAL := 0.05  # 1 second
 const PATH_DOT_SCENE = preload("uid://co43cv8qwqnmv")
 
 #acts
-const ACT_1 = preload("uid://dc6mlfql3moyl")
-const ACT_2 = preload("uid://dkqrhp8obyxw4")
+#const ACT_1 = preload("uid://dc6mlfql3moyl")
+#const ACT_2 = preload("uid://dkqrhp8obyxw4")
+#const ACT_3 = preload("uid://k2t6pk66rnl3")
+
+const ACT_2 = preload("uid://dc6mlfql3moyl")
+const ACT_1 = preload("uid://dkqrhp8obyxw4")
 const ACT_3 = preload("uid://k2t6pk66rnl3")
 
 const REGULAR_GRADIENT_TEXTURE = preload("res://gradient_texture_regular.tres")
@@ -73,12 +77,18 @@ func change_act(act: int):
 		1:
 			act_scene = ACT_1.instantiate()
 			player_starting_position = Vector2(-795, 145)
+			player_camera.limit_right = 2750
+			ghost_camera.limit_right = 2750
 		2:
 			act_scene = ACT_2.instantiate()
 			player_starting_position = Vector2(-790, -420)
+			player_camera.limit_right = 2750
+			ghost_camera.limit_right = 2750
 		3:
 			act_scene = ACT_3.instantiate()
 			player_starting_position = Vector2(-790, -420)
+			player_camera.limit_right = 2750
+			ghost_camera.limit_right = 2750
 
 	act_container.add_child(act_scene)
 	player.update_starting_position(player_starting_position)
