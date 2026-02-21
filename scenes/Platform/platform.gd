@@ -3,6 +3,7 @@ extends Node2D
 @export var dir: String
 @export var distance: int
 @export var duration: int
+@export_enum("Right/Down", "Left/Up") var start_direction: String = "Right/Down"
 
 var is_moving = false
 var is_hovering = false
@@ -106,39 +107,53 @@ func _physics_process(delta: float):
 
 
 func _create_tween():
+	tween = create_tween()
+	tween.set_loops()
+	tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
+
+	var first_target
+	var second_target
+
 	if dir == "x":
-		tween = create_tween()
-		tween.set_loops()
-		tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
+		if start_direction == "Right/Down":
+			first_target = start_x + distance
+			second_target = start_x - distance
+		else:
+			first_target = start_x - distance
+			second_target = start_x + distance
 
 		(
 			tween
-			. tween_property(node_2d, "position:x", start_x + distance, duration)
+			. tween_property(node_2d, "position:x", first_target, duration)
 			. set_trans(Tween.TRANS_SINE)
 			. set_ease(Tween.EASE_IN_OUT)
 		)
 
 		(
 			tween
-			. tween_property(node_2d, "position:x", start_x - distance, duration)
-			. set_trans(Tween.TRANS_SINE)
-			. set_ease(Tween.EASE_IN_OUT)
-		)
-	if dir == "y":
-		tween = create_tween()
-		tween.set_loops()
-		tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
-
-		(
-			tween
-			. tween_property(node_2d, "position:y", start_y + distance, duration)
+			. tween_property(node_2d, "position:x", second_target, duration)
 			. set_trans(Tween.TRANS_SINE)
 			. set_ease(Tween.EASE_IN_OUT)
 		)
 
+	elif dir == "y":
+		if start_direction == "Right/Down":
+			first_target = start_y + distance
+			second_target = start_y - distance
+		else:
+			first_target = start_y - distance
+			second_target = start_y + distance
+
 		(
 			tween
-			. tween_property(node_2d, "position:y", start_y - distance, duration)
+			. tween_property(node_2d, "position:y", first_target, duration)
+			. set_trans(Tween.TRANS_SINE)
+			. set_ease(Tween.EASE_IN_OUT)
+		)
+
+		(
+			tween
+			. tween_property(node_2d, "position:y", second_target, duration)
 			. set_trans(Tween.TRANS_SINE)
 			. set_ease(Tween.EASE_IN_OUT)
 		)
