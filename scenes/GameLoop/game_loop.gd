@@ -51,10 +51,7 @@ func _ready() -> void:
 	#print("ready, optional_total: ", optional_total)
 
 	start_crowd_timer()
-	await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
-	# TODO: Tutorial happens between these two sounds
-	await SoundManager.play_sound_by_id(SoundManager.Sound.SPOTLIGHT).finished
-
+	
 	point_light_2d.texture = REGULAR_GRADIENT_TEXTURE
 	point_light_2d.energy = energy_regular_run
 
@@ -84,11 +81,21 @@ func change_act(act: int):
 	act_container.add_child(act_scene)
 	player.update_starting_position(player_starting_position)
 	call_deferred("count_stars_palced_on_map")
+	curtain_in_and_out()
+
+
+func curtain_in_and_out() -> void:
+	point_light_2d.visible = false
 	
 	curtain_effect.visible = true
 	await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
 	await get_tree().create_timer(0.5).timeout
 	curtain_effect.visible = false
+	
+	await get_tree().create_timer(0.3).timeout
+	point_light_2d.visible = true
+	await SoundManager.play_sound_by_id(SoundManager.Sound.SPOTLIGHT).finished
+
 
 
 func handle_ghost_mode(is_ghost_mode) -> void:

@@ -32,7 +32,8 @@ grow_vertical = 2
 
 [node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=2087660580]
 layout_mode = 2
-text = "GerappaGamesTemplate"
+text = "Comedia"
+horizontal_alignment = 1
 
 [node name="StartButton" type="Button" parent="VBoxContainer" unique_id=990528875]
 layout_mode = 2
