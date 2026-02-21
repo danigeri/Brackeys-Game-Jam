@@ -9,6 +9,9 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		# Player elrejtése ha a Top KillZoneal dollideol, a Ghost Mode majd visszakapcsolja a playert
+		body.visible = false
+
 		death_counter_add()
 		#print("colliding element: ", body)
 		await SoundManager.play_sound_by_id(SoundManager.Sound.FALL_IMPACT).finished

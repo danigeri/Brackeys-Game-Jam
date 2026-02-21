@@ -7,8 +7,13 @@
 [node name="KillZone" type="Area2D" unique_id=41493325]
 script = ExtResource("1_jbxqj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1716929201]
-position = Vector2(6, 170)
+[node name="Bottom" type="CollisionShape2D" parent="." unique_id=1716929201]
+position = Vector2(0, 300)
+shape = SubResource("WorldBoundaryShape2D_jbxqj")
+
+[node name="Top" type="CollisionShape2D" parent="." unique_id=1107168956]
+position = Vector2(0, -1380)
+rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_jbxqj")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

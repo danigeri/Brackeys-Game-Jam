@@ -48,9 +48,6 @@ func _ready() -> void:
 	GameEvents.act_changed_to.connect(change_act)
 	GameEvents.change_act_to(1)
 
-	#print("ready, required_total: ", required_total)
-	#print("ready, optional_total: ", optional_total)
-
 	start_crowd_timer()
 	await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
 	# TODO: Tutorial happens between these two sounds
@@ -81,6 +78,9 @@ func change_act(act: int):
 		2:
 			act_scene = ACT_2.instantiate()
 			player_starting_position = Vector2(-790, -420)
+		3:
+			act_scene = ACT_3.instantiate()
+			player_starting_position = Vector2(-790, -420)
 
 	act_container.add_child(act_scene)
 	player.update_starting_position(player_starting_position)
@@ -103,8 +103,12 @@ func handle_ghost_mode(is_ghost_mode):
 func reset_stars() -> void:
 	required_collected = 0
 	optional_collected = 0
+	print("RESET")
 	for star in get_tree().get_nodes_in_group("stars" + str(GameEvents.current_act)):
 		star.reset_star()
+
+	print("ready, required_total: ", required_total)
+	print("ready, optional_total: ", optional_total)
 
 
 func use_ghost_camera(is_ghost_mode) -> void:
@@ -163,8 +167,8 @@ func count_stars_palced_on_map():
 			required_total += 1
 		elif star.star_type == star.StarType.OPTIONAL:
 			optional_total += 1
-	print(required_total)
-	print(optional_total)
+	print("ready, required_total: ", required_total)
+	print("ready, optional_total: ", optional_total)
 
 
 func start_crowd_timer() -> void:
@@ -185,18 +189,17 @@ func _on_star_collected(star):
 
 	if star.star_type == star.StarType.REQUIRED:
 		required_collected += 1
+		print("STAR required_collected: ", required_collected)
 	elif star.star_type == star.StarType.OPTIONAL:
 		optional_collected += 1
+		print("STAR optional_collected: ", optional_collected)
 
-	#print("ready, required_collected: ", required_collected)
-	#print("ready, optional_collected: ", optional_collected)
-
-	print("start collected")
 	if required_collected >= required_total:
-		print("start collected required total")
 		if !GameEvents.ghost_mode:
+			print("STAR ghost mode triggered: ", optional_collected)
 			GameEvents.set_ghost_mode(true)
 		else:
+			print("STAR next act triggered: ", optional_collected)
 			GameEvents.change_act_to(GameEvents.current_act + 1)
 			GameEvents.set_ghost_mode(false)
 
