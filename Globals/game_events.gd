@@ -29,6 +29,7 @@ func update_cursor() -> void:
 #az utoljara felszedett star, csak az osszes tobbi
 #ha van valami jobb megoldas akkor javitsuk
 
+
 func _set_ghost_mode(is_on: bool) -> void:
 	var is_from_run_to_ghost: bool = not ghost_mode and is_on
 	ghost_mode = is_on
