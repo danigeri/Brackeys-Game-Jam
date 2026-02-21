@@ -1,5 +1,15 @@
 extends Node2D
 
+const GHOST_PLATFORM_MOVEABLE = preload("uid://bdrja35xfgxdd")
+
+const PLATFORM_TEXTURE_ACT_1 = preload("uid://d1e1qheab4ty0")
+const PLATFORM_TEXTURE_ACT_2 = preload("uid://bd1lxcriffsb6")
+const PLATFORM_TEXTURE_ACT_3 = preload("uid://bnaalokfffe01")
+
+const PLATFORM_TEXTURES_BY_ACT = [
+	PLATFORM_TEXTURE_ACT_1, PLATFORM_TEXTURE_ACT_2, PLATFORM_TEXTURE_ACT_3
+]
+
 @export var dir: String
 @export var distance: int
 @export var duration: int
@@ -23,6 +33,8 @@ var start_y: float
 @onready var grab_left: AnimatedSprite2D = $Node2D/Icon/Left
 @onready var grab_right: AnimatedSprite2D = $Node2D/Icon/Right
 
+@onready var icon: Sprite2D = $Node2D/Icon
+
 
 func _ready() -> void:
 	GameEvents.ghost_mode_on.connect(ghost_mode_on)
@@ -32,6 +44,19 @@ func _ready() -> void:
 	grab_left.modulate.a = 0.0
 	grab_right.modulate.a = 0.0
 	#grab_right.scale.x = -abs(grab_right.scale.x)
+
+	icon.texture = PLATFORM_TEXTURES_BY_ACT[GameEvents.current_act - 1]
+
+	GameEvents.act_changed_to.connect(
+		func(act_num: int): icon.texture = PLATFORM_TEXTURES_BY_ACT[GameEvents.current_act - 1]
+	)
+
+	# todo ghost
+	GameEvents.ghost_mode_on.connect(
+		func(ghost_mode: bool):
+			if ghost_mode:
+				icon.texture = GHOST_PLATFORM_MOVEABLE
+	)
 
 	_create_tween()
 

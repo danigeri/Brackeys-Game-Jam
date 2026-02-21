@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cmvu72hfj0uu4"]
 
 [ext_resource type="Script" uid="uid://crawxa0cftex5" path="res://scenes/Platform/platform.gd" id="1_7j252"]
-[ext_resource type="Texture2D" uid="uid://bpk8mwrd5w4tv" path="res://icon.svg" id="2_7j252"]
+[ext_resource type="Texture2D" uid="uid://bdrja35xfgxdd" path="res://scenes/Platform/ghost_platform_moveable.png" id="2_kqafi"]
 [ext_resource type="Texture2D" uid="uid://mrwi84cfjg8a" path="res://assets/stagehand/stagehand.png" id="4_harwm"]
 
 [sub_resource type="Gradient" id="Gradient_hf6b2"]
@@ -159,19 +159,20 @@ shape = SubResource("RectangleShape2D_34mie")
 shape = SubResource("RectangleShape2D_7j252")
 
 [node name="Icon" type="Sprite2D" parent="Node2D" unique_id=706809577]
-scale = Vector2(0.953125, 0.203125)
-texture = ExtResource("2_7j252")
+position = Vector2(2.9802322e-08, 2)
+scale = Vector2(0.13903105, 0.14465408)
+texture = ExtResource("2_kqafi")
 
 [node name="Left" type="AnimatedSprite2D" parent="Node2D/Icon" unique_id=542383551]
-position = Vector2(-43.016396, 216.61539)
-scale = Vector2(0.6, 2.817)
+position = Vector2(-294.89816, 290.34784)
+scale = Vector2(4.11329, 3.9556649)
 sprite_frames = SubResource("SpriteFrames_x7ctr")
 autoplay = "default"
 flip_h = true
 
 [node name="Right" type="AnimatedSprite2D" parent="Node2D/Icon" unique_id=1228772332]
-position = Vector2(43.016396, 221.53845)
-scale = Vector2(0.6, 2.815)
+position = Vector2(294.8981, 290.34784)
+scale = Vector2(4.11329, 3.9528568)
 sprite_frames = SubResource("SpriteFrames_ekp6q")
 autoplay = "default"
 
