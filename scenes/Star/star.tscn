@@ -57,7 +57,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 12.0
+"speed": 7.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgif7"]
@@ -70,7 +70,7 @@ script = ExtResource("1_ddach")
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_yko70")
 autoplay = "default"
-frame_progress = 0.6736072
+frame_progress = 0.21506223
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2144517963]
 scale = Vector2(0.4, 0.4)

@@ -41,6 +41,7 @@ position = Vector2(-499, 210)
 dir = "x"
 distance = 150
 duration = 3
+start_direction = "Left/Up"
 
 [node name="Platform2" parent="." unique_id=621127873 instance=ExtResource("1_ftaa2")]
 position = Vector2(-57, 83)
