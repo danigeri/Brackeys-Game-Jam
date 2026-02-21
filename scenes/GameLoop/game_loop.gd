@@ -8,7 +8,12 @@ const PATH_DOT_SCENE = preload("uid://co43cv8qwqnmv")
 const ACT_1 = preload("uid://dc6mlfql3moyl")
 const ACT_2 = preload("uid://k2t6pk66rnl3")
 
+const REGULAR_GRADIENT_TEXTURE = preload("res://gradient_texture_regular.tres")
+const GHOST_GRADIENT_TEXTURE = preload("res://gradient_texture_ghost.tres")
+
 @export var crowd_reaction_timeout = 30.0
+@export var energy_regular_run = 0.61
+@export var energy_ghost_run = 1.3
 
 var positions = []
 var record_timer: float = 0.0
@@ -31,11 +36,6 @@ var optional_collected: int = 0
 @onready var act_container: Node2D = $ActContainer
 
 @onready var point_light_2d: PointLight2D = $Player/PointLight2D
-@export var energy_regular_run = 0.61
-@export var energy_ghost_run = 1.3
-
-const regular_gradient_texture = preload("res://gradient_texture_regular.tres")
-const ghost_gradient_texture = preload("res://gradient_texture_ghost.tres")
 
 
 func _ready() -> void:
@@ -54,7 +54,7 @@ func _ready() -> void:
 	await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
 	# TODO: Tutorial happens between these two sounds
 	await SoundManager.play_sound_by_id(SoundManager.Sound.SPOTLIGHT).finished
-	
+
 	point_light_2d.texture = regular_gradient_texture
 	point_light_2d.energy = energy_regular_run
 
@@ -97,7 +97,6 @@ func handle_ghost_mode(is_ghost_mode) -> void:
 	else:
 		point_light_2d.texture = regular_gradient_texture
 		point_light_2d.energy = energy_regular_run
-	
 
 
 func reset_stars() -> void:

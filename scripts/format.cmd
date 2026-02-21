@@ -1,0 +1,1 @@
+@for /r %%f in (*.gd) do @echo Formatting %%f && @gdformat "%%f"

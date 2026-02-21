@@ -158,7 +158,7 @@ func ghost_mode_on(value) -> void:
 	if not value:
 		if not tween:
 			_create_tween()
-			
+
 
 func handle_platform_moving(delta) -> void:
 	var mouse_pos = to_local(get_global_mouse_position())
