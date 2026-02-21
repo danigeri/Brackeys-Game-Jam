@@ -165,10 +165,10 @@ func handle_platform_moving(delta) -> void:
 	if is_moving:
 		if dir == "x":
 			var target_x = clamp(mouse_pos.x, start_x - distance, start_x + distance)
-			node_2d.position.x = move_toward(node_2d.position.x, target_x, distance * delta)
+			node_2d.position.x = move_toward(node_2d.position.x, target_x, 1000 * delta)
 		if dir == "y":
 			var target_y = clamp(mouse_pos.y, start_y - distance, start_y + distance)
-			node_2d.position.y = move_toward(node_2d.position.y, target_y, distance * delta)
+			node_2d.position.y = move_toward(node_2d.position.y, target_y, 1000 * delta)
 
 
 func handle_platform_release_and_hovering() -> void:
