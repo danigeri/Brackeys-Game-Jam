@@ -26,6 +26,7 @@ var optional_collected: int = 0
 
 #camera
 @onready var ghost_camera: Camera2D = $GhostCamera
+@onready var player_camera: Camera2D = $Player/Camera2D
 
 @onready var player: CharacterBody2D = $Player
 #use this if line will be Line2d not Sprites
@@ -85,17 +86,20 @@ func change_act(act: int):
 
 
 func curtain_in_and_out() -> void:
+	player_camera.set_position_smoothing_speed(1.0)
+	use_ghost_camera(true)
 	point_light_2d.visible = false
 	
 	curtain_effect.visible = true
 	await SoundManager.play_sound_by_id(SoundManager.Sound.CURTAIN).finished
-	await get_tree().create_timer(0.5).timeout
 	curtain_effect.visible = false
-	
 	await get_tree().create_timer(0.3).timeout
 	point_light_2d.visible = true
 	await SoundManager.play_sound_by_id(SoundManager.Sound.SPOTLIGHT).finished
 
+	player_camera.make_current()
+	await get_tree().create_timer(2).timeout
+	player_camera.set_position_smoothing_speed(5.0)
 
 
 func handle_ghost_mode(is_ghost_mode) -> void:
