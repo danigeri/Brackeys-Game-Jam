@@ -5,8 +5,10 @@ extends Control
 func _ready() -> void:
 	GameEvents.records_completed.connect(
 		func():
-			print("receive")
-			fade_in_overlay()
+			#print("receive")
+			#print("SHOW: ", GameEvents.ghost_mode)
+			if GameEvents.ghost_mode:
+				fade_in_overlay()
 	)
 	GameEvents.ghost_mode_on.connect(func(_on: bool): fade_out_overlay())
 

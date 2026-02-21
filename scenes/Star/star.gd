@@ -15,7 +15,7 @@ func _on_body_entered(body):
 		if collected_once:
 			return
 
-		print("STAR reached by : ", body, ", star: ", self)
+		#print("STAR reached by : ", body, ", star: ", self)
 		if body is CharacterBody2D:
 			collected_once = true
 			hide()

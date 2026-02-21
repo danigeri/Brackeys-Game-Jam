@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b84w6vkq7v580"]
+[gd_scene format=3 uid="uid://bbsy5v6wkxbev"]
 
 [ext_resource type="Script" uid="uid://cxd6h04qfxwi5" path="res://UI/press_restart_overlay.gd" id="1_g56ua"]
 [ext_resource type="FontFile" uid="uid://dmjao2wsks8te" path="res://assets/fonts/Black Drama Demo.ttf" id="1_vfkp8"]
