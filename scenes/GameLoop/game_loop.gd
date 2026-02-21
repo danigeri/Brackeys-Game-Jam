@@ -32,10 +32,6 @@ var optional_collected: int = 0
 #@onready var line_2d: Line2D = $Line2D
 @onready var path_dot_container: Node2D = $PathDotContainer
 
-# TODO: remove these
-@onready var curtain: Sprite2D = $Curtain
-@onready var curtain_ghost: Sprite2D = $CurtainGhost
-
 @onready var curtain_effect: Sprite2D = $CurtainEffect
 @onready var act_container: Node2D = $ActContainer
 
