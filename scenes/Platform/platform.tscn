@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://crawxa0cftex5" path="res://scenes/Platform/platform.gd" id="1_7j252"]
 [ext_resource type="Texture2D" uid="uid://bdrja35xfgxdd" path="res://scenes/Platform/ghost_platform_moveable.png" id="2_kqafi"]
 [ext_resource type="Texture2D" uid="uid://mrwi84cfjg8a" path="res://assets/stagehand/stagehand.png" id="4_harwm"]
+[ext_resource type="Texture2D" uid="uid://dbd0hcqx624e" path="res://scenes/Platform/act1_platform_v2.png" id="4_r6ejc"]
+[ext_resource type="Texture2D" uid="uid://gy6tocvh8vx4" path="res://scenes/Platform/act2_platform_v2.png" id="5_ewh0p"]
+[ext_resource type="Texture2D" uid="uid://8cqnj6cemc37" path="res://scenes/Platform/act3_platform_v2.png" id="6_e53ec"]
 
 [sub_resource type="Gradient" id="Gradient_hf6b2"]
 offsets = PackedFloat32Array(0.48404256, 0.69148934)
@@ -159,7 +162,7 @@ shape = SubResource("RectangleShape2D_34mie")
 shape = SubResource("RectangleShape2D_7j252")
 
 [node name="Icon" type="Sprite2D" parent="Node2D" unique_id=706809577]
-position = Vector2(2.9802322e-08, 2)
+position = Vector2(1.7763568e-15, -1.9999998)
 scale = Vector2(0.13903105, 0.14465408)
 texture = ExtResource("2_kqafi")
 
@@ -175,6 +178,21 @@ position = Vector2(294.8981, 290.34784)
 scale = Vector2(4.11329, 3.9528568)
 sprite_frames = SubResource("SpriteFrames_ekp6q")
 autoplay = "default"
+
+[node name="act1" type="Sprite2D" parent="Node2D" unique_id=58671270]
+position = Vector2(-1, -4)
+scale = Vector2(0.15542327, 0.15542328)
+texture = ExtResource("4_r6ejc")
+
+[node name="act2" type="Sprite2D" parent="Node2D" unique_id=327808223]
+position = Vector2(0.2678969, 6.281253)
+scale = Vector2(0.1532197, 0.1532197)
+texture = ExtResource("5_ewh0p")
+
+[node name="act3" type="Sprite2D" parent="Node2D" unique_id=1816937562]
+position = Vector2(0, -3)
+scale = Vector2(0.15939151, 0.15939152)
+texture = ExtResource("6_e53ec")
 
 [connection signal="mouse_entered" from="Node2D/Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Node2D/Area2D" to="." method="_on_area_2d_mouse_exited"]

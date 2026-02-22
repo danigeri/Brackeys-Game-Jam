@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" uid="uid://d20xbgqvjpqv2" path="res://scenes/Ground/ground.gd" id="1_kw7vd"]
 [ext_resource type="Texture2D" uid="uid://bpk8mwrd5w4tv" path="res://icon.svg" id="1_pybca"]
-[ext_resource type="Texture2D" uid="uid://d1e1qheab4ty0" path="res://scenes/Platform/act1_platform.png" id="3_qeq8d"]
+[ext_resource type="Texture2D" uid="uid://cvuiuduu0vjp1" path="res://scenes/Platform/act1_platform.png" id="3_qeq8d"]
+[ext_resource type="Texture2D" uid="uid://dbd0hcqx624e" path="res://scenes/Platform/act1_platform_v2.png" id="4_aixfk"]
+[ext_resource type="Texture2D" uid="uid://gy6tocvh8vx4" path="res://scenes/Platform/act2_platform_v2.png" id="5_aankk"]
+[ext_resource type="Texture2D" uid="uid://8cqnj6cemc37" path="res://scenes/Platform/act3_platform_v2.png" id="6_jsifi"]
+[ext_resource type="Texture2D" uid="uid://bd36atmvg632q" path="res://scenes/Platform/ghost_platform_fix_v2.png" id="7_smk7e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mi8v4"]
 size = Vector2(127, 20)
@@ -14,10 +18,6 @@ script = ExtResource("1_kw7vd")
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1587757090]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_mi8v4")
-
 [node name="Icon" type="Sprite2D" parent="StaticBody2D" unique_id=1448637420]
 visible = false
 modulate = Color(0.24427992, 0.1366666, 0.03303714, 1)
@@ -25,6 +25,31 @@ scale = Vector2(1, 0.1599999)
 texture = ExtResource("1_pybca")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1911199525]
+visible = false
 position = Vector2(9.536743e-07, 2)
 scale = Vector2(0.14622642, 0.14622642)
 texture = ExtResource("3_qeq8d")
+
+[node name="act1" type="Sprite2D" parent="StaticBody2D" unique_id=862385579]
+position = Vector2(-1, -0.9999999)
+scale = Vector2(0.16186507, 0.16186509)
+texture = ExtResource("4_aixfk")
+
+[node name="act2" type="Sprite2D" parent="StaticBody2D" unique_id=1556751112]
+position = Vector2(-0.99999994, 11)
+scale = Vector2(0.16060606, 0.16060606)
+texture = ExtResource("5_aankk")
+
+[node name="act3" type="Sprite2D" parent="StaticBody2D" unique_id=2097135431]
+position = Vector2(0, 1)
+scale = Vector2(0.16501322, 0.16501322)
+texture = ExtResource("6_jsifi")
+
+[node name="ghost" type="Sprite2D" parent="StaticBody2D" unique_id=286121594]
+position = Vector2(-4.7683716e-07, 1.0000002)
+scale = Vector2(0.16302909, 0.16302909)
+texture = ExtResource("7_smk7e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1587757090]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_mi8v4")
