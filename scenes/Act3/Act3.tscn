@@ -1,19 +1,12 @@
 [gd_scene format=3 uid="uid://k2t6pk66rnl3"]
 
 [ext_resource type="Script" uid="uid://dbmomybyv6vrt" path="res://scenes/Act1/act.gd" id="1_3rya3"]
-[ext_resource type="Texture2D" uid="uid://burttk6tp4gav" path="res://assets/background/act3-layers/act3_fx__0006_06-felhok-bg.png" id="2_3rya3"]
-[ext_resource type="Texture2D" uid="uid://cgmkuiwu3jsxv" path="res://assets/background/act3-layers/act3_fx__0005_05-hegyek.png" id="3_2nqyv"]
 [ext_resource type="Texture2D" uid="uid://c5s0r0ilyxv54" path="res://scenes/Act1/act1_ghost_layer1.png" id="3_lxwim"]
-[ext_resource type="Texture2D" uid="uid://d3i86j83t0env" path="res://assets/background/act3-layers/act3_fx__0004_04-fak.png" id="4_lxwim"]
 [ext_resource type="Texture2D" uid="uid://cmmtqnqiedirl" path="res://assets/curtains/curtain_ghost_run_bg.png" id="4_xbvoi"]
 [ext_resource type="Texture2D" uid="uid://cknr6ev3gilni" path="res://scenes/Act1/act1_ghost_layer2.png" id="5_k3p8n"]
-[ext_resource type="Texture2D" uid="uid://ckltknbsebxnt" path="res://assets/background/act3-layers/act3_fx__0003_03-mezo.png" id="5_xbvoi"]
-[ext_resource type="Texture2D" uid="uid://7sdkxk8agmeh" path="res://assets/background/act3-layers/act3_fx__0002_02-lepcso.png" id="6_k3p8n"]
 [ext_resource type="Texture2D" uid="uid://bgdi2w3ntqvwv" path="res://assets/curtains/curtain_record_run.png" id="6_p5a4g"]
-[ext_resource type="Texture2D" uid="uid://ci8mvphv514e5" path="res://assets/background/act3-layers/act3_fx__0001_01-felho-fent.png" id="7_p5a4g"]
 [ext_resource type="PackedScene" uid="uid://cmvu72hfj0uu4" path="res://scenes/Platform/platform.tscn" id="7_q3885"]
 [ext_resource type="PackedScene" uid="uid://c7xrocq7m8k0u" path="res://scenes/Ground/ground.tscn" id="8_gfll1"]
-[ext_resource type="Texture2D" uid="uid://u2ugr01q427r" path="res://assets/background/act3-layers/act3_fx__0000_00-felho-lent.png" id="8_q3885"]
 [ext_resource type="PackedScene" uid="uid://bn7lxk0ph8aym" path="res://scenes/Star/star.tscn" id="9_t6sxg"]
 [ext_resource type="PackedScene" uid="uid://bwaevcirj6oib" path="res://scenes/KillZone/kill_zone.tscn" id="10_8cp8b"]
 
@@ -30,7 +23,6 @@ repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
 [node name="Layer" type="Sprite2D" parent="Environment/Parallax2D_Layer7" unique_id=1962532732]
-texture = ExtResource("2_3rya3")
 
 [node name="Parallax2D_Layer6" type="Parallax2D" parent="Environment" unique_id=1428942566]
 z_index = -70
@@ -39,7 +31,6 @@ repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
 [node name="Layer" type="Sprite2D" parent="Environment/Parallax2D_Layer6" unique_id=1684527326]
-texture = ExtResource("3_2nqyv")
 
 [node name="Parallax2D_Layer5" type="Parallax2D" parent="Environment" unique_id=1137991181]
 z_index = -60
@@ -48,7 +39,6 @@ repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
 [node name="Layer" type="Sprite2D" parent="Environment/Parallax2D_Layer5" unique_id=1096005358]
-texture = ExtResource("4_lxwim")
 
 [node name="Parallax2D_Layer4" type="Parallax2D" parent="Environment" unique_id=913804610]
 z_index = -50
@@ -57,7 +47,6 @@ repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
 [node name="Layer" type="Sprite2D" parent="Environment/Parallax2D_Layer4" unique_id=1840439709]
-texture = ExtResource("5_xbvoi")
 
 [node name="Parallax2D_Layer3" type="Parallax2D" parent="Environment" unique_id=728267085]
 z_index = -40
@@ -66,7 +55,6 @@ repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
 [node name="Layer" type="Sprite2D" parent="Environment/Parallax2D_Layer3" unique_id=568825552]
-texture = ExtResource("6_k3p8n")
 
 [node name="Parallax2D_Layer2" type="Parallax2D" parent="Environment" unique_id=190530959]
 z_index = -30
@@ -75,7 +63,6 @@ repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
 [node name="Layer" type="Sprite2D" parent="Environment/Parallax2D_Layer2" unique_id=836895487]
-texture = ExtResource("7_p5a4g")
 
 [node name="Parallax2D_Layer1" type="Parallax2D" parent="Environment" unique_id=529100459]
 z_index = -20
@@ -84,7 +71,6 @@ repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
 [node name="Layer" type="Sprite2D" parent="Environment/Parallax2D_Layer1" unique_id=1390839871]
-texture = ExtResource("8_q3885")
 
 [node name="GhostBackground" type="Sprite2D" parent="." unique_id=160617654]
 visible = false
