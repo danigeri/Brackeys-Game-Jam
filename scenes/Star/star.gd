@@ -24,22 +24,25 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	#print("COLLISION: ", body.is_in_group("Player"))
 	if body.is_in_group("Player"):
 		if collected_once:
 			return
-
-		#print("STAR reached by : ", body, ", star: ", self)
 		if body is CharacterBody2D:
 			collected_once = true
-			hide()
-			#$CollisionShape2D.set_deferred("disabled", true)
 			collected.emit(self)
-			#queue_free()
+			_play_collect_animation()
 
+func _play_collect_animation():
+	var tween = create_tween()
+	#tween.set_parallel(true)  # run scale + fade at the same time
+	tween.tween_property(self, "scale", Vector2.ZERO, 0.1)\
+		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	#tween.tween_property(self, "modulate:a", 0.0, 0.2)
+	await tween.finished
+	hide()
 
 func reset_star():
-	#print("STAR RESET :", self)
 	collected_once = false
+	scale = Vector2.ONE # restore scale
+	#modulate.a = 1.0 # restore alpha
 	show()
-	#$CollisionShape2D.set_deferred("disabled", false)
