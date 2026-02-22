@@ -10,6 +10,25 @@
 [ext_resource type="PackedScene" uid="uid://bn7lxk0ph8aym" path="res://scenes/Star/star.tscn" id="4_star"]
 [ext_resource type="PackedScene" uid="uid://bwaevcirj6oib" path="res://scenes/KillZone/kill_zone.tscn" id="5_killzone"]
 [ext_resource type="Texture2D" uid="uid://bgdi2w3ntqvwv" path="res://assets/curtains/curtain_record_run.png" id="6_ij5lp"]
+[ext_resource type="Texture2D" uid="uid://cfjpyrl35fsfr" path="res://assets/cursor/cursor1_harmad.png" id="12_iu42g"]
+[ext_resource type="Texture2D" uid="uid://ce0hb8pyl704b" path="res://assets/cursor/cursor2_harmad.png" id="13_kkfd7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ix0kp"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("12_iu42g")
+}, {
+"duration": 6.0,
+"texture": ExtResource("13_kkfd7")
+}],
+"loop": true,
+"name": &"tutorial",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iu42g"]
+size = Vector2(146.85587, 50.042664)
 
 [node name="Act1" type="Node2D" unique_id=858034748]
 script = ExtResource("1_ae7cj")
@@ -82,3 +101,25 @@ star_type = 1
 
 [node name="KillZone" parent="." unique_id=41493325 instance=ExtResource("5_killzone")]
 position = Vector2(-990, 540)
+
+[node name="TutorialCursor" type="Node2D" parent="." unique_id=1027860718]
+visible = false
+position = Vector2(-113, 31)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TutorialCursor" unique_id=352227979]
+position = Vector2(-420, 185)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_ix0kp")
+animation = &"tutorial"
+autoplay = "tutorial"
+frame_progress = 0.085772574
+
+[node name="Area2D" type="Area2D" parent="TutorialCursor" unique_id=1914195738]
+position = Vector2(-453, 162)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialCursor/Area2D" unique_id=134824665]
+position = Vector2(67.20245, 15.7556)
+scale = Vector2(1.0595089, 1.0488814)
+shape = SubResource("RectangleShape2D_iu42g")
+
+[connection signal="mouse_entered" from="TutorialCursor/Area2D" to="." method="_on_area_2d_mouse_entered"]

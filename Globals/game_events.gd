@@ -11,6 +11,7 @@ var easy_mode: bool = false
 var death_counter = 0
 var current_act = 1
 var no_moves_left: bool = false
+var tutorial_completed: bool = false
 
 
 func show_cursor() -> void:

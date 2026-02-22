@@ -3,6 +3,7 @@ extends Node2D
 #player trail
 const RECORD_INTERVAL := 0.05  # 1 second
 const PATH_DOT_SCENE = preload("uid://co43cv8qwqnmv")
+const MAIN_MENU: PackedScene = preload("uid://c64idl1pun738")
 
 #acts
 const ACT_1 = preload("uid://dc6mlfql3moyl")
@@ -226,8 +227,22 @@ func _on_star_collected(star):
 			GameEvents.set_ghost_mode(true)
 		else:
 			#print("STAR next act triggered: ", optional_collected)
-			GameEvents.change_act_to(GameEvents.current_act + 1)
-			GameEvents.set_ghost_mode(false)
+			if (GameEvents.current_act < 3):
+				change_level()
+			else:
+				end_game()
+
+
+func change_level() -> void:
+	GameEvents.change_act_to(GameEvents.current_act + 1)
+	GameEvents.set_ghost_mode(false)
+
+
+func end_game() -> void:
+	GameEvents.current_act = 1
+	GameEvents.ghost_mode = false
+	GameEvents.death_counter = 0
+	get_tree().change_scene_to_packed(MAIN_MENU)
 
 
 func handle_easy_mode(is_on) -> void:
