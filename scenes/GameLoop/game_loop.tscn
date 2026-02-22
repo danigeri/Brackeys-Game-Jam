@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dsd8ecyk3jjoa" path="res://assets/q_button.png" id="3_o4elr"]
 [ext_resource type="Texture2D" uid="uid://lqu4qmaexn8a" path="res://assets/esc_button.png" id="4_i4eks"]
 [ext_resource type="PackedScene" uid="uid://c55vl17w7kkn0" path="res://UI/Menus/SettingsMenu/settings_menu.tscn" id="4_x7b5a"]
-[ext_resource type="PackedScene" uid="uid://bbsy5v6wkxbev" path="res://UI/press_restart_overlay.tscn" id="5_o2r4w"]
+[ext_resource type="PackedScene" uid="uid://b84w6vkq7v580" path="res://UI/press_restart_overlay.tscn" id="5_o2r4w"]
 [ext_resource type="PackedScene" uid="uid://3ibhlt1dyusg" path="res://scenes/Player/player.tscn" id="5_t2325"]
 [ext_resource type="Script" uid="uid://7e1msojq65hv" path="res://scenes/GameLoop/temp_level_picker.gd" id="6_2b21g"]
 [ext_resource type="Texture2D" uid="uid://cwa5cxfykhn5y" path="res://assets/dots.png" id="8_5ts88"]
@@ -20,7 +20,6 @@ script = ExtResource("1_7f3si")
 
 [node name="Buttons" type="CanvasLayer" parent="." unique_id=1787995483]
 layer = 5
-visible = false
 
 [node name="TempLevelPicker" type="Node2D" parent="Buttons" unique_id=1724961073]
 script = ExtResource("6_2b21g")
