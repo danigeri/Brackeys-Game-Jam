@@ -68,6 +68,7 @@ position = Vector2(662, 112)
 dir = "y"
 distance = 200
 duration = 3
+start_direction = "Left/Up"
 
 [node name="Ground" parent="." unique_id=842944472 instance=ExtResource("2_yofwx")]
 position = Vector2(-793, 212)

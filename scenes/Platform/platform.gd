@@ -33,6 +33,9 @@ var start_y: float
 @onready var grab_right: AnimatedSprite2D = $Node2D/Icon/Right
 
 @onready var icon: Sprite2D = $Node2D/Icon
+@onready var act_1: Sprite2D = $Node2D/act1
+@onready var act_2: Sprite2D = $Node2D/act2
+@onready var act_3: Sprite2D = $Node2D/act3
 
 
 func _ready() -> void:
@@ -42,21 +45,77 @@ func _ready() -> void:
 
 	grab_left.modulate.a = 0.0
 	grab_right.modulate.a = 0.0
-	#grab_right.scale.x = -abs(grab_right.scale.x)
 
-	icon.texture = PLATFORM_TEXTURES_BY_ACT[GameEvents.current_act - 1]
+	if GameEvents.ghost_mode:
+		print("GHOST")
+		act_1.hide()
+		act_2.hide()
+		act_3.hide()
+		icon.show()
+	else:
+		icon.hide()
+		if GameEvents.current_act == 1:
+			print("ACT1")
+			act_1.show()
+			act_2.hide()
+			act_3.hide()
+		elif GameEvents.current_act == 2:
+			print("ACT2")
+			act_1.hide()
+			act_2.show()
+			act_3.hide()
+		elif GameEvents.current_act == 3:
+			print("ACT3")
+			act_1.hide()
+			act_2.hide()
+			act_3.show()
 
 	GameEvents.act_changed_to.connect(
-		func(_act_num: int): icon.texture = PLATFORM_TEXTURES_BY_ACT[GameEvents.current_act - 1]
+		func(_act_num: int):
+			icon.hide()
+			if GameEvents.current_act == 1:
+				print("ACT1")
+				act_1.show()
+				act_2.hide()
+				act_3.hide()
+			elif GameEvents.current_act == 2:
+				print("ACT2")
+				act_1.hide()
+				act_2.show()
+				act_3.hide()
+			elif GameEvents.current_act == 3:
+				print("ACT3")
+				act_1.hide()
+				act_2.hide()
+				act_3.show()
 	)
-
-	# todo ghost
+#
+	## todo ghost
 	GameEvents.ghost_mode_on.connect(
 		func(ghost_mode: bool):
 			if ghost_mode:
-				icon.texture = GHOST_PLATFORM_MOVEABLE
+				print("GHOST")
+				act_1.hide()
+				act_2.hide()
+				act_3.hide()
+				icon.show()
 			else:
-				icon.texture = PLATFORM_TEXTURES_BY_ACT[GameEvents.current_act - 1]
+				icon.hide()
+				if GameEvents.current_act == 1:
+					print("ACT1")
+					act_1.show()
+					act_2.hide()
+					act_3.hide()
+				elif GameEvents.current_act == 2:
+					print("ACT2")
+					act_1.hide()
+					act_2.show()
+					act_3.hide()
+				elif GameEvents.current_act == 3:
+					print("ACT3")
+					act_1.hide()
+					act_2.hide()
+					act_3.show()
 	)
 
 	_create_tween()
