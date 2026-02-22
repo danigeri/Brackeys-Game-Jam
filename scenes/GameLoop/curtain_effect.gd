@@ -4,4 +4,7 @@ extends Sprite2D
 
 
 func set_act_number(number: int) -> void:
-	label.text = "Act " + str(number)
+	var act_text = "" 
+	for i in range(number):
+		act_text += "I"
+	label.text = "Act " + str(act_text)
