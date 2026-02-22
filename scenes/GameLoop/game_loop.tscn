@@ -111,6 +111,7 @@ position = Vector2(1, 0)
 color = Color(0.89492244, 0.89492244, 0.8949223, 1)
 
 [node name="CurtainEffect" type="Sprite2D" parent="." unique_id=1836994531]
+position = Vector2(0, 8)
 texture = ExtResource("9_73e4h")
 script = ExtResource("10_o2r4w")
 
