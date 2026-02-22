@@ -20,9 +20,9 @@ script = ExtResource("1_7f3si")
 
 [node name="Buttons" type="CanvasLayer" parent="." unique_id=1787995483]
 layer = 5
-visible = false
 
 [node name="TempLevelPicker" type="Node2D" parent="Buttons" unique_id=1724961073]
+visible = false
 script = ExtResource("6_2b21g")
 
 [node name="Button" type="Button" parent="Buttons/TempLevelPicker" unique_id=1268306629]
@@ -112,6 +112,7 @@ position = Vector2(1, 0)
 color = Color(0.89492244, 0.89492244, 0.8949223, 1)
 
 [node name="CurtainEffect" type="Sprite2D" parent="." unique_id=1836994531]
+position = Vector2(0, 8)
 texture = ExtResource("9_73e4h")
 script = ExtResource("10_o2r4w")
 

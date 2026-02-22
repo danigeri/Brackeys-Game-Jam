@@ -25,6 +25,7 @@ var required_total: int = 0
 var optional_total: int = 0
 var required_collected: int = 0
 var optional_collected: int = 0
+@onready var endgame: Sprite2D = $Endgame
 
 #camera
 @onready var ghost_camera: Camera2D = $Player/GhostCamera
@@ -144,7 +145,7 @@ func handle_player_path(is_ghost_mode) -> void:
 		positions = []
 		GameEvents.death_counter = 0
 		clear_line_positions()
-	if GameEvents.easy_mode || GameEvents.death_counter > 2:
+	if GameEvents.easy_mode || GameEvents.death_counter > 1:
 		clear_line_positions()
 		draw_player_path()
 
@@ -225,6 +226,7 @@ func _on_star_collected(star):
 			GameEvents.set_ghost_mode(true)
 		else:
 			#print("STAR next act triggered: ", optional_collected)
+			
 			if GameEvents.current_act < 3:
 				change_level()
 			else:
@@ -240,7 +242,7 @@ func end_game() -> void:
 	GameEvents.current_act = 1
 	GameEvents.ghost_mode = false
 	GameEvents.death_counter = 0
-	get_tree().change_scene_to_packed(MAIN_MENU)
+	GameEvents.end_game.emit()
 
 
 func handle_easy_mode(is_on) -> void:

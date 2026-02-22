@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cy0fulpci22os" path="res://scenes/Act3/act3_ghost_layer3.png" id="11_jwrvt"]
 [ext_resource type="Texture2D" uid="uid://dabqfnivwp7qi" path="res://scenes/Act3/act3_ghost_layer4_details.png" id="12_qnhbk"]
 [ext_resource type="Texture2D" uid="uid://cb4sey2hwtu2o" path="res://assets/curtains/curtain_ghostrun_new.png" id="18_t6sxg"]
+[ext_resource type="Texture2D" uid="uid://d1ur7ipaprgx2" path="res://assets/finish_finish.png" id="19_8cp8b"]
 
 [node name="Act3" type="Node2D" unique_id=1603398155]
 script = ExtResource("1_3rya3")
@@ -240,3 +241,8 @@ texture = ExtResource("6_p5a4g")
 visible = false
 position = Vector2(960, 543)
 texture = ExtResource("18_t6sxg")
+
+[node name="Endgame" type="Sprite2D" parent="CanvasLayer" unique_id=2107601076]
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("19_8cp8b")

@@ -5,6 +5,7 @@ signal ghost_mode_on(value: bool)
 signal easy_mode_on(value: bool)
 signal act_changed_to(act: int)
 signal records_completed
+signal end_game
 
 var ghost_mode: bool = false
 var easy_mode: bool = false
