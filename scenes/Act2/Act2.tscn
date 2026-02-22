@@ -2,12 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dbmomybyv6vrt" path="res://scenes/Act1/act.gd" id="1_3rya3"]
 [ext_resource type="Texture2D" uid="uid://bv3cyv2l7utr2" path="res://assets/background/act2-layers/act2_fx__0006_06-felhok.png" id="2_1xu0t"]
-[ext_resource type="Texture2D" uid="uid://c5s0r0ilyxv54" path="res://scenes/Act1/act1_ghost_layer1.png" id="3_lxwim"]
 [ext_resource type="Texture2D" uid="uid://bce00t588o408" path="res://assets/background/act2-layers/act2_fx__0005_05-sivatag.png" id="3_svsg3"]
 [ext_resource type="Texture2D" uid="uid://pf16ohgv3syy" path="res://assets/background/act2-layers/act2_fx__0004_04-vulkanok.png" id="4_degfe"]
 [ext_resource type="Texture2D" uid="uid://cmmtqnqiedirl" path="res://assets/curtains/curtain_ghost_run_bg.png" id="4_xbvoi"]
 [ext_resource type="Texture2D" uid="uid://b12vl8m3wo5m0" path="res://assets/background/act2-layers/act2_fx__0003_03-fak.png" id="5_iwulw"]
-[ext_resource type="Texture2D" uid="uid://cknr6ev3gilni" path="res://scenes/Act1/act1_ghost_layer2.png" id="5_k3p8n"]
 [ext_resource type="Texture2D" uid="uid://bkkn4bg5df5ib" path="res://assets/background/act2-layers/act2_fx__0002_02-ustos.png" id="6_gew3l"]
 [ext_resource type="Texture2D" uid="uid://bgdi2w3ntqvwv" path="res://assets/curtains/curtain_record_run.png" id="6_p5a4g"]
 [ext_resource type="Texture2D" uid="uid://uob5ss24lq12" path="res://assets/background/act2-layers/act2_fx__0001_01-jeg.png" id="7_d7bh2"]
@@ -89,7 +87,6 @@ texture = ExtResource("8_tnfh5")
 
 [node name="GhostBackground" type="Sprite2D" parent="." unique_id=160617654]
 visible = false
-texture = ExtResource("3_lxwim")
 
 [node name="CurtainGhost" type="Sprite2D" parent="." unique_id=1864374658]
 visible = false
@@ -97,7 +94,6 @@ texture = ExtResource("4_xbvoi")
 
 [node name="GhostBackgroundLayer2" type="Sprite2D" parent="." unique_id=48485112]
 visible = false
-texture = ExtResource("5_k3p8n")
 
 [node name="Platform" parent="." unique_id=444993873 instance=ExtResource("7_q3885")]
 position = Vector2(-582, 97)
