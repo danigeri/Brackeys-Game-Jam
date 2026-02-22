@@ -30,7 +30,7 @@ grow_vertical = 2
 script = ExtResource("1_nhkf3")
 
 [node name="CurtainBG" type="Sprite2D" parent="." unique_id=769713568]
-position = Vector2(962, 542)
+position = Vector2(960, 540)
 texture = ExtResource("2_biwnh")
 
 [node name="StartButton" type="Button" parent="." unique_id=990528875]
