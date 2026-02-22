@@ -81,6 +81,16 @@ joint_mode = 2
 [node name="Player" parent="." unique_id=1510985192 instance=ExtResource("5_t2325")]
 position = Vector2(-75, -354)
 
+[node name="GhostCamera" type="Camera2D" parent="Player" unique_id=1831260324]
+position = Vector2(75, 354)
+limit_left = -960
+limit_top = -540
+limit_right = 960
+limit_bottom = 540
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1484011177]
 position = Vector2(7, 0)
 limit_left = -960
@@ -95,15 +105,6 @@ drag_vertical_enabled = true
 position = Vector2(3.5000114, -8.999981)
 energy = 0.61
 texture = ExtResource("8_73e4h")
-
-[node name="GhostCamera" type="Camera2D" parent="." unique_id=1831260324]
-limit_left = -960
-limit_top = -540
-limit_right = 960
-limit_bottom = 540
-position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1700915103]
 position = Vector2(1, 0)
