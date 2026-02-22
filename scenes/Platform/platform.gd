@@ -1,9 +1,9 @@
 extends Node2D
 
-const GHOST_PLATFORM_MOVEABLE = preload("uid://bdrja35xfgxdd")
-const PLATFORM_TEXTURE_ACT_1 = preload("uid://cvuiuduu0vjp1")
-const PLATFORM_TEXTURE_ACT_2 = preload("uid://bxkkl7cqrx6lt")
-const PLATFORM_TEXTURE_ACT_3 = preload("uid://bnaalokfffe01")
+const GHOST_PLATFORM_MOVEABLE = preload("uid://b1aue6pf1lqfc")
+const PLATFORM_TEXTURE_ACT_1 = preload("uid://dbd0hcqx624e")
+const PLATFORM_TEXTURE_ACT_2 = preload("uid://gy6tocvh8vx4")
+const PLATFORM_TEXTURE_ACT_3 = preload("uid://8cqnj6cemc37")
 
 const PLATFORM_TEXTURES_BY_ACT = [
 	PLATFORM_TEXTURE_ACT_1, PLATFORM_TEXTURE_ACT_2, PLATFORM_TEXTURE_ACT_3
