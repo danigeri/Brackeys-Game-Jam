@@ -145,7 +145,7 @@ func handle_player_path(is_ghost_mode) -> void:
 		positions = []
 		GameEvents.death_counter = 0
 		clear_line_positions()
-	if GameEvents.easy_mode || GameEvents.death_counter > 0:
+	if GameEvents.easy_mode || GameEvents.death_counter > 1:
 		clear_line_positions()
 		draw_player_path()
 

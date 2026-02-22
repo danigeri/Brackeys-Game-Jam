@@ -20,9 +20,9 @@ script = ExtResource("1_7f3si")
 
 [node name="Buttons" type="CanvasLayer" parent="." unique_id=1787995483]
 layer = 5
-visible = false
 
 [node name="TempLevelPicker" type="Node2D" parent="Buttons" unique_id=1724961073]
+visible = false
 script = ExtResource("6_2b21g")
 
 [node name="Button" type="Button" parent="Buttons/TempLevelPicker" unique_id=1268306629]
