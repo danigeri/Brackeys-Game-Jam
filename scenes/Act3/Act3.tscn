@@ -98,10 +98,6 @@ texture = ExtResource("4_xbvoi")
 visible = false
 texture = ExtResource("5_k3p8n")
 
-[node name="Curtain" type="Sprite2D" parent="." unique_id=1232644688]
-z_index = 1
-texture = ExtResource("6_p5a4g")
-
 [node name="Platform" parent="." unique_id=444993873 instance=ExtResource("7_q3885")]
 position = Vector2(-581, 30)
 dir = "y"
@@ -201,3 +197,10 @@ star_type = 1
 
 [node name="KillZone" parent="." unique_id=41493325 instance=ExtResource("10_8cp8b")]
 position = Vector2(-990, 540)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=807481266]
+
+[node name="Curtain" type="Sprite2D" parent="CanvasLayer" unique_id=1232644688]
+z_index = 1
+position = Vector2(960, 540)
+texture = ExtResource("6_p5a4g")

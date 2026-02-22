@@ -3,9 +3,9 @@ extends Node2D
 @onready var environment = $Environment
 @onready var ghost_background: Sprite2D = $GhostBackground
 @onready var ghost_background_layer_2: Sprite2D = $GhostBackgroundLayer2
-@onready var curtain: Sprite2D = $Curtain
 @onready var curtain_ghost: Sprite2D = $CurtainGhost
 @onready var tutorial_cursor: Node2D = $TutorialCursor
+@onready var curtain: Sprite2D = $CanvasLayer/Curtain
 
 
 # Called when the node enters the scene tree for the first time.

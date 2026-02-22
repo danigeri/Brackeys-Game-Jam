@@ -108,8 +108,8 @@ func curtain_in_and_out(act: int) -> void:
 	point_light_2d.visible = true
 	await SoundManager.play_sound_by_id(SoundManager.Sound.SPOTLIGHT).finished
 
-	var tween = create_tween()
-	tween.tween_property(player_camera, "zoom", Vector2(1.6, 1.6), 0.5)
+	#var tween = create_tween()
+	#tween.tween_property(player_camera, "zoom", Vector2(1.6, 1.6), 0.5)
 
 
 func handle_ghost_mode(is_ghost_mode):

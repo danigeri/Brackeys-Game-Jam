@@ -48,10 +48,6 @@ texture = ExtResource("4_11emk")
 visible = false
 texture = ExtResource("4_aosy8")
 
-[node name="Curtain" type="Sprite2D" parent="." unique_id=2012937276]
-z_index = 1
-texture = ExtResource("6_ij5lp")
-
 [node name="Platform" parent="." unique_id=466164217 instance=ExtResource("1_ftaa2")]
 position = Vector2(-499, 210)
 dir = "x"
@@ -121,5 +117,12 @@ position = Vector2(-453, 162)
 position = Vector2(67.20245, 15.7556)
 scale = Vector2(1.0595089, 1.0488814)
 shape = SubResource("RectangleShape2D_iu42g")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=993882401]
+
+[node name="Curtain" type="Sprite2D" parent="CanvasLayer" unique_id=2012937276]
+z_index = 1
+position = Vector2(960, 540)
+texture = ExtResource("6_ij5lp")
 
 [connection signal="mouse_entered" from="TutorialCursor/Area2D" to="." method="_on_area_2d_mouse_entered"]
