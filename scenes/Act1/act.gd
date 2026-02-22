@@ -14,6 +14,7 @@ const MAIN_MENU: PackedScene = preload("uid://c64idl1pun738")
 func _ready() -> void:
 	MusicPlayer.play_act(GameEvents.current_act)
 	GameEvents.ghost_mode_on.connect(_handle_ghost_mode_on)
+	GameEvents.end_game.connect(end_game)
 
 
 func _handle_ghost_mode_on(is_on: bool):
