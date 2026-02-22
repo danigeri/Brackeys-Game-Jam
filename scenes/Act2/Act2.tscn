@@ -93,7 +93,15 @@ visible = false
 [node name="GhostBackground" type="Sprite2D" parent="GhostBackground" unique_id=160617654]
 texture = ExtResource("9_svsg3")
 
+[node name="GhostBackground_copy" type="Sprite2D" parent="GhostBackground" unique_id=1601032943]
+position = Vector2(1920, 0)
+texture = ExtResource("9_svsg3")
+
 [node name="GhostBackgroundLayer2" type="Sprite2D" parent="GhostBackground" unique_id=48485112]
+texture = ExtResource("11_degfe")
+
+[node name="GhostBackgroundLayer2_copy" type="Sprite2D" parent="GhostBackground" unique_id=1031475510]
+position = Vector2(1920, 0)
 texture = ExtResource("11_degfe")
 
 [node name="Platform" parent="." unique_id=444993873 instance=ExtResource("7_q3885")]
