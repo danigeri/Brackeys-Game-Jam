@@ -89,9 +89,6 @@ repeat_times = 3
 [node name="Layer" type="Sprite2D" parent="Environment/Parallax2D_Layer1" unique_id=1390839871]
 texture = ExtResource("8_q3885")
 
-[node name="CurtainGhost" type="Sprite2D" parent="." unique_id=1864374658]
-texture = ExtResource("4_xbvoi")
-
 [node name="GhostBackground" type="Node2D" parent="." unique_id=1548813886]
 visible = false
 position = Vector2(960, 540)
@@ -238,3 +235,8 @@ position = Vector2(-990, 540)
 z_index = 1
 position = Vector2(960, 540)
 texture = ExtResource("6_p5a4g")
+
+[node name="CurtainGhost" type="Sprite2D" parent="CanvasLayer" unique_id=1864374658]
+visible = false
+position = Vector2(960, 543)
+texture = ExtResource("4_xbvoi")

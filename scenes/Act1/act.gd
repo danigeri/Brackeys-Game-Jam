@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var environment = $Environment
 @onready var ghost_background: Node2D = $GhostBackground
-@onready var curtain_ghost: Sprite2D = $CurtainGhost
+@onready var curtain_ghost: Sprite2D = $CanvasLayer/CurtainGhost
 @onready var tutorial_cursor: Node2D = $TutorialCursor
 @onready var curtain: Sprite2D = $CanvasLayer/Curtain
 
