@@ -12,8 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://cmvu72hfj0uu4" path="res://scenes/Platform/platform.tscn" id="7_q3885"]
 [ext_resource type="PackedScene" uid="uid://c7xrocq7m8k0u" path="res://scenes/Ground/ground.tscn" id="8_gfll1"]
 [ext_resource type="Texture2D" uid="uid://bp4nx2851qx8i" path="res://assets/background/act2-layers/act2_fx__0000_00-lang.png" id="8_tnfh5"]
+[ext_resource type="Texture2D" uid="uid://buc7al1b5q2hu" path="res://scenes/Act2/act2_ghost_layer1.png" id="9_svsg3"]
 [ext_resource type="PackedScene" uid="uid://bn7lxk0ph8aym" path="res://scenes/Star/star.tscn" id="9_t6sxg"]
 [ext_resource type="PackedScene" uid="uid://bwaevcirj6oib" path="res://scenes/KillZone/kill_zone.tscn" id="10_8cp8b"]
+[ext_resource type="Texture2D" uid="uid://bsjbk8np0440o" path="res://scenes/Act2/act2_ghost_layer2.png" id="11_degfe"]
 
 [node name="Act2" type="Node2D" unique_id=1603398155]
 script = ExtResource("1_3rya3")
@@ -87,6 +89,7 @@ texture = ExtResource("8_tnfh5")
 
 [node name="GhostBackground" type="Sprite2D" parent="." unique_id=160617654]
 visible = false
+texture = ExtResource("9_svsg3")
 
 [node name="CurtainGhost" type="Sprite2D" parent="." unique_id=1864374658]
 visible = false
@@ -94,6 +97,7 @@ texture = ExtResource("4_xbvoi")
 
 [node name="GhostBackgroundLayer2" type="Sprite2D" parent="." unique_id=48485112]
 visible = false
+texture = ExtResource("11_degfe")
 
 [node name="Platform" parent="." unique_id=444993873 instance=ExtResource("7_q3885")]
 position = Vector2(-582, 97)
