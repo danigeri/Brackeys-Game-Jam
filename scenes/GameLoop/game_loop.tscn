@@ -12,28 +12,36 @@
 [ext_resource type="Texture2D" uid="uid://spwm537qmtem" path="res://gradient_texture_regular.tres" id="8_73e4h"]
 [ext_resource type="Texture2D" uid="uid://ybfc6cyxat36" path="res://assets/curtains/curtain_opening.png" id="9_73e4h"]
 [ext_resource type="Script" uid="uid://6hjre4bh741v" path="res://scenes/GameLoop/curtain_effect.gd" id="10_o2r4w"]
+[ext_resource type="Texture2D" uid="uid://b02tbafr6bhes" path="res://assets/hamburger.png" id="13_o4elr"]
 
 [node name="GameLoop" type="Node2D" unique_id=1058436466]
 script = ExtResource("1_7f3si")
 
-[node name="TEMP" type="CanvasLayer" parent="." unique_id=1787995483]
+[node name="Buttons" type="CanvasLayer" parent="." unique_id=1787995483]
 layer = 5
 
-[node name="TempLevelPicker" type="Node2D" parent="TEMP" unique_id=1724961073]
+[node name="PauseButton" type="TextureButton" parent="Buttons" unique_id=876492600]
+offset_left = 1718.0
+offset_right = 3718.0
+offset_bottom = 2000.0
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("13_o4elr")
+
+[node name="TempLevelPicker" type="Node2D" parent="Buttons" unique_id=1724961073]
 script = ExtResource("6_2b21g")
 
-[node name="Button" type="Button" parent="TEMP/TempLevelPicker" unique_id=1268306629]
+[node name="Button" type="Button" parent="Buttons/TempLevelPicker" unique_id=1268306629]
 offset_right = 8.0
 offset_bottom = 8.0
 text = "act 1"
 
-[node name="Button2" type="Button" parent="TEMP/TempLevelPicker" unique_id=2041657686]
+[node name="Button2" type="Button" parent="Buttons/TempLevelPicker" unique_id=2041657686]
 offset_left = 52.0
 offset_right = 97.0
 offset_bottom = 31.0
 text = "act 2"
 
-[node name="Button3" type="Button" parent="TEMP/TempLevelPicker" unique_id=109449028]
+[node name="Button3" type="Button" parent="Buttons/TempLevelPicker" unique_id=109449028]
 offset_left = 104.0
 offset_right = 149.0
 offset_bottom = 31.0
@@ -113,8 +121,9 @@ vertical_alignment = 1
 
 [node name="TransitionCamera" type="Camera2D" parent="." unique_id=1666931038]
 
-[connection signal="pressed" from="TEMP/TempLevelPicker/Button" to="TEMP/TempLevelPicker" method="_on_button_pressed"]
-[connection signal="pressed" from="TEMP/TempLevelPicker/Button2" to="TEMP/TempLevelPicker" method="_on_button_2_pressed"]
-[connection signal="pressed" from="TEMP/TempLevelPicker/Button3" to="TEMP/TempLevelPicker" method="_on_button_3_pressed"]
+[connection signal="pressed" from="Buttons/PauseButton" to="UI" method="_on_pause_button_pressed"]
+[connection signal="pressed" from="Buttons/TempLevelPicker/Button" to="Buttons/TempLevelPicker" method="_on_button_pressed"]
+[connection signal="pressed" from="Buttons/TempLevelPicker/Button2" to="Buttons/TempLevelPicker" method="_on_button_2_pressed"]
+[connection signal="pressed" from="Buttons/TempLevelPicker/Button3" to="Buttons/TempLevelPicker" method="_on_button_3_pressed"]
 [connection signal="credits_menu_requested" from="UI/PauseMenu" to="UI" method="_on_pause_menu_credits_menu_requested"]
 [connection signal="settings_menu_requested" from="UI/PauseMenu" to="UI" method="_on_pause_menu_settings_menu_requested"]

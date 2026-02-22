@@ -38,12 +38,14 @@ func open_menu(menu) -> void:
 		GameEvents.show_cursor()
 
 	menu_stack.push_back(menu)
-	menu.show()
+	if menu != null:
+		menu.show()
 
 
 func go_back() -> void:
 	var current_menu = menu_stack.pop_back()
-	current_menu.hide()
+	if current_menu != null:
+		current_menu.hide()
 
 	if menu_stack.is_empty():
 		get_tree().paused = false
@@ -59,3 +61,7 @@ func _on_pause_menu_credits_menu_requested() -> void:
 
 func _on_pause_menu_settings_menu_requested() -> void:
 	open_menu(settings_menu)
+
+
+func _on_pause_button_pressed() -> void:
+	open_menu(pause_menu)

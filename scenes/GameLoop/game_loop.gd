@@ -258,3 +258,7 @@ func _on_timer_timeout():
 
 	if not GameEvents.ghost_mode:
 		SoundManager.play_random_crowd_sound()
+
+
+func _on_pause_button_pressed() -> void:
+	pass # Replace with function body.
