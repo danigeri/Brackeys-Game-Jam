@@ -30,5 +30,5 @@ func _on_area_2d_mouse_entered() -> void:
 
 
 func handle_tutorial() -> void:
-	if GameEvents.current_act == 1 && !GameEvents.tutorial_completed:
+	if GameEvents.current_act == 1 && GameEvents.ghost_mode && !GameEvents.tutorial_completed:
 		tutorial_cursor.show()

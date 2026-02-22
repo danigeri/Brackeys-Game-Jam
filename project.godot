@@ -31,6 +31,7 @@ SoundManager="*res://Globals/SoundManager/sound_manager.tscn"
 GameEvents="*res://Globals/game_events.gd"
 Globals="*uid://bo7e5gmeshfwc"
 HululuCanvas="*uid://bugwgq2ghutgy"
+Ui="*uid://co2jxcbqxd52u"
 
 [display]
 

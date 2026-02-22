@@ -16,7 +16,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.4871795)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34mie"]
-size = Vector2(156, 54)
+size = Vector2(178, 87)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7j252"]
 size = Vector2(122, 26)
