@@ -78,12 +78,12 @@ func change_act(act: int):
 			ghost_camera.limit_right = 2750
 		2:
 			act_scene = ACT_2.instantiate()
-			player_starting_position = Vector2(-790, -420)
+			player_starting_position = Vector2(-790, 145)
 			player_camera.limit_right = 2750
 			ghost_camera.limit_right = 2750
 		3:
 			act_scene = ACT_3.instantiate()
-			player_starting_position = Vector2(-790, -420)
+			player_starting_position = Vector2(-790, 145)
 			player_camera.limit_right = 2250
 			ghost_camera.limit_right = 2250
 

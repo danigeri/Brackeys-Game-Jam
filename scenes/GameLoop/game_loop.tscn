@@ -3,14 +3,17 @@
 [ext_resource type="Script" uid="uid://dw8mem4hdxy6f" path="res://scenes/GameLoop/game_loop.gd" id="1_7f3si"]
 [ext_resource type="Script" uid="uid://co2jxcbqxd52u" path="res://UI/ui.gd" id="2_ksmgf"]
 [ext_resource type="PackedScene" uid="uid://inxv7ghoaf62" path="res://UI/Menus/PauseMenu/pause_menu.tscn" id="2_u3r3m"]
+[ext_resource type="Texture2D" uid="uid://dsd8ecyk3jjoa" path="res://assets/q_button.png" id="3_o4elr"]
+[ext_resource type="Texture2D" uid="uid://lqu4qmaexn8a" path="res://assets/esc_button.png" id="4_i4eks"]
 [ext_resource type="PackedScene" uid="uid://c55vl17w7kkn0" path="res://UI/Menus/SettingsMenu/settings_menu.tscn" id="4_x7b5a"]
-[ext_resource type="PackedScene" uid="uid://bbsy5v6wkxbev" path="res://UI/press_restart_overlay.tscn" id="5_o2r4w"]
+[ext_resource type="PackedScene" uid="uid://b84w6vkq7v580" path="res://UI/press_restart_overlay.tscn" id="5_o2r4w"]
 [ext_resource type="PackedScene" uid="uid://3ibhlt1dyusg" path="res://scenes/Player/player.tscn" id="5_t2325"]
-[ext_resource type="Script" path="res://scenes/GameLoop/temp_level_picker.gd" id="6_2b21g"]
+[ext_resource type="Script" uid="uid://7e1msojq65hv" path="res://scenes/GameLoop/temp_level_picker.gd" id="6_2b21g"]
 [ext_resource type="Texture2D" uid="uid://cwa5cxfykhn5y" path="res://assets/dots.png" id="8_5ts88"]
 [ext_resource type="Texture2D" uid="uid://spwm537qmtem" path="res://gradient_texture_regular.tres" id="8_73e4h"]
 [ext_resource type="Texture2D" uid="uid://ybfc6cyxat36" path="res://assets/curtains/curtain_opening.png" id="9_73e4h"]
 [ext_resource type="Script" uid="uid://6hjre4bh741v" path="res://scenes/GameLoop/curtain_effect.gd" id="10_o2r4w"]
+[ext_resource type="FontFile" uid="uid://dmjao2wsks8te" path="res://assets/fonts/Black Drama Demo.ttf" id="12_2b21g"]
 
 [node name="GameLoop" type="Node2D" unique_id=1058436466]
 script = ExtResource("1_7f3si")
@@ -37,6 +40,19 @@ offset_left = 104.0
 offset_right = 149.0
 offset_bottom = 31.0
 text = "act 3"
+
+[node name="UIButtons" type="Node2D" parent="Buttons" unique_id=1833560619]
+position = Vector2(1868, 30)
+scale = Vector2(0.25, 0.25)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buttons/UIButtons" unique_id=1637872481]
+position = Vector2(-357, 51)
+scale = Vector2(1, 0.88000005)
+texture = ExtResource("3_o4elr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Buttons/UIButtons" unique_id=1006936214]
+position = Vector2(-1, 34)
+texture = ExtResource("4_i4eks")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1152001616]
 script = ExtResource("2_ksmgf")
@@ -99,12 +115,22 @@ script = ExtResource("10_o2r4w")
 
 [node name="Label" type="Label" parent="CurtainEffect" unique_id=507432425]
 offset_left = -68.0
-offset_top = -39.0
+offset_top = -204.0
 offset_right = 54.0
-offset_bottom = 30.0
+offset_bottom = -135.0
+theme_override_fonts/font = ExtResource("12_2b21g")
 theme_override_font_sizes/font_size = 50
 text = "Act X"
 vertical_alignment = 1
+
+[node name="Subitle" type="Label" parent="CurtainEffect" unique_id=1940905933]
+offset_left = -205.0
+offset_top = -68.0
+offset_right = 273.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("12_2b21g")
+theme_override_font_sizes/font_size = 120
+text = "Inferno"
 
 [connection signal="pressed" from="Buttons/TempLevelPicker/Button" to="Buttons/TempLevelPicker" method="_on_button_pressed"]
 [connection signal="pressed" from="Buttons/TempLevelPicker/Button2" to="Buttons/TempLevelPicker" method="_on_button_2_pressed"]
