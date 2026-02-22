@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c55vl17w7kkn0" path="res://UI/Menus/SettingsMenu/settings_menu.tscn" id="4_x7b5a"]
 [ext_resource type="PackedScene" uid="uid://bbsy5v6wkxbev" path="res://UI/press_restart_overlay.tscn" id="5_o2r4w"]
 [ext_resource type="PackedScene" uid="uid://3ibhlt1dyusg" path="res://scenes/Player/player.tscn" id="5_t2325"]
-[ext_resource type="Script" path="res://scenes/GameLoop/temp_level_picker.gd" id="6_2b21g"]
+[ext_resource type="Script" uid="uid://7e1msojq65hv" path="res://scenes/GameLoop/temp_level_picker.gd" id="6_2b21g"]
 [ext_resource type="Texture2D" uid="uid://cwa5cxfykhn5y" path="res://assets/dots.png" id="8_5ts88"]
 [ext_resource type="Texture2D" uid="uid://spwm537qmtem" path="res://gradient_texture_regular.tres" id="8_73e4h"]
 [ext_resource type="Texture2D" uid="uid://ybfc6cyxat36" path="res://assets/curtains/curtain_opening.png" id="9_73e4h"]
@@ -65,6 +65,16 @@ joint_mode = 2
 [node name="Player" parent="." unique_id=1510985192 instance=ExtResource("5_t2325")]
 position = Vector2(-75, -354)
 
+[node name="GhostCamera" type="Camera2D" parent="Player" unique_id=1831260324]
+position = Vector2(75, 354)
+limit_left = -960
+limit_top = -540
+limit_right = 960
+limit_bottom = 540
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1484011177]
 position = Vector2(7, 0)
 limit_left = -960
@@ -79,15 +89,6 @@ drag_vertical_enabled = true
 position = Vector2(3.5000114, -8.999981)
 energy = 0.61
 texture = ExtResource("8_73e4h")
-
-[node name="GhostCamera" type="Camera2D" parent="." unique_id=1831260324]
-limit_left = -960
-limit_top = -540
-limit_right = 960
-limit_bottom = 540
-position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1700915103]
 position = Vector2(1, 0)

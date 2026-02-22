@@ -27,7 +27,7 @@ var required_collected: int = 0
 var optional_collected: int = 0
 
 #camera
-@onready var ghost_camera: Camera2D = $GhostCamera
+@onready var ghost_camera: Camera2D = $Player/GhostCamera
 @onready var player_camera: Camera2D = $Player/Camera2D
 
 @onready var player: CharacterBody2D = $Player
@@ -74,8 +74,6 @@ func change_act(act: int):
 		1:
 			act_scene = ACT_1.instantiate()
 			player_starting_position = Vector2(-795, 145)
-			player_camera.limit_right = 2750
-			ghost_camera.limit_right = 2750
 		2:
 			act_scene = ACT_2.instantiate()
 			player_starting_position = Vector2(-790, -420)
@@ -227,7 +225,7 @@ func _on_star_collected(star):
 			GameEvents.set_ghost_mode(true)
 		else:
 			#print("STAR next act triggered: ", optional_collected)
-			if GameEvents.current_act < 3:
+			if (GameEvents.current_act < 3):
 				change_level()
 			else:
 				end_game()
@@ -261,4 +259,4 @@ func _on_timer_timeout():
 
 
 func _on_pause_button_pressed() -> void:
-	pass  # Replace with function body.
+	pass # Replace with function body.
