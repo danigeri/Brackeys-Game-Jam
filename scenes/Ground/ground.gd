@@ -2,10 +2,9 @@ extends Node2D
 
 const GHOST_PLATFORM_FIX = preload("uid://w38ebu3tible")
 
-const PLATFORM_TEXTURE_ACT_1 = preload("uid://d1e1qheab4ty0")
-const PLATFORM_TEXTURE_ACT_2 = preload("uid://bd1lxcriffsb6")
-const PLATFORM_TEXTURE_ACT_3 = preload("uid://bnaalokfffe01")
-
+const PLATFORM_TEXTURE_ACT_1 = preload("res://scenes/Platform/act1_platform.png")
+const PLATFORM_TEXTURE_ACT_2 = preload("res://scenes/Platform/act2_platform.png")
+const PLATFORM_TEXTURE_ACT_3 = preload("res://scenes/Platform/act3_platform.png")
 const PLATFORM_TEXTURES_BY_ACT = [
 	PLATFORM_TEXTURE_ACT_1, PLATFORM_TEXTURE_ACT_2, PLATFORM_TEXTURE_ACT_3
 ]

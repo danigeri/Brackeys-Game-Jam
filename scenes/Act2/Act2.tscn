@@ -1,94 +1,95 @@
 [gd_scene format=3 uid="uid://dkqrhp8obyxw4"]
 
 [ext_resource type="Script" uid="uid://dbmomybyv6vrt" path="res://scenes/Act1/act.gd" id="1_3rya3"]
-[ext_resource type="Texture2D" uid="uid://c3wtvs3hqrxg" path="res://assets/background/act2-layers/act2_fx__0006_06-felhok.png" id="2_1xu0t"]
-[ext_resource type="Texture2D" uid="uid://c5s0r0ilyxv54" path="res://scenes/Act1/act1_ghost_layer1.png" id="3_lxwim"]
-[ext_resource type="Texture2D" uid="uid://b4gghwkloyy6a" path="res://assets/background/act2-layers/act2_fx__0005_05-sivatag.png" id="3_svsg3"]
-[ext_resource type="Texture2D" uid="uid://ety10ne4e5ey" path="res://assets/background/act2-layers/act2_fx__0004_04-vulkanok.png" id="4_degfe"]
+[ext_resource type="Texture2D" uid="uid://bv3cyv2l7utr2" path="res://assets/background/act2-layers/act2_fx__0006_06-felhok.png" id="2_1xu0t"]
+[ext_resource type="Texture2D" uid="uid://bce00t588o408" path="res://assets/background/act2-layers/act2_fx__0005_05-sivatag.png" id="3_svsg3"]
+[ext_resource type="Texture2D" uid="uid://pf16ohgv3syy" path="res://assets/background/act2-layers/act2_fx__0004_04-vulkanok.png" id="4_degfe"]
 [ext_resource type="Texture2D" uid="uid://cmmtqnqiedirl" path="res://assets/curtains/curtain_ghost_run_bg.png" id="4_xbvoi"]
-[ext_resource type="Texture2D" uid="uid://68pxr812e4id" path="res://assets/background/act2-layers/act2_fx__0003_03-fak.png" id="5_iwulw"]
-[ext_resource type="Texture2D" uid="uid://cknr6ev3gilni" path="res://scenes/Act1/act1_ghost_layer2.png" id="5_k3p8n"]
-[ext_resource type="Texture2D" uid="uid://cghk34ggnehby" path="res://assets/background/act2-layers/act2_fx__0002_02-ustos.png" id="6_gew3l"]
+[ext_resource type="Texture2D" uid="uid://b12vl8m3wo5m0" path="res://assets/background/act2-layers/act2_fx__0003_03-fak.png" id="5_iwulw"]
+[ext_resource type="Texture2D" uid="uid://bkkn4bg5df5ib" path="res://assets/background/act2-layers/act2_fx__0002_02-ustos.png" id="6_gew3l"]
 [ext_resource type="Texture2D" uid="uid://bgdi2w3ntqvwv" path="res://assets/curtains/curtain_record_run.png" id="6_p5a4g"]
-[ext_resource type="Texture2D" uid="uid://ofqauio4jui6" path="res://assets/background/act2-layers/act2_fx__0001_01-jeg.png" id="7_d7bh2"]
+[ext_resource type="Texture2D" uid="uid://uob5ss24lq12" path="res://assets/background/act2-layers/act2_fx__0001_01-jeg.png" id="7_d7bh2"]
 [ext_resource type="PackedScene" uid="uid://cmvu72hfj0uu4" path="res://scenes/Platform/platform.tscn" id="7_q3885"]
 [ext_resource type="PackedScene" uid="uid://c7xrocq7m8k0u" path="res://scenes/Ground/ground.tscn" id="8_gfll1"]
-[ext_resource type="Texture2D" uid="uid://dswlxr1krqp60" path="res://assets/background/act2-layers/act2_fx__0000_00-lang.png" id="8_tnfh5"]
+[ext_resource type="Texture2D" uid="uid://bp4nx2851qx8i" path="res://assets/background/act2-layers/act2_fx__0000_00-lang.png" id="8_tnfh5"]
+[ext_resource type="Texture2D" uid="uid://buc7al1b5q2hu" path="res://scenes/Act2/act2_ghost_layer1.png" id="9_svsg3"]
 [ext_resource type="PackedScene" uid="uid://bn7lxk0ph8aym" path="res://scenes/Star/star.tscn" id="9_t6sxg"]
 [ext_resource type="PackedScene" uid="uid://bwaevcirj6oib" path="res://scenes/KillZone/kill_zone.tscn" id="10_8cp8b"]
+[ext_resource type="Texture2D" uid="uid://bsjbk8np0440o" path="res://scenes/Act2/act2_ghost_layer2.png" id="11_degfe"]
 
 [node name="Act2" type="Node2D" unique_id=1603398155]
 script = ExtResource("1_3rya3")
 
 [node name="Environment" type="Node2D" parent="." unique_id=1633693839]
-position = Vector2(644, 298)
+position = Vector2(644, 540)
 
 [node name="Parallax2D_Layer7" type="Parallax2D" parent="Environment" unique_id=621922576]
 z_index = -80
 scroll_scale = Vector2(0, 0)
 repeat_size = Vector2(1920, 0)
-repeat_times = 2
+repeat_times = 3
 
 [node name="Layer" type="Sprite2D" parent="Environment/Parallax2D_Layer7" unique_id=1962532732]
 texture = ExtResource("2_1xu0t")
 
 [node name="Parallax2D_Layer6" type="Parallax2D" parent="Environment" unique_id=1428942566]
 z_index = -70
-scroll_scale = Vector2(0.1, 0.1)
+scroll_scale = Vector2(0.1, 0)
 repeat_size = Vector2(1920, 0)
-repeat_times = 2
+repeat_times = 3
 
 [node name="Layer" type="Sprite2D" parent="Environment/Parallax2D_Layer6" unique_id=1684527326]
 texture = ExtResource("3_svsg3")
 
 [node name="Parallax2D_Layer5" type="Parallax2D" parent="Environment" unique_id=1137991181]
 z_index = -60
-scroll_scale = Vector2(0.2, 0.2)
+scroll_scale = Vector2(0.2, 0)
 repeat_size = Vector2(1920, 0)
-repeat_times = 2
+repeat_times = 3
 
 [node name="Layer" type="Sprite2D" parent="Environment/Parallax2D_Layer5" unique_id=1096005358]
 texture = ExtResource("4_degfe")
 
 [node name="Parallax2D_Layer4" type="Parallax2D" parent="Environment" unique_id=913804610]
 z_index = -50
-scroll_scale = Vector2(0.3, 0.3)
+scroll_scale = Vector2(0.3, 0)
 repeat_size = Vector2(1920, 0)
-repeat_times = 2
+repeat_times = 3
 
 [node name="Layer" type="Sprite2D" parent="Environment/Parallax2D_Layer4" unique_id=1840439709]
 texture = ExtResource("5_iwulw")
 
 [node name="Parallax2D_Layer3" type="Parallax2D" parent="Environment" unique_id=728267085]
 z_index = -40
-scroll_scale = Vector2(0.4, 0.4)
+scroll_scale = Vector2(0.4, 0)
 repeat_size = Vector2(1920, 0)
-repeat_times = 2
+repeat_times = 3
 
 [node name="Layer" type="Sprite2D" parent="Environment/Parallax2D_Layer3" unique_id=568825552]
 texture = ExtResource("6_gew3l")
 
 [node name="Parallax2D_Layer2" type="Parallax2D" parent="Environment" unique_id=190530959]
 z_index = -30
-scroll_scale = Vector2(0.5, 0.5)
+scroll_scale = Vector2(0.5, 0)
+scroll_offset = Vector2(-161, 0)
 repeat_size = Vector2(1920, 0)
-repeat_times = 2
+repeat_times = 3
 
 [node name="Layer" type="Sprite2D" parent="Environment/Parallax2D_Layer2" unique_id=836895487]
 texture = ExtResource("7_d7bh2")
 
 [node name="Parallax2D_Layer1" type="Parallax2D" parent="Environment" unique_id=529100459]
 z_index = -20
-scroll_scale = Vector2(0.6, 0.6)
+scroll_scale = Vector2(0.6, 0)
 repeat_size = Vector2(1920, 0)
-repeat_times = 2
+repeat_times = 3
 
 [node name="Layer" type="Sprite2D" parent="Environment/Parallax2D_Layer1" unique_id=1390839871]
 texture = ExtResource("8_tnfh5")
 
 [node name="GhostBackground" type="Sprite2D" parent="." unique_id=160617654]
 visible = false
-texture = ExtResource("3_lxwim")
+texture = ExtResource("9_svsg3")
 
 [node name="CurtainGhost" type="Sprite2D" parent="." unique_id=1864374658]
 visible = false
@@ -96,11 +97,7 @@ texture = ExtResource("4_xbvoi")
 
 [node name="GhostBackgroundLayer2" type="Sprite2D" parent="." unique_id=48485112]
 visible = false
-texture = ExtResource("5_k3p8n")
-
-[node name="Curtain" type="Sprite2D" parent="." unique_id=1232644688]
-z_index = 1
-texture = ExtResource("6_p5a4g")
+texture = ExtResource("11_degfe")
 
 [node name="Platform" parent="." unique_id=444993873 instance=ExtResource("7_q3885")]
 position = Vector2(-582, 97)
@@ -183,3 +180,10 @@ star_type = 1
 
 [node name="KillZone" parent="." unique_id=41493325 instance=ExtResource("10_8cp8b")]
 position = Vector2(-990, 540)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1264490712]
+
+[node name="Curtain" type="Sprite2D" parent="CanvasLayer" unique_id=1232644688]
+z_index = 1
+position = Vector2(960, 540)
+texture = ExtResource("6_p5a4g")

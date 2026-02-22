@@ -84,8 +84,8 @@ func change_act(act: int):
 		3:
 			act_scene = ACT_3.instantiate()
 			player_starting_position = Vector2(-790, -420)
-			player_camera.limit_right = 2100
-			ghost_camera.limit_right = 2100
+			player_camera.limit_right = 2250
+			ghost_camera.limit_right = 2250
 
 	act_container.add_child(act_scene)
 	player.update_starting_position(player_starting_position)
@@ -108,8 +108,8 @@ func curtain_in_and_out(act: int) -> void:
 	point_light_2d.visible = true
 	await SoundManager.play_sound_by_id(SoundManager.Sound.SPOTLIGHT).finished
 
-	var tween = create_tween()
-	tween.tween_property(player_camera, "zoom", Vector2(1.6, 1.6), 0.5)
+	#var tween = create_tween()
+	#tween.tween_property(player_camera, "zoom", Vector2(1.6, 1.6), 0.5)
 
 
 func handle_ghost_mode(is_ghost_mode):
@@ -227,7 +227,7 @@ func _on_star_collected(star):
 			GameEvents.set_ghost_mode(true)
 		else:
 			#print("STAR next act triggered: ", optional_collected)
-			if (GameEvents.current_act < 3):
+			if GameEvents.current_act < 3:
 				change_level()
 			else:
 				end_game()
@@ -261,4 +261,4 @@ func _on_timer_timeout():
 
 
 func _on_pause_button_pressed() -> void:
-	pass # Replace with function body.
+	pass  # Replace with function body.

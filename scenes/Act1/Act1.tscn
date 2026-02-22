@@ -4,9 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cmvu72hfj0uu4" path="res://scenes/Platform/platform.tscn" id="1_ftaa2"]
 [ext_resource type="Texture2D" uid="uid://ceu3rptwym1vv" path="res://assets/background/act1-layers/level1_fx_full.png" id="2_11emk"]
 [ext_resource type="PackedScene" uid="uid://c7xrocq7m8k0u" path="res://scenes/Ground/ground.tscn" id="2_yofwx"]
-[ext_resource type="Texture2D" uid="uid://c5s0r0ilyxv54" path="res://scenes/Act1/act1_ghost_layer1.png" id="3_ae7cj"]
 [ext_resource type="Texture2D" uid="uid://cmmtqnqiedirl" path="res://assets/curtains/curtain_ghost_run_bg.png" id="4_11emk"]
-[ext_resource type="Texture2D" uid="uid://cknr6ev3gilni" path="res://scenes/Act1/act1_ghost_layer2.png" id="4_aosy8"]
 [ext_resource type="PackedScene" uid="uid://bn7lxk0ph8aym" path="res://scenes/Star/star.tscn" id="4_star"]
 [ext_resource type="PackedScene" uid="uid://bwaevcirj6oib" path="res://scenes/KillZone/kill_zone.tscn" id="5_killzone"]
 [ext_resource type="Texture2D" uid="uid://bgdi2w3ntqvwv" path="res://assets/curtains/curtain_record_run.png" id="6_ij5lp"]
@@ -38,7 +36,6 @@ texture = ExtResource("2_11emk")
 
 [node name="GhostBackground" type="Sprite2D" parent="." unique_id=1366409566]
 visible = false
-texture = ExtResource("3_ae7cj")
 
 [node name="CurtainGhost" type="Sprite2D" parent="." unique_id=514888274]
 visible = false
@@ -46,11 +43,6 @@ texture = ExtResource("4_11emk")
 
 [node name="GhostBackgroundLayer2" type="Sprite2D" parent="." unique_id=1640690406]
 visible = false
-texture = ExtResource("4_aosy8")
-
-[node name="Curtain" type="Sprite2D" parent="." unique_id=2012937276]
-z_index = 1
-texture = ExtResource("6_ij5lp")
 
 [node name="Platform" parent="." unique_id=466164217 instance=ExtResource("1_ftaa2")]
 position = Vector2(-499, 210)
@@ -121,5 +113,12 @@ position = Vector2(-453, 162)
 position = Vector2(67.20245, 15.7556)
 scale = Vector2(1.0595089, 1.0488814)
 shape = SubResource("RectangleShape2D_iu42g")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=993882401]
+
+[node name="Curtain" type="Sprite2D" parent="CanvasLayer" unique_id=2012937276]
+z_index = 1
+position = Vector2(960, 540)
+texture = ExtResource("6_ij5lp")
 
 [connection signal="mouse_entered" from="TutorialCursor/Area2D" to="." method="_on_area_2d_mouse_entered"]
