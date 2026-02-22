@@ -12,7 +12,7 @@ extends Node2D
 func _ready() -> void:
 	MusicPlayer.play_act(GameEvents.current_act)
 	GameEvents.ghost_mode_on.connect(_handle_ghost_mode_on)
-		
+
 
 func _handle_ghost_mode_on(is_on: bool):
 	handle_tutorial()

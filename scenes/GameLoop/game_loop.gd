@@ -227,7 +227,7 @@ func _on_star_collected(star):
 			GameEvents.set_ghost_mode(true)
 		else:
 			#print("STAR next act triggered: ", optional_collected)
-			if (GameEvents.current_act < 3):
+			if GameEvents.current_act < 3:
 				change_level()
 			else:
 				end_game()
@@ -261,4 +261,4 @@ func _on_timer_timeout():
 
 
 func _on_pause_button_pressed() -> void:
-	pass # Replace with function body.
+	pass  # Replace with function body.
