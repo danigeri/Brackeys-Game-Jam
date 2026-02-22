@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bv3cyv2l7utr2" path="res://assets/background/act2-layers/act2_fx__0006_06-felhok.png" id="2_1xu0t"]
 [ext_resource type="Texture2D" uid="uid://bce00t588o408" path="res://assets/background/act2-layers/act2_fx__0005_05-sivatag.png" id="3_svsg3"]
 [ext_resource type="Texture2D" uid="uid://pf16ohgv3syy" path="res://assets/background/act2-layers/act2_fx__0004_04-vulkanok.png" id="4_degfe"]
-[ext_resource type="Texture2D" uid="uid://cmmtqnqiedirl" path="res://assets/curtains/curtain_ghost_run_bg.png" id="4_xbvoi"]
 [ext_resource type="Texture2D" uid="uid://b12vl8m3wo5m0" path="res://assets/background/act2-layers/act2_fx__0003_03-fak.png" id="5_iwulw"]
 [ext_resource type="Texture2D" uid="uid://bkkn4bg5df5ib" path="res://assets/background/act2-layers/act2_fx__0002_02-ustos.png" id="6_gew3l"]
 [ext_resource type="Texture2D" uid="uid://bgdi2w3ntqvwv" path="res://assets/curtains/curtain_record_run.png" id="6_p5a4g"]
@@ -16,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bn7lxk0ph8aym" path="res://scenes/Star/star.tscn" id="9_t6sxg"]
 [ext_resource type="PackedScene" uid="uid://bwaevcirj6oib" path="res://scenes/KillZone/kill_zone.tscn" id="10_8cp8b"]
 [ext_resource type="Texture2D" uid="uid://bsjbk8np0440o" path="res://scenes/Act2/act2_ghost_layer2.png" id="11_degfe"]
+[ext_resource type="Texture2D" uid="uid://cb4sey2hwtu2o" path="res://assets/curtains/curtain_ghostrun_new.png" id="16_svsg3"]
 
 [node name="Act2" type="Node2D" unique_id=1603398155]
 script = ExtResource("1_3rya3")
@@ -188,4 +188,4 @@ texture = ExtResource("6_p5a4g")
 [node name="CurtainGhost" type="Sprite2D" parent="CanvasLayer" unique_id=1864374658]
 visible = false
 position = Vector2(960, 540)
-texture = ExtResource("4_xbvoi")
+texture = ExtResource("16_svsg3")

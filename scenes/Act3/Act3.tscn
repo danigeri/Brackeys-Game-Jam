@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dpm071iswgnfc" path="res://assets/background/act3-layers/act3_fx__0006_06-felhok-bg.png" id="2_3rya3"]
 [ext_resource type="Texture2D" uid="uid://baf6swi57hpv8" path="res://assets/background/act3-layers/act3_fx__0005_05-hegyek.png" id="3_2nqyv"]
 [ext_resource type="Texture2D" uid="uid://djqeq2cbs2r0o" path="res://assets/background/act3-layers/act3_fx__0004_04-fak.png" id="4_lxwim"]
-[ext_resource type="Texture2D" uid="uid://cmmtqnqiedirl" path="res://assets/curtains/curtain_ghost_run_bg.png" id="4_xbvoi"]
 [ext_resource type="Texture2D" uid="uid://b3oa2uru7vyth" path="res://assets/background/act3-layers/act3_fx__0003_03-mezo.png" id="5_xbvoi"]
 [ext_resource type="Texture2D" uid="uid://m4n57bslpqk5" path="res://assets/background/act3-layers/act3_fx__0002_02-lepcso.png" id="6_k3p8n"]
 [ext_resource type="Texture2D" uid="uid://bgdi2w3ntqvwv" path="res://assets/curtains/curtain_record_run.png" id="6_p5a4g"]
@@ -18,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c7lsh1btmm58m" path="res://scenes/Act3/act3_ghost_layer2.png" id="10_scqpm"]
 [ext_resource type="Texture2D" uid="uid://cy0fulpci22os" path="res://scenes/Act3/act3_ghost_layer3.png" id="11_jwrvt"]
 [ext_resource type="Texture2D" uid="uid://dabqfnivwp7qi" path="res://scenes/Act3/act3_ghost_layer4_details.png" id="12_qnhbk"]
+[ext_resource type="Texture2D" uid="uid://cb4sey2hwtu2o" path="res://assets/curtains/curtain_ghostrun_new.png" id="18_t6sxg"]
 
 [node name="Act3" type="Node2D" unique_id=1603398155]
 script = ExtResource("1_3rya3")
@@ -239,4 +239,4 @@ texture = ExtResource("6_p5a4g")
 [node name="CurtainGhost" type="Sprite2D" parent="CanvasLayer" unique_id=1864374658]
 visible = false
 position = Vector2(960, 543)
-texture = ExtResource("4_xbvoi")
+texture = ExtResource("18_t6sxg")
